@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* ==========================================
+   Theme
+========================================== */
+
+@theme {
+
+  --color-background: #000000;
+
+  --color-foreground: oklch(0.96 0 0);
+
+  --color-panel: oklch(0.12 0 0);
+
+  --color-border: oklch(1 0 0 / 0.08);
+
+  --color-muted: oklch(0.72 0 0);
+
+  --color-accent: oklch(0.78 0.14 305);
+
+  --color-accent-pink: #f472b6;
+
+}
+@utility blueprint-grid {
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.045) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.045) 1px,
+            transparent 1px
+        );
+
+    background-size:86px 86px;
+
+}
+@utility aurora-1 {
+
+position:fixed;
+
+width:550px;
+
+height:550px;
+
+left:-200px;
+
+top:120px;
+
+border-radius:9999px;
+
+background:radial-gradient(circle,#8b5cf6 0%,transparent 70%);
+
+filter:blur(140px);
+
+opacity:.16;
+
+pointer-events:none;
+
+animation:aurora-drift 18s ease-in-out infinite;
+
+}
+
+@utility aurora-2 {
+
+position:fixed;
+
+width:650px;
+
+height:650px;
+
+right:-250px;
+
+top:20%;
+
+border-radius:9999px;
+
+background:radial-gradient(circle,#ec4899 0%,transparent 70%);
+
+filter:blur(160px);
+
+opacity:.10;
+
+pointer-events:none;
+
+animation:aurora-drift 22s ease-in-out infinite reverse;
+
+}
+
+@keyframes aurora-drift {
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(40px,-30px);
+
+}
+
+100%{
+
+transform:translate(0,0);
+
+}
+
+}
