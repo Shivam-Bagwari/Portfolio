@@ -1,40 +1,13 @@
 function VerticalRails() {
     return (
-        <div
-            className="
-                pointer-events-none
-                fixed
-                inset-0
-                -z-10
-            "
-        >
-            <div
-                className="
-                    absolute
-                    left-1/2
-                    top-0
-                    h-full
-                    w-px
-                    border-l
-                    border-dashed
-                    border-white/10
-                    -translate-x-[32rem]
-                "
-            />
+        <div className="fixed inset-0 pointer-events-none z-0">
+            <div className="mx-auto h-full max-w-5xl px-6 relative">
+                {/* Left Rail */}
+                <div className="absolute left-6 top-0 h-full border-l border-dashed border-white/25" />
 
-            <div
-                className="
-                    absolute
-                    left-1/2
-                    top-0
-                    h-full
-                    w-px
-                    border-l
-                    border-dashed
-                    border-white/10
-                    translate-x-[32rem]
-                "
-            />
+                {/* Right Rail */}
+                <div className="absolute right-6 top-0 h-full border-l border-dashed border-white/25" />
+            </div>
         </div>
     );
 }

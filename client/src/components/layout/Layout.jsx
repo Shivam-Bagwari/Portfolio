@@ -1,17 +1,23 @@
-import Aurora from "../effects/Aurora";
-import BlueprintGrid from "../effects/BlueprintGrid";
-import VerticalRails from "../effects/VerticalRails";
+import Background from "../effects/Background";
+import AvailabilityBadge from "../shell/AvailabilityBadge";
+import RightIndex from "../shell/RightIndex";
+import ScrollProgress from "../shell/ScrollProgress";
+import TopControls from "../shell/TopControls";
 
 
 function Layout({ children }) {
     return (
         <main className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
 
-            <BlueprintGrid />
+            <Background />
 
-            <Aurora />
+            <ScrollProgress />
 
-            <VerticalRails />
+            <AvailabilityBadge />
+
+            <TopControls />
+            
+            <RightIndex />
 
             {children}
 
