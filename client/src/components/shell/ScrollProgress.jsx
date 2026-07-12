@@ -7,26 +7,34 @@ function ScrollProgress() {
     function handleScroll() {
       const scrollTop = window.scrollY;
 
-      const height =
-        document.documentElement.scrollHeight - window.innerHeight;
+      const scrollHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-      const value = (scrollTop / height) * 100;
+      const percentage =
+        (scrollTop / scrollHeight) * 100;
 
-      setProgress(value);
+      setProgress(percentage);
     }
 
     window.addEventListener("scroll", handleScroll);
 
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () =>
+      window.removeEventListener( 
+        "scroll",
+        handleScroll
+      );
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 z-[60] h-[2px] w-full">
+    <div className="fixed left-0 top-0 z-[100] h-[2px] w-full">
       <div
-        className="h-full bg-gradient-to-r from-violet-500 to-pink-500 transition-all"
-        style={{ width: `${progress}%` }}
+        className="h-full bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 transition-all"
+        style={{
+          width: `${progress}%`,
+        }}
       />
     </div>
   );

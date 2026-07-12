@@ -1,12 +1,5 @@
+import navigation from "../../data/navigation";
 function RightIndex() {
-  const sections = [
-    "Experience",
-    "Projects",
-    "Open Source",
-    "Skills",
-    "Blog",
-  ];
-
   return (
     <aside className="fixed right-10 top-[30vh] z-40 hidden xl:block">
       <p className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-white/30">
@@ -14,9 +7,9 @@ function RightIndex() {
       </p>
 
       <nav className="space-y-5">
-        {sections.map((section, index) => (
+        {navigation.map((section, index) => (
           <div
-            key={section}
+            key={section.id}
             className="flex items-center gap-3"
           >
             <div
@@ -41,7 +34,7 @@ function RightIndex() {
                 }
               `}
             >
-              {String(index + 1).padStart(2, "0")} {section}
+              {String(index + 1).padStart(2, "0")} {section.label}
             </span>
           </div>
         ))}
