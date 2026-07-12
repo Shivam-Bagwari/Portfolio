@@ -1,4 +1,7 @@
+import useClockSafe from "../../hooks/useClockSafe";
+
 function AvailabilityBadge() {
+    const time = useClockSafe();
     return (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
             <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/70 px-4 py-2 backdrop-blur-md">
@@ -15,7 +18,7 @@ function AvailabilityBadge() {
                 <span className="text-white/20">|</span>
 
                 <span className="font-mono text-sm text-white/60">
-                    23:54
+                    {time}
                 </span>
 
             </div>
