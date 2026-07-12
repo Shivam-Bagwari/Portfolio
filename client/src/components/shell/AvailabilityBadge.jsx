@@ -4,7 +4,7 @@ function AvailabilityBadge() {
     const time = useClockSafe();
     return (
         <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-            <div className="flex items-center gap-3 rounded-full border border-white/10 bg-black/70 px-4 py-2 backdrop-blur-md">
+            <div className="flex items-center gap-3 glass-chip rounded-full px-5 py-3">
                 <div className="relative h-2.5 w-2.5">
                     <span className="ping-ring"></span>
 
