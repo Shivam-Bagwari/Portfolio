@@ -1,8 +1,19 @@
+import heroStats from "../../../data/heroStats";
+import StatCard from "./StatCard";
+
 function HeroStats() {
   return (
-    <div className="bg-purple-500 h-28 rounded-2xl mt-6">
-      Hero Stats
-    </div>
+    <section>
+      <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+        {heroStats.map((stat) => (
+          <StatCard
+            key={stat.label}
+            value={stat.value}
+            label={stat.label}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
 

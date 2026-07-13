@@ -2,7 +2,7 @@ import avatar from "../../../assets/images/avatar.jpg";
 
 function HeroContent() {
   return (
-    <div className="mt-8 pl-12">
+    <div className="pl-12">
 
       <div className="flex items-start gap-6">
 
@@ -42,7 +42,6 @@ function HeroContent() {
 
       <p
         className="
-          mt-10
           max-w-[760px]
           text-4xl
           italic
@@ -57,7 +56,6 @@ function HeroContent() {
 
       <ul
         className="
-          mt-10
           space-y-5
           text-lg
           text-white/55

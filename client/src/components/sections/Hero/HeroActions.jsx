@@ -1,7 +1,20 @@
+import Button from "../../ui/IconButton";
+
 function HeroActions() {
   return (
-    <div className="bg-orange-500 h-20 rounded-2xl mt-6">
-      Hero Actions
+    <div className="flex flex-wrap gap-4">
+
+      <Button href="#contact">
+        Contact Me
+      </Button>
+
+      <Button
+        href="/resume.pdf"
+        variant="secondary"
+      >
+        Download Resume
+      </Button>
+
     </div>
   );
 }

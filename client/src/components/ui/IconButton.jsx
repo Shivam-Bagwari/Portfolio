@@ -1,12 +1,27 @@
-function IconButton({ children, onClick }) {
-    return (
-        <button
-            onClick={onClick}
-            className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-black/60 text-white/70 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/5 hover:text-white">
+function Button({
+  children,
+  href = "#",
+  variant = "primary",
+}) {
+  const baseClasses =
+    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-300";
 
-            {children}
-        </button>
-    );
+  const variants = {
+    primary:
+      "glass border border-white/10 text-white hover:border-accent/40 hover:-translate-y-1",
+
+    secondary:
+      "border border-white/10 text-white/70 hover:text-white hover:border-white/20",
+  };
+
+  return (
+    <a
+      href={href}
+      className={`${baseClasses} ${variants[variant]}`}
+    >
+      {children}
+    </a>
+  );
 }
 
-export default IconButton;
+export default Button;
