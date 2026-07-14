@@ -1,34 +1,41 @@
+import GlassCard from "../../ui/GlassCard";
+
 function StatCard({ value, label }) {
   return (
-    <div
+    <GlassCard
       className="
-        glass
-        rounded-3xl
-        border
-        border-white/10
-        p-6
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-accent/40
+        h-[130px]
+        p-8
+        flex
+        flex-col
+        justify-end
       "
     >
-      <h3 className="text-4xl font-black text-white">
+      <h3
+        className="
+          text-[2.2rem]
+          font-black
+          leading-none
+          tracking-tight
+          text-white
+        "
+      >
         {value}
       </h3>
 
       <p
         className="
-          mt-3
-          text-xs
+          mt-4
+          font-mono
+          text-[10px]
           uppercase
-          tracking-[0.25em]
-          text-white/50
+          tracking-[0.28em]
+          text-white/35
         "
       >
         {label}
       </p>
-    </div>
+    </GlassCard>
   );
 }
 

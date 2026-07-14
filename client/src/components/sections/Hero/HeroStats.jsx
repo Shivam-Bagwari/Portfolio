@@ -4,7 +4,14 @@ import StatCard from "./StatCard";
 function HeroStats() {
   return (
     <section>
-      <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+      <div
+        className="
+          grid
+          gap-7
+          sm:grid-cols-2
+          lg:grid-cols-4
+        "
+      >
         {heroStats.map((stat) => (
           <StatCard
             key={stat.label}

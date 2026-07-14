@@ -6,7 +6,8 @@ function Container({ children, className = "" }) {
                 mx-auto
                 w-full
                 max-w-4xl
-                px-6
+                px-8
+                lg:px-10
                 ${className}
             `}
         >

@@ -8,19 +8,21 @@ import {
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/Shivam_bagwari",
+    href: "https://github.com/Shivam-bagwari",
     icon: FaGithub,
   },
+   {
+    name: "Twitter",
+    href: "https://x.com/shivam_bagwari",
+    icon: FaXTwitter,
+  },
+  
   {
     name: "LinkedIn",
     href: "#",
     icon: FaLinkedin,
   },
-  {
-    name: "Twitter",
-    href: "https://x.com/shivam_bagwari",
-    icon: FaXTwitter,
-  },
+ 
   {
     name: "Email",
     href: "mailto:shivambagwari@gmail.com",

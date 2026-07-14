@@ -1,5 +1,4 @@
 import heroBanner from "../../../assets/images/hero-banner.jpg";
-import BannerFooter from "./BannerFooter";
 
 function HeroBanner() {
   return (
@@ -31,7 +30,7 @@ function HeroBanner() {
     to-transparent
   "
 />
-<BannerFooter />
+
 
     </div>
 

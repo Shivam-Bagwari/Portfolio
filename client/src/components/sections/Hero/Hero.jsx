@@ -2,28 +2,27 @@ import Container from "../../layout/Container";
 import HeroBanner from "./HeroBanner";
 import HeroContent from "./HeroContent";
 import HeroStats from "./HeroStats";
-import HeroActions from "./HeroActions";
-import HeroSocials from "./HeroSocials";
 
 function Hero() {
   return (
     <section
       id="hero"
-      className="pt-12 pb-24"
+      className="pt-14 pb-24"
     >
       <Container>
 
-        <div className="space-y-14">
+        <div className="mt-14">
 
+          
           <HeroBanner />
 
-          <HeroContent />
+          <div className="mt-14">
+            <HeroContent />
+        </div>
 
-          <HeroStats />
-
-          <HeroActions />
-
-          <HeroSocials />
+          <div className="mt-14">
+            <HeroStats />
+        </div>
 
         </div>
 

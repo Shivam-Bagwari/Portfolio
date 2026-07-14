@@ -1,3 +1,4 @@
+import GlassCard from "../../ui/GlassCard";
 function ProjectCard({
   title,
   description,
@@ -6,15 +7,7 @@ function ProjectCard({
   live,
 }) {
   return (
-    <div
-      className="
-        glass
-        rounded-3xl
-        border
-        border-white/10
-        p-8
-      "
-    >
+    <GlassCard className="p-8">
       <h3 className="text-3xl font-bold text-white">
         {title}
       </h3>
@@ -87,7 +80,7 @@ function ProjectCard({
   )}
 
 </div>
-    </div>
+    </GlassCard>
   );
 }
 
