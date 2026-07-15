@@ -2,7 +2,8 @@ import avatar from "../../../assets/images/avatar.jpg";
 import socialLinks from "../../../data/socialLinks";
 import SocialButton from "../../ui/SocialButton";
 import GlassButton from "../../ui/GlassButton";
-
+import { FaCalendarAlt } from "react-icons/fa";
+import { BiLogoGmail } from "react-icons/bi";
 function HeroContent() {
   return (
     <div className="mt-12">
@@ -81,18 +82,18 @@ function HeroContent() {
       </div>
 
       <div className="mt-14">
-      <p
-        className="
+        <p
+          className="
           max-w-[760px]
           text-4xl
           italic
           leading-[1.35]
           text-white/90
         "
-      >
-        I design and build considered software - from developer tools to
-        interfaces that feel effortless.
-      </p>
+        >
+          I design and build considered software - from developer tools to
+          interfaces that feel effortless.
+        </p>
       </div>
 
 
@@ -123,28 +124,41 @@ function HeroContent() {
         </li>
       </ul>
 
-      <div className="mt-12 flex flex-wrap gap-4">
+      <div className="mt-12 flex flex-wrap gap-3">
 
-  <GlassButton variant="primary">
-    Contact Me
-  </GlassButton>
+        <GlassButton
+          variant="primary"
+          icon={FaCalendarAlt}
+        >
+          Book an intro call
+        </GlassButton>
 
-  <GlassButton variant="secondary">
-    Download Resume
-  </GlassButton>
+        <GlassButton
+          variant="secondary"
+          icon={BiLogoGmail}
+        >
+          Send an email
+        </GlassButton>
 
-</div>
-
+      </div>
       {/* Social Links */}
+      <div className="mt-10">
 
-      <div className="mt-10 flex flex-wrap gap-3">
+        <p className="mb-5 font-mono text-sm text-white/45">
+          Here are my <span className="font-semibold text-white">socials</span>
+        </p>
 
-        {socialLinks.map((social) => (
-          <SocialButton
-            key={social.name}
-            {...social}
-          />
-        ))}
+        <div className="flex flex-wrap gap-3">
+          {socialLinks.map((social) => (
+            <GlassButton
+              key={social.name}
+              href={social.href}
+              icon={social.icon}
+            >
+              {social.name}
+            </GlassButton>
+          ))}
+        </div>
 
       </div>
     </div>

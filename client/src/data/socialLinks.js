@@ -1,32 +1,30 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaXTwitter,
-  FaEnvelope,
-} from "react-icons/fa6";
+import { FiGithub } from "react-icons/fi";
+import { BsTwitterX } from "react-icons/bs";
+import { FiLinkedin } from "react-icons/fi";
+import { RxDiscordLogo } from "react-icons/rx";
 
 const socialLinks = [
   {
     name: "GitHub",
     href: "https://github.com/Shivam-bagwari",
-    icon: FaGithub,
+    icon: FiGithub,
   },
    {
     name: "Twitter",
     href: "https://x.com/shivam_bagwari",
-    icon: FaXTwitter,
+    icon: BsTwitterX,
   },
   
   {
     name: "LinkedIn",
     href: "#",
-    icon: FaLinkedin,
+    icon: FiLinkedin,
   },
  
   {
-    name: "Email",
-    href: "mailto:shivambagwari@gmail.com",
-    icon: FaEnvelope,
+    name: "Discord",
+    href: "#",
+    icon: RxDiscordLogo,
   },
 ];
 

@@ -1,104 +1,86 @@
-function GlassCard({
+function GlassButton({
   children,
+  icon: Icon,
+  href,
+  onClick,
+  variant = "secondary",
   className = "",
 }) {
+  const baseClasses = `
+    inline-flex
+    items-center
+    justify-center
+    gap-2.5
+
+    h-11
+    px-5
+
+    rounded-xl
+
+    border
+    transition-all
+    duration-300
+    ease-out
+
+    font-mono
+    text-[15px]
+    tracking-[-0.02em]
+
+    select-none
+  `;
+
+  const variants = {
+    primary: `
+      border-white
+      bg-white
+      text-black
+
+      hover:scale-[1.02]
+      hover:shadow-[0_10px_40px_rgba(255,255,255,0.12)]
+    `,
+
+    secondary: `
+      border-white/10
+      bg-white/[0.03]
+      backdrop-blur-xl
+      text-white
+
+      hover:border-white/20
+      hover:bg-white/[0.05]
+      hover:-translate-y-[2px]
+    `,
+  };
+
+  const classes = `${baseClasses} ${variants[variant]} ${className}`;
+
+  const content = (
+    <>
+      {Icon && <Icon size={16} strokeWidth={1.8} />}
+      <span>{children}</span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+      >
+        {content}
+      </a>
+    );
+  }
+
   return (
-    <div
-      className={`
-        group
-        relative
-        overflow-hidden
-        rounded-[30px]
-
-        border
-        border-white/[0.06]
-
-        bg-[#0B0B0F]
-
-        backdrop-blur-xl
-
-        transition-all
-        duration-300
-        ease-out
-
-        hover:-translate-y-[3px]
-        hover:border-white/[0.10]
-
-        ${className}
-      `}
+    <button
+      onClick={onClick}
+      className={classes}
     >
-      {/* Soft Purple Glow */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -top-24
-          left-1/2
-          h-52
-          w-52
-          -translate-x-1/2
-          rounded-full
-          bg-violet-500/5
-          blur-[90px]
-        "
-      />
-
-      {/* Bottom Blue Glow */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-24
-          right-0
-          h-44
-          w-44
-          rounded-full
-          bg-cyan-400/3
-          blur-[80px]
-        "
-      />
-
-      {/* Very Soft Gradient */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          bg-gradient-to-br
-          from-white/[0.02]
-          via-transparent
-          to-violet-500/[0.03]
-        "
-      />
-
-      {/* Hover Glow */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          opacity-0
-          transition-opacity
-          duration-300
-
-          group-hover:opacity-100
-
-          bg-gradient-to-tr
-          from-violet-500/[0.04]
-          via-transparent
-          to-cyan-400/[0.03]
-        "
-      />
-
-      <div className="relative z-10">
-        {children}
-      </div>
-    </div>
+      {content}
+    </button>
   );
 }
 
-export default GlassCard;
+export default GlassButton;
