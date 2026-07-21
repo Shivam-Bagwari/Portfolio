@@ -1,27 +1,22 @@
 import Container from "../../layout/Container";
-import Timeline from "./Timeline";
+import experience from "../../../data/experience";
+import ExperienceAccordion from "./ExperienceAccordian";
+import SectionHeader from "../../ui/SectionHeader";
 
 function Experience() {
   return (
-    <section
-      id="experience"
-      className="py-32"
-    >
+    <section id="experience" className="py-16">
       <Container>
 
-        <div className="mb-16">
+        {/* Header */}
 
-          <p className="font-mono text-sm uppercase tracking-[0.35em] text-accent">
-            Experience
-          </p>
+        <SectionHeader
+          number="01"
+          title="Experiences"
+          description="Building products, learning continuously, and growing through real-world projects."
+        />
 
-          <h2 className="mt-4 text-5xl font-black text-white">
-            My Journey
-          </h2>
-
-        </div>
-
-        <Timeline />
+        <ExperienceAccordion items={experience} />
 
       </Container>
     </section>

@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
-/* ==========================================
+
+/* ======================================================
    Theme
-========================================== */
+====================================================== */
+
+@utility font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+@utility font-tight {
+  font-family: "Inter Tight", sans-serif;
+}
+
+@utility font-serif-display {
+  font-family: "Instrument Serif", serif;
+}
+
 .glass-chip {
   background: rgba(255, 255, 255, 0.028);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -11,9 +25,9 @@
   -webkit-backdrop-filter: blur(18px) saturate(180%);
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .06),
-    inset 0 -1px 0 rgba(255, 255, 255, .02),
-    0 12px 40px rgba(0, 0, 0, .45);
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(255,255,255,.02),
+    0 12px 40px rgba(0,0,0,.45);
 }
 
 @theme {
@@ -31,128 +45,57 @@
   --color-accent: oklch(0.78 0.14 305);
 
   --color-accent-pink: #f472b6;
-
 }
+
+
+/* ======================================================
+   Blueprint Grid
+====================================================== */
 
 @utility blueprint-grid {
 
-  background-color: red;  /* background-image:
-    linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px); */
-
-  background-size: 78px 78px;
-
-}
-
-@utility aurora-1 {
-
-  position: fixed;
-
-  width: 1200px;
-  height: 1200px;
-
-  left: -450px;
-  top: -120px;
-
-  border-radius: 9999px;
-
-  background:
-    radial-gradient(circle,
-      rgba(120, 80, 255, .22) 0%,
-      rgba(120, 80, 255, .12) 25%,
-      rgba(120, 80, 255, .04) 45%,
-      transparent 70%);
-
-  filter: blur(180px);
-
-  opacity: .9;
-
-  animation: aurora-drift 26s ease-in-out infinite;
-
-  pointer-events: none;
-}
-
-@utility aurora-2 {
-
-  position: fixed;
-
-  width: 1200px;
-  height: 1200px;
-
-  right: -500px;
-  bottom: -200px;
-
-  border-radius: 9999px;
-
-  background:
-    radial-gradient(circle,
-      rgba(255, 70, 170, .16) 0%,
-      rgba(255, 70, 170, .08) 30%,
-      transparent 70%);
-
-  filter: blur(220px);
-
-  opacity: .75;
-
-  animation: aurora-drift 30s ease-in-out infinite reverse;
-
-  pointer-events: none;
-
-}
-
-@utility vignette {
-
-  position: fixed;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 45%,
-      rgba(0,0,0,.18) 70%,
-      rgba(0,0,0,.62) 100%
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.020) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.020) 1px,
+      transparent 1px
     );
 
+  background-size: 96px 96px;
 }
-@utility noise {
 
-  position: fixed;
 
-  inset: 0;
-
-  pointer-events: none;
-
-  opacity: .025;
-
-  background-image:
-    radial-gradient(rgba(255,255,255,.15) 1px, transparent 1px);
-
-  background-size: 4px 4px;
-
-  mix-blend-mode: overlay;
-
-}
+/* ======================================================
+   Aurora Animation
+====================================================== */
 
 @keyframes aurora-drift {
 
   0% {
-    transform: translate(0, 0);
+    transform: translate3d(0,0,0);
   }
 
   50% {
-    transform: translate(60px, -40px);
+    transform: translate3d(40px,-28px,0);
   }
 
   100% {
-    transform: translate(0, 0);
+    transform: translate3d(0,0,0);
   }
 
 }
 
+
+/* ======================================================
+   Ping Ring
+====================================================== */
+
 @keyframes ping-ring {
+
   0% {
     transform: scale(.8);
     opacity: 1;
@@ -166,12 +109,18 @@
   100% {
     opacity: 0;
   }
+
 }
 
 .ping-ring {
+
   position: absolute;
   inset: 0;
-  border-radius: 999px;
+
+  border-radius: 9999px;
+
   background: #10b981;
+
   animation: ping-ring 2s infinite;
+
 }

@@ -17,7 +17,7 @@ function HeroContent() {
         <div
           className="
       flex
-      h-[78px]
+      h-[80px]
       w-[78px]
       items-center
       justify-center
@@ -32,8 +32,8 @@ function HeroContent() {
             src={avatar}
             alt="Shivam Bagwari"
             className="
-        h-[68px]
-        w-[68px]
+        h-[88px]
+        w-[90px]
         rounded-[18px]
         object-cover
       "
@@ -44,16 +44,16 @@ function HeroContent() {
 
         <div className="flex flex-col justify-center">
 
-          <h1
-            className="
-        font-mono
-        text-[3.0rem]
-        font-bold
-        leading-none
-        tracking-[-0.03em]
-        text-white
-      "
-          >
+<h1
+  className="
+    font-tight
+    text-[54px]
+    font-black
+    leading-none
+    tracking-[-0.05em]
+    text-white
+  "
+>
             Shivam Bagwari
           </h1>
 
@@ -82,28 +82,30 @@ function HeroContent() {
       </div>
 
       <div className="mt-14">
-        <p
-          className="
-          max-w-[760px]
-          text-4xl
-          italic
-          leading-[1.35]
-          text-white/90
-        "
-        >
-          I design and build considered software - from developer tools to
-          interfaces that feel effortless.
-        </p>
+      <p
+  className="
+    font-serif-display
+    max-w-[760px]
+    text-[35px]
+    italic
+    leading-[1.12]
+    tracking-[-0.02em]
+    text-white/90
+  "
+>
+  I design and build considered software - from developer tools to interfaces that feel effortless.
+</p>
       </div>
 
 
       <ul
         className="
+        [font-family:'Inter',sans-serif]
         mt-5
-          space-y-5
-          text-lg
-          text-white/55
-          max-w-[760px]
+        space-y-5
+        text-lg
+        text-white/55
+        max-w-[760px]
         "
       >
         <li>

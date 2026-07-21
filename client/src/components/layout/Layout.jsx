@@ -7,7 +7,7 @@ import TopControls from "../shell/TopControls";
 
 function Layout({ children }) {
     return (
-        <main className="relative min-h-screen bg-background text-foreground">
+        <main className="relative min-h-screen bg-black">
 
             <BackgroundEffects />
 

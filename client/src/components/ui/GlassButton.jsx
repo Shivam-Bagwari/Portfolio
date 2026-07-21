@@ -6,22 +6,67 @@ function GlassButton({
   onClick,
   className = "",
 }) {
-  const baseClasses = `inline-flex items-center justify-center gap-2 h-10 px-6 rounded-xl border font-mono text-[14px] font-normal tracking-[-0.02em] transition-all duration-300
+  const baseClasses = `
+    inline-flex
+    items-center
+    justify-center
+    gap-2.5
+    h-11
+    px-6
+    rounded-[14px]
+    border
+    font-mono
+    text-[13px]
+    font-medium
+    tracking-[-0.02em]
+    transition-all
+    duration-300
+    ease-out
+    select-none
   `;
 
   const variants = {
     primary: `
-      bg-[#FAFAFA] text-black border-white hover:bg-white hover:shadow-[0_8px_30px_rgba(255,255,255,0.08)]
-      border
-      border-white
-      hover:scale-[1.03]
-      hover:shadow-[0_0_25px_rgba(255,255,255,0.12)]
+      bg-white
+      text-black
+      border-white/90
+      shadow-[0_10px_30px_rgba(255,255,255,.08)]
+      hover:-translate-y-[2px]
+      hover:bg-white
+      hover:shadow-[0_14px_40px_rgba(255,255,255,.12)]
     `,
 
-    secondary: `border border-white/10 bg-white/[0.04] text-white backdrop-blur-xl hover:bg-whte/[0.06] hover:border-white/20 hover:-translate-y-[2px] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]`,
+    secondary: `
+      bg-white/[0.025]
+      text-white
+      border-white/[0.08]
+      backdrop-blur-xl
+
+      shadow-[inset_0_1px_0_rgba(255,255,255,.05),0_10px_30px_rgba(0,0,0,.35)]
+
+      hover:bg-white/[0.04]
+      hover:border-white/[0.12]
+      hover:-translate-y-[2px]
+      hover:shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_14px_40px_rgba(0,0,0,.45)]
+
+      active:translate-y-0
+    `,
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${className}`;
+
+  const content = (
+    <>
+      {Icon && (
+        <Icon
+          size={14}
+          className="shrink-0"
+        />
+      )}
+
+      <span>{children}</span>
+    </>
+  );
 
   if (href) {
     return (
@@ -31,23 +76,17 @@ function GlassButton({
         rel="noopener noreferrer"
         className={classes}
       >
-        <>
-          {Icon && <Icon size={14}
-          />}
-          <span>{children}</span>
-        </>
+        {content}
       </a>
     );
   }
+
   return (
     <button
       onClick={onClick}
       className={classes}
     >
-      <>
-        {Icon && <Icon size={16} />}
-        <span>{children}</span>
-      </>
+      {content}
     </button>
   );
 }

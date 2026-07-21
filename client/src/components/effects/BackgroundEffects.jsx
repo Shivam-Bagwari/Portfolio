@@ -1,35 +1,79 @@
 function BackgroundEffects() {
   return (
-    <>
-      {/* Base */}
-      <div className="fixed inset-0 bg-black -z-50" />
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
 
-      {/* Aurora */}
-      <div className="fixed inset-0 overflow-hidden -z-40">
-        <div className="aurora-1" />
-        <div className="aurora-2" />
-      </div>
+      {/* Pure Black Base */}
+      <div className="absolute inset-0 noise-bg bg-color: #000000 " />
 
-      {/* Grid */}
-      <div className="fixed inset-0 blueprint-grid -z-30" />
+      {/* Blueprint Grid */}
+      <div className="absolute inset-0 blueprint-grid" />
 
-      {/* Rails */}
-      <div className="pointer-events-none fixed inset-0 -z-20">
-        <div className="relative mx-auto h-full max-w-4xl px-6">
+      {/* ======================================
+    Content Rails
+====================================== */}
 
-          <div className="absolute left-6 top-0 h-full border-l border-dashed border-white/15" />
+<div className="fixed inset-0 pointer-events-none -z-30">
 
-          <div className="absolute right-6 top-0 h-full border-l border-dashed border-white/15" />
+    <div className="relative mx-auto h-full max-w-[900px]">
 
-        </div>
-      </div>
+        {/* Left Rail */}
 
-      {/* Noise */}
-      <div className="noise fixed inset-0 -z-10" />
+        <div
+            className="absolute left-0 top-0 h-full w-[2px]"
+            style={{
+                background:
+                    "repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 4px, transparent 4px, transparent 9px)"
+            }}
+        />
+
+        {/* Right Rail */}
+
+        <div
+            className="absolute right-0 top-0 h-full w-[2px]"
+            style={{
+                background:
+                    "repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 4px, transparent 4px, transparent 9px)"
+            }}
+        />
+
+    </div>
+
+</div>
+
+      {/* Left Aurora */}
+      <div
+        className="
+          absolute
+          -top-40
+          -left-40
+          h-[650px]
+          w-[650px]
+          rounded-full
+          bg-violet-500/10
+          blur-[130px]
+          aurora-1
+        "
+      />
+
+      {/* Right Aurora */}
+      <div
+        className="
+          absolute
+          top-1/2
+          -right-40
+          h-[520px]
+          w-[520px]
+          rounded-full
+          bg-fuchsia-500/10
+          blur-[130px]
+          aurora-2
+        "
+      />
 
       {/* Vignette */}
-      <div className="vignette fixed inset-0 pointer-events-none z-0" />
-    </>
+      <div className="absolute inset-0 vignette" />
+
+    </div>
   );
 }
 

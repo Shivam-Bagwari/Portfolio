@@ -7,7 +7,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="pt-14 pb-24"
+      className="pt-14 pb-10"
     >
       <Container>
 
