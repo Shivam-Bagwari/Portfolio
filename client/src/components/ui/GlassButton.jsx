@@ -10,44 +10,52 @@ function GlassButton({
     inline-flex
     items-center
     justify-center
-    gap-2.5
-    h-11
-    px-6
-    rounded-[14px]
+    gap-2
+    h-8
+    px-4
+    rounded-[10px]
     border
     font-mono
     text-[13px]
     font-medium
     tracking-[-0.02em]
-    transition-all
+    transition-[transform,border-color,background-color,box-shadow]
     duration-300
     ease-out
     select-none
+    cursor-pointer
   `;
 
   const variants = {
     primary: `
       bg-white
       text-black
-      border-white/90
-      shadow-[0_10px_30px_rgba(255,255,255,.08)]
+
+      border-white
+
+      shadow-[0_8px_24px_rgba(255,255,255,.08)]
+
       hover:-translate-y-[2px]
-      hover:bg-white
-      hover:shadow-[0_14px_40px_rgba(255,255,255,.12)]
+      hover:shadow-[0_12px_32px_rgba(255,255,255,.12)]
+
+      active:translate-y-0
     `,
 
     secondary: `
       bg-white/[0.025]
-      text-white
-      border-white/[0.08]
-      backdrop-blur-xl
 
-      shadow-[inset_0_1px_0_rgba(255,255,255,.05),0_10px_30px_rgba(0,0,0,.35)]
+      text-white
+
+      border-white/[0.08]
+
+      shadow-[0_8px_24px_rgba(0,0,0,.32)]
 
       hover:bg-white/[0.04]
       hover:border-white/[0.12]
+
       hover:-translate-y-[2px]
-      hover:shadow-[inset_0_1px_0_rgba(255,255,255,.08),0_14px_40px_rgba(0,0,0,.45)]
+
+      hover:shadow-[0_12px_32px_rgba(0,0,0,.42)]
 
       active:translate-y-0
     `,
@@ -60,11 +68,13 @@ function GlassButton({
       {Icon && (
         <Icon
           size={14}
-          className="shrink-0"
+          className="shrink-0 opacity-90"
         />
       )}
 
-      <span>{children}</span>
+      <span className="relative">
+        {children}
+      </span>
     </>
   );
 

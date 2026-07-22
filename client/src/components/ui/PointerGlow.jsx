@@ -28,8 +28,8 @@ function PointerGlow() {
       <div
         className="
           absolute
-          h-72
-          w-72
+          h-84
+          w-84
           rounded-full
           blur-3xl
           transition-transform
@@ -39,7 +39,7 @@ function PointerGlow() {
         style={{
           transform: `translate(${x - 128}px, ${y - 128}px)`,
           background:
-            "radial-gradient(circle, rgba(139,92,246,0.30) 0%, rgba(139,92,246,0.20) 35%, transparent 75%)",
+            "radial-gradient(circle, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.20) 35%, transparent 75%)",
         }}
       />
     </div>

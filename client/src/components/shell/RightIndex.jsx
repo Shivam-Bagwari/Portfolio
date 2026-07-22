@@ -1,44 +1,99 @@
 import navigation from "../../data/navigation";
+import useActiveSection from "../../hooks/useActiveSection";
+
 function RightIndex() {
+  const activeSection = useActiveSection(
+    navigation.map((item) => item.id)
+  );
+
+  const handleClick = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
-    <aside className="fixed right-10 top-[30vh] z-40 hidden xl:block">
-      <p className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-white/30">
-        INDEX.
-      </p>
+    <aside className="fixed inset-0 z-40 hidden pointer-events-none xl:block">
+      {/* Layout Container */}
+      <div className="relative mx-auto h-full max-w-[1400px]">
 
-      <nav className="space-y-5">
-        {navigation.map((section, index) => (
-          <div
-            key={section.id}
-            className="flex items-center gap-3"
+        {/* Right Navigation */}
+        <div
+          className="
+            absolute
+            right-0
+            top-1/2
+            -translate-y-1/2
+            pointer-events-auto
+          "
+        >
+          <p
+            className="
+              mb-7
+              font-mono
+              text-[11px]
+              uppercase
+              tracking-[0.35em]
+              text-white/25
+            "
           >
-            <div
-              className={`
-                h-px
-                ${
-                  index === 0
-                    ? "w-6 bg-white"
-                    : "w-3 bg-white/20"
-                }
-              `}
-            />
+            INDEX.
+          </p>
 
-            <span
-              className={`
-                font-mono
-                text-sm
-                ${
-                  index === 0
-                    ? "text-white"
-                    : "text-white/35"
-                }
-              `}
-            >
-              {String(index + 1).padStart(2, "0")} {section.label}
-            </span>
-          </div>
-        ))}
-      </nav>
+          <nav className="space-y-5">
+            {navigation.map((section, index) => {
+              const active = activeSection === section.id;
+
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => handleClick(section.id)}
+                  className="
+                    group
+                    flex
+                    w-full
+                    items-center
+                    gap-3
+                    text-left
+                  "
+                >
+                  <div
+                    className={`
+                      h-px
+                      transition-all
+                      duration-300
+
+                      ${
+                        active
+                          ? "w-8 bg-white"
+                          : "w-3 bg-white/20 group-hover:w-5 group-hover:bg-white/40"
+                      }
+                    `}
+                  />
+
+                  <span
+                    className={`
+                      font-mono
+                      text-[13px]
+                      transition-colors
+                      duration-300
+
+                      ${
+                        active
+                          ? "text-white"
+                          : "text-white/35 group-hover:text-white/70"
+                      }
+                    `}
+                  >
+                    {String(index + 1).padStart(2, "0")} {section.label}
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
     </aside>
   );
 }

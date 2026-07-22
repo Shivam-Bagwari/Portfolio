@@ -1,27 +1,23 @@
 import Container from "../../layout/Container";
 import HeroBanner from "./HeroBanner";
 import HeroContent from "./HeroContent";
-import HeroStats from "./HeroStats";
 
 function Hero() {
   return (
     <section
       id="hero"
-      className="pt-14 pb-10"
+      className="pt-16 pb-16"
     >
       <Container>
+        <div className="mt-16">
 
-        <div className="mt-14">
-
-          
           <HeroBanner />
 
-          <div className="mt-14">
+          <div className="mt-16">
             <HeroContent />
-        </div>
+          </div>
 
         </div>
-
       </Container>
     </section>
   );

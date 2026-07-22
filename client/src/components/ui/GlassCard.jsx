@@ -1,7 +1,4 @@
-function GlassCard({
-  children,
-  className = "",
-}) {
+function GlassCard({ children, className = "" }) {
   return (
     <div
       className={`
@@ -9,20 +6,21 @@ function GlassCard({
         overflow-hidden
         rounded-[24px]
 
-        border border-white/[0.07]
+        border border-white/[0.09]
 
-        bg-white/[0.025]
-        backdrop-blur-md
+        bg-white/[0.028]
 
-        shadow-[0_8px_24px_rgba(0,0,0,0.18)]
+        shadow-[0_8px_32px_rgba(0,0,0,.34)]
 
-        transition-all
+        transition-[transform,box-shadow,border-color]
         duration-300
+        ease-out
 
         ${className}
       `}
     >
-      {/* Surface */}
+      {/* Glass Reflection */}
+
       <div
         className="
           pointer-events-none
@@ -30,13 +28,15 @@ function GlassCard({
           inset-0
 
           bg-gradient-to-b
-          from-white/[0.05]
-          via-white/[0.02]
-          to-black/[0.04]
+
+          from-white/[0.035]
+          via-transparent
+          to-transparent
         "
       />
 
       {/* Top Highlight */}
+
       <div
         className="
           pointer-events-none
@@ -46,59 +46,28 @@ function GlassCard({
           h-px
 
           bg-gradient-to-r
+
           from-transparent
-          via-white/30
+          via-white/25
           to-transparent
         "
       />
 
-      {/* Corner Glow */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -top-24
-          -right-24
+      {/* Inner Border */}
 
-          h-72
-          w-72
-
-          rounded-full
-          bg-violet-400/[0.06]
-          blur-[90px]
-        "
-      />
-
-      {/* Bottom Ambient Glow */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-24
-          -left-24
-
-          h-64
-          w-64
-
-          rounded-full
-          bg-fuchsia-500/[0.03]
-          blur-[100px]
-        "
-      />
-
-      {/* Very Subtle Inner Border */}
       <div
         className="
           pointer-events-none
           absolute
           inset-[1px]
+
           rounded-[23px]
+
           border
-          border-white/[0.03]
+          border-white/[0.02]
         "
       />
 
-      {/* Content */}
       <div className="relative z-10">
         {children}
       </div>

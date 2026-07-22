@@ -50,15 +50,15 @@ function BackgroundEffects() {
 
       {/* Left Aurora */}
       <div
-        className="
-        absolute
-        -top-40
-        -left-40
-        h-[650px]
-        w-[650px]
-        rounded-full
-        bg-violet-500/10
-        blur-[130px]
+        className=" 
+        absolute 
+        -top-[220px] 
+        -left-[280px] 
+        h-[950px] 
+        w-[950px] 
+        rounded-full 
+        bg-violet-500/[0.055] 
+        blur-[220px] 
         aurora-1
         "
       />
@@ -67,13 +67,13 @@ function BackgroundEffects() {
       <div
         className="
         absolute
-        top-1/2
-        -right-40
-        h-[520px]
-        w-[520px]
+        top-[35%]
+        -right-[260px]
+        h-[850px]
+        w-[850px]
         rounded-full
-        bg-fuchsia-500/10
-        blur-[130px]
+        bg-fuchsia-500/[0.050]
+        blur-[220px]
         aurora-2
         "
       />
