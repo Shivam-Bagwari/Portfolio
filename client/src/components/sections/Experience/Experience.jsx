@@ -13,7 +13,6 @@ function Experience() {
         <SectionHeader
           number="01"
           title="Experiences"
-          description="Building products, learning continuously, and growing through real-world projects."
         />
 
         <ExperienceAccordion items={experience} />

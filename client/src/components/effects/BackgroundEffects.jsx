@@ -6,67 +6,75 @@ function BackgroundEffects() {
       <div className="absolute inset-0 noise-bg bg-color: #000000 " />
 
       {/* Blueprint Grid */}
-      <div className="absolute inset-0 blueprint-grid" />
+      <>
+        {/* Fine Grid */}
+
+        <div className="absolute inset-0 blueprint-grid" />
+
+        {/* Major Grid */}
+
+        <div className="absolute inset-0 blueprint-grid-large" />
+      </>
 
       {/* ======================================
     Content Rails
 ====================================== */}
 
-<div className="fixed inset-0 pointer-events-none -z-30">
+      <div className="fixed inset-0 pointer-events-none -z-30">
 
-    <div className="relative mx-auto h-full max-w-[900px]">
+        <div className="relative mx-auto h-full max-w-[900px]">
 
-        {/* Left Rail */}
+          {/* Left Rail */}
 
-        <div
+          <div
             className="absolute left-0 top-0 h-full w-[2px]"
             style={{
-                background:
-                    "repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 4px, transparent 4px, transparent 9px)"
+              background:
+                "repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 4px, transparent 4px, transparent 9px)"
             }}
-        />
+          />
 
-        {/* Right Rail */}
+          {/* Right Rail */}
 
-        <div
+          <div
             className="absolute right-0 top-0 h-full w-[2px]"
             style={{
-                background:
-                    "repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 4px, transparent 4px, transparent 9px)"
+              background:
+                "repeating-linear-gradient(to bottom, rgba(255,255,255,.14) 0px, rgba(255,255,255,.14) 4px, transparent 4px, transparent 9px)"
             }}
-        />
+          />
 
-    </div>
+        </div>
 
-</div>
+      </div>
 
       {/* Left Aurora */}
       <div
         className="
-          absolute
-          -top-40
-          -left-40
-          h-[650px]
-          w-[650px]
-          rounded-full
-          bg-violet-500/10
-          blur-[130px]
-          aurora-1
+        absolute
+        -top-40
+        -left-40
+        h-[650px]
+        w-[650px]
+        rounded-full
+        bg-violet-500/10
+        blur-[130px]
+        aurora-1
         "
       />
 
       {/* Right Aurora */}
       <div
         className="
-          absolute
-          top-1/2
-          -right-40
-          h-[520px]
-          w-[520px]
-          rounded-full
-          bg-fuchsia-500/10
-          blur-[130px]
-          aurora-2
+        absolute
+        top-1/2
+        -right-40
+        h-[520px]
+        w-[520px]
+        rounded-full
+        bg-fuchsia-500/10
+        blur-[130px]
+        aurora-2
         "
       />
 

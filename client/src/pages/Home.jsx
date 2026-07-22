@@ -4,6 +4,7 @@ import Hero from "../components/sections/Hero/Hero";
 import Experience from "../components/sections/Experience/Experience";
 import Projects from "../components/sections/Projects/Projects";
 import Skills from "../components/sections/Skills/Skills";
+import Blogs from "../components/Blog/Blogs";
 import Contact from "../components/sections/Contact/Contact";
 import Footer from "../components/sections/Footer/Footer";
 function Home() {
@@ -15,9 +16,10 @@ function Home() {
     <Experience />
     <Projects />
     <Skills />
+    <Blogs />
     <Contact />
     <Footer />
-
+    
     </div>
   );
   

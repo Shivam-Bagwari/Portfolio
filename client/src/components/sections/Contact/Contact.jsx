@@ -6,7 +6,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="pt-16 pb-24"
+      className="pt-10 pb-20"
     >
       <Container>
         <SectionHeader
@@ -14,7 +14,7 @@ function Contact() {
           title="Get In Touch"
         />
 
-        <div className="mt-14">
+        <div className="mt-12">
           <ContactCard />
         </div>
       </Container>

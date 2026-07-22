@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
 
-/* ======================================================
-   Theme
-====================================================== */
+/* Theme */
 
 @utility font-inter {
   font-family: "Inter", sans-serif;
@@ -56,16 +54,33 @@
 
   background-image:
     linear-gradient(
-      rgba(255,255,255,.020) 1px,
+      rgba(255,255,255,.050) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,255,255,.020) 1px,
+      rgba(255,255,255,.050) 1px,
       transparent 1px
     );
 
-  background-size: 96px 96px;
+  background-size: 82px 82px;
+}
+@utility blueprint-grid-large {
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 240px 240px;
+
+  opacity: .45;
 }
 
 

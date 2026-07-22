@@ -20,10 +20,6 @@ function Hero() {
             <HeroContent />
         </div>
 
-          <div className="mt-14">
-            <HeroStats />
-        </div>
-
         </div>
 
       </Container>

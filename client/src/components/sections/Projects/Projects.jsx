@@ -13,7 +13,6 @@ function Projects() {
                 <SectionHeader
                     number="02"
                     title="Projects"
-                    description="Products, experiments, and ideas I've brought to life through code."
                 />
 
 

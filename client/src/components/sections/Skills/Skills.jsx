@@ -20,13 +20,12 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="pt-16 pb-20"
+      className="pt-10 pb-10"
     >
       <Container>
         <SectionHeader
           number="03"
           title="Skills & Technologies"
-          description="Technologies, frameworks, and tools I use to design, build, and deploy modern applications."
         />
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">
