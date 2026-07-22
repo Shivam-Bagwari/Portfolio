@@ -1,5 +1,5 @@
 import Container from "../../layout/Container";
-import projects from "../../../data/projects";
+import projects from "../../../data/projects"
 import ProjectCard from "./ProjectsCard";
 import SectionHeader from "../../ui/SectionHeader";
 
@@ -16,21 +16,13 @@ function Projects() {
                     description="Products, experiments, and ideas I've brought to life through code."
                 />
 
-                <p className="font-mono text-sm uppercase tracking-[0.35em] text-accent">
-                    Projects
-                </p>
-
-                <h2 className="mt-4 text-5xl font-black text-white">
-                    Featured Work
-                </h2>
 
 
-
-                <div className="grid gap-8">
+                <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
                     {projects.map((project) => (
                         <ProjectCard
                             key={project.id}
-                            {...project}
+                            project={project}
                         />
                     ))}
                 </div>

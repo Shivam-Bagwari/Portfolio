@@ -17,13 +17,13 @@ const socialLinks = [
   
   {
     name: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/shivam-bagwari/",
     icon: FiLinkedin,
   },
  
   {
     name: "Discord",
-    href: "#",
+    href: "https://discord.com/channels/@shivam_bagwari",
     icon: RxDiscordLogo,
   },
 ];

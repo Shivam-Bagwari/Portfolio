@@ -1,41 +1,35 @@
-import Container from "../../layout/Container"
+import Container from "../../layout/Container";
 import skills from "../../../data/skills";
 import SkillCategory from "./SkillCategory";
 import SectionHeader from "../../ui/SectionHeader";
 
+const marquee = [
+  "React",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "Tailwind",
+  "JavaScript",
+  "Git",
+  "GitHub",
+  "VS Code",
+  "Figma",
+];
+
 function Skills() {
   return (
-    <section id="skills" className="pt-16 pb-20">
+    <section
+      id="skills"
+      className="pt-16 pb-20"
+    >
       <Container>
-
-        {/* Section Heading */}
         <SectionHeader
           number="03"
-          title="Skills"
+          title="Skills & Technologies"
           description="Technologies, frameworks, and tools I use to design, build, and deploy modern applications."
         />
 
-        <p
-          className="
-              font-mono
-              text-sm
-              uppercase
-              tracking-[0.35em]
-              text-accent
-            "
-        >
-          Skills
-        </p>
-
-        <h2 className="mt-4 text-5xl font-black text-white">
-          Technologies I Work With
-        </h2>
-
-
-
-        {/* Skills Grid */}
-
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {skills.map((group) => (
             <SkillCategory
               key={group.category}
@@ -45,6 +39,26 @@ function Skills() {
           ))}
         </div>
 
+        {/* Bottom Tech Strip */}
+
+        <div className="mt-16 overflow-hidden border-t border-white/10 pt-6">
+          <div className="flex flex-wrap justify-center gap-8">
+            {marquee.map((item) => (
+              <span
+                key={item}
+                className="
+                  font-mono
+                  text-[11px]
+                  uppercase
+                  tracking-[0.35em]
+                  text-white/28
+                "
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
       </Container>
     </section>
   );
