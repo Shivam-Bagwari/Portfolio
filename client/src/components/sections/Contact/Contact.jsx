@@ -1,32 +1,22 @@
 import Container from "../../layout/Container";
+import SectionHeader from "../../ui/SectionHeader";
 import ContactCard from "./ContactCard";
-import ContactForm from "./ContactForm";
 
 function Contact() {
   return (
-    <section id="contact" className="py-32">
+    <section
+      id="contact"
+      className="pt-16 pb-24"
+    >
       <Container>
+        <SectionHeader
+          number="04"
+          title="Get In Touch"
+        />
 
-        <div className="mb-16">
-
-          <p className="font-mono text-sm uppercase tracking-[0.35em] text-accent">
-            Contact
-          </p>
-
-          <h2 className="mt-4 text-5xl font-black text-white">
-            Let's Build Something Together
-          </h2>
-
-        </div>
-
-        <div className="grid gap-8 lg:grid-cols-2">
-
+        <div className="mt-14">
           <ContactCard />
-
-          <ContactForm />
-
         </div>
-
       </Container>
     </section>
   );
