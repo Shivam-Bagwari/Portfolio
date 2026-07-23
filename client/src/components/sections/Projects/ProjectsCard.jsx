@@ -1,4 +1,7 @@
 import GlassCard from "../../ui/GlassCard";
+import GlassBadge from "../../ui/GlassBadge";
+import GlassButton from "../../ui/GlassButton";
+
 import { ArrowUpRight } from "lucide-react";
 
 function ProjectCard({ project }) {
@@ -9,50 +12,48 @@ function ProjectCard({ project }) {
     description,
     tech,
     status,
-    glow,
+    statusColor,
+    accent,
+    featured,
   } = project;
 
-  const glowStyles = {
+  const accents = {
     purple: {
       bg: "bg-gradient-to-br from-[#31214e] via-[#17151d] to-[#0f0f12]",
       glow: "bg-violet-500/35",
-      dot: "bg-emerald-400",
     },
 
     pink: {
-      bg: "bg-gradient-to-br from-[#24161f] via-[#17151d] to-[#0f0f12]",
+      bg: "bg-gradient-to-br from-[#25161f] via-[#17151d] to-[#0f0f12]",
       glow: "bg-pink-500/35",
-      dot: "bg-orange-400",
     },
 
     cyan: {
       bg: "bg-gradient-to-br from-[#13252a] via-[#17151d] to-[#0f0f12]",
       glow: "bg-cyan-400/30",
-      dot: "bg-orange-400",
     },
 
     white: {
       bg: "bg-gradient-to-br from-[#202020] via-[#17151d] to-[#0f0f12]",
       glow: "bg-white/20",
-      dot: "bg-zinc-400",
     },
   };
 
-  const current = glowStyles[glow] || glowStyles.purple;
+  const current = accents[accent] || accents.purple;
 
   return (
     <GlassCard
       className="
         group
+
         overflow-hidden
-        rounded-[24px]
-        border
-        border-white/10
+
         p-0
-        transition-all
+
+        transition-transform
         duration-500
+
         hover:-translate-y-1
-        hover:border-white/20
       "
     >
       {/* ================= Preview ================= */}
@@ -60,69 +61,70 @@ function ProjectCard({ project }) {
       <div
         className={`
           relative
+
           flex
-          h-[180px]
+          h-[205px]
+
           items-center
           justify-center
+
           overflow-hidden
+
           border-b
-          border-white/8
+          border-white/[0.06]
+
           ${current.bg}
         `}
       >
-        {/* Glow */}
+        {/* Ambient Glow */}
 
         <div
           className={`
             absolute
+
             h-72
             w-72
+
             rounded-full
+
             blur-[110px]
+
             opacity-70
-            transition-all
-            duration-500
+
+            transition-transform
+            duration-700
+
             group-hover:scale-110
+
             ${current.glow}
           `}
         />
 
-        {/* Corner Icon */}
+        {/* Featured Badge */}
 
-        <div
-          className="
-            absolute
-            right-4
-            top-4
-            flex
-            h-8
-            w-8
-            items-center
-            justify-center
-            rounded-lg
-            border
-            border-white/10
-            bg-black/30
-            backdrop-blur-xl
-          "
-        >
-          <ArrowUpRight
-            size={14}
-            className="text-white/60"
-          />
-        </div>
+        {featured && (
+          <div className="absolute left-5 top-5">
+            <GlassBadge color="green">
+              Featured
+            </GlassBadge>
+          </div>
+        )}
 
-        {/* Hero Text */}
+        {/* Hero */}
 
-        <div className="relative text-center">
+        <div className="relative z-10 px-8 text-center">
+
           <h3
             className="
               font-serif-display
-              text-[42px]
+
+              text-[44px]
+
               italic
+
               leading-none
-              text-white/90
-              lg:text-[46px]
+
+              text-white/92
             "
           >
             {headline}
@@ -131,96 +133,119 @@ function ProjectCard({ project }) {
           <p
             className="
               mt-4
+
               font-mono
-              text-[13px]
-              tracking-[0.08em]
+
+              text-[12px]
+
+              uppercase
+
+              tracking-[0.16em]
+
               text-white/45
             "
           >
             {tagline}
           </p>
+
         </div>
       </div>
 
-      {/* ================= Bottom ================= */}
+      {/* ================= Content ================= */}
 
-      <div className="p-5">
+      <div className="p-6">
+
         <div className="flex items-start justify-between gap-5">
-          <h4 className="text-2xl font-bold text-white">
-            {title}
-          </h4>
 
-          <div
-            className="
-              flex
-              items-center
-              gap-2
-              rounded-full
-              border
-              border-white/10
-              bg-white/[0.04]
-              px-3
-              py-1
-              font-mono
-              text-[11px]
-              text-white/65
-            "
-          >
-            <span
-              className={`h-1.5 w-1.5 rounded-full ${current.dot}`}
-            />
+          <div>
 
-            <span>{status}</span>
+            <h4
+              className="
+                text-[28px]
+                font-bold
+
+                tracking-[-0.03em]
+
+                text-white
+              "
+            >
+              {title}
+            </h4>
+
+            <div className="mt-4">
+              <GlassBadge color={statusColor}>
+                {status}
+              </GlassBadge>
+            </div>
+
           </div>
+
         </div>
 
-        <p className="mt-4 text-[15px] leading-7 text-white/55">
+        <p
+          className="
+            mt-6
+
+            text-[15px]
+
+            leading-7
+
+            text-white/60
+          "
+        >
           {description}
         </p>
 
-        <div className="mt-6 flex items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center">
-            {tech.map((item, index) => (
-              <span
-                key={item}
-                className="font-mono text-[11px] text-white/45"
-              >
-                {item}
+        {/* Tech */}
 
-                {index !== tech.length - 1 && (
-                  <span className="mx-2 text-white/20">
-                    ·
-                  </span>
-                )}
-              </span>
-            ))}
-          </div>
+        <div
+          className="
+            mt-7
 
-          <button
-            className="
-              group/view
-              flex
-              items-center
-              gap-1
-              text-sm
-              text-white/65
-              transition-colors
-              hover:text-white
-            "
-          >
-            View
+            flex
+            flex-wrap
 
-            <ArrowUpRight
-              size={15}
+            gap-2
+          "
+        >
+          {tech.map((item) => (
+            <span
+              key={item}
               className="
-                transition-transform
-                duration-300
-                group-hover/view:translate-x-0.5
-                group-hover/view:-translate-y-0.5
+                rounded-full
+
+                border
+                border-white/[0.08]
+
+                bg-white/[0.025]
+
+                px-3
+                py-1.5
+
+                font-mono
+                text-[11px]
+
+                text-white/55
               "
-            />
-          </button>
+            >
+              {item}
+            </span>
+          ))}
         </div>
+
+        {/* Actions */}
+
+        <div className="mt-8">
+
+          <GlassButton
+            className="w-full justify-center"
+            icon={ArrowUpRight}
+          >
+            View Project
+          </GlassButton>
+
+        </div>
+
       </div>
     </GlassCard>
   );

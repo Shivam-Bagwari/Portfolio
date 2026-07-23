@@ -9,13 +9,16 @@ const projects = [
     tagline: "A universe of courses, curated.",
 
     description:
-      "A learning platform that organizes high-quality courses across the web into one place.",
+      "A modern learning platform that brings together high-quality courses into one beautiful experience with authentication, dashboards and scalable architecture.",
 
-    tech: ["React", "Node", "Mongo", "Tailwind"],
+    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
 
     status: "Live",
+    statusColor: "green",
 
-    glow: "purple",
+    accent: "purple",
+
+    featured: true,
 
     github: "...",
 
@@ -32,36 +35,61 @@ const projects = [
     tagline: "with precision and speed",
 
     description:
-      "Animated, beautifully crafted React components to ship landing pages at sonic speed.",
+      "A growing React component library focused on premium UI, animations and developer experience.",
 
-    tech: ["React", "TS", "Motion", "Tailwind"],
+    tech: ["React", "TypeScript", "Tailwind CSS", "Motion"],
 
     status: "Building",
+    statusColor: "orange",
 
-    glow: "pink",
+    accent: "pink",
+
+    featured: false,
   },
-   {
+
+  {
     id: 3,
+
     title: "Doodleboard3D",
+
     headline: "Think. Sketch. Prompt.",
+
     tagline: "Generate worlds from a doodle.",
+
     description:
-      "Turn your sketches into 3D objects and worlds with AI-assisted generation.",
+      "Sketch simple ideas and transform them into interactive AI-generated 3D scenes inside the browser.",
+
     tech: ["Three.js", "WebGL", "AI"],
+
     status: "Building",
-    glow: "cyan",
+    statusColor: "orange",
+
+    accent: "cyan",
+
+    featured: false,
   },
 
   {
     id: 4,
+
     title: "Inquiro",
+
     headline: "COMING SOON",
+
     tagline: "STAY TUNED",
+
     description:
-      "An AI-powered search engine focused on structured knowledge retrieval.",
+      "An AI-powered search engine focused on structured knowledge retrieval and intelligent search experiences.",
+
     tech: ["Next.js", "AI SDK", "Pinecone"],
+
     status: "Planning",
-    glow: "white",
+    statusColor: "neutral",
+
+    accent: "white",
+
+    featured: false,
   },
 ];
+
 export default projects;

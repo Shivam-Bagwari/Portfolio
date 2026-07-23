@@ -1,6 +1,6 @@
 import heroBanner from "../../../assets/images/hero-banner.jpg";
 import useClockSafe from "../../../hooks/useClockSafe";
-import TiltCard from "../../ui/TiltCard";
+import TiltCard from "../../ui/TIltCard";
 
 function HeroBanner() {
   const time = useClockSafe();
