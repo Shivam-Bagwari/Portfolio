@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useEffect, useState } from "react";
 
-  function TiltCard({ children, className = "" }) {
+   function TiltCard({ children, className = "" }) {
   const ref = useRef(null);
   const rectRef = useRef(null);
   const frame = useRef();
