@@ -22,8 +22,8 @@ function RightIndex() {
         <div
           className="
             absolute
-            right-0
-            top-1/2
+            right-25
+            top-1/4
             -translate-y-1/2
             pointer-events-auto
           "
