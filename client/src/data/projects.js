@@ -1,94 +1,110 @@
 const projects = [
   {
     id: 1,
+    featured: true,
+    category: "EdTech",
 
     title: "CourseUniverse",
 
-    headline: "CourseUniverse",
-
-    tagline: "A universe of courses, curated.",
+    previewTitle: "CourseUniverse",
+    previewSubtitle: "A Universe of Courses",
 
     description:
-      "A modern learning platform that brings together high-quality courses into one beautiful experience with authentication, dashboards and scalable architecture.",
+      "A full-stack learning platform that helps users discover, purchase, and manage online courses with secure authentication and an intuitive dashboard.",
 
-    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
 
     status: "Live",
     statusColor: "green",
 
     accent: "purple",
 
-    featured: true,
+    year: "2026",
 
-    github: "...",
-
-    live: "...",
+    live: "https://www.courseuniverse.in/",
+    github: "https://github.com/Shivam-Bagwari/CourseUniverse",
   },
 
   {
     id: 2,
+    featured: false,
+    category: "Research",
 
-    title: "VengeanceUI",
+    title: "GeoShield",
 
-    headline: "Build beautiful interfaces",
-
-    tagline: "with precision and speed",
+    previewTitle: "GeoShield",
+    previewSubtitle: "Landslide Detection",
 
     description:
-      "A growing React component library focused on premium UI, animations and developer experience.",
+      "An AI-powered landslide detection and early warning platform designed to improve disaster preparedness using geospatial analysis and predictive monitoring.",
 
-    tech: ["React", "TypeScript", "Tailwind CSS", "Motion"],
+    tech: ["JavaScript", "Leaflet", "GIS", "AI"],
 
-    status: "Building",
-    statusColor: "orange",
+    status: "Research",
+    statusColor: "blue",
 
-    accent: "pink",
+    accent: "green",
 
-    featured: false,
+    year: "2025",
+
+    live: "#",
+    github: "#",
   },
 
   {
     id: 3,
+    featured: false,
+    category: "Frontend",
 
-    title: "Doodleboard3D",
+    title: "Portfolio v2",
 
-    headline: "Think. Sketch. Prompt.",
+    previewTitle: "Portfolio",
 
-    tagline: "Generate worlds from a doodle.",
+    previewSubtitle: "Designed & Developed",
 
     description:
-      "Sketch simple ideas and transform them into interactive AI-generated 3D scenes inside the browser.",
+      "A modern developer portfolio built with React, Tailwind CSS, and a custom glassmorphism design system focused on performance and user experience.",
 
-    tech: ["Three.js", "WebGL", "AI"],
+    tech: ["React", "Tailwind", "JavaScript", "Vite"],
 
-    status: "Building",
-    statusColor: "orange",
+    status: "Live",
+
+    statusColor: "green",
 
     accent: "cyan",
 
-    featured: false,
+    year: "2026",
+
+    live: "#",
+    github: "#",
   },
 
   {
     id: 4,
+    featured: false,
+    category: "Community",
 
-    title: "Inquiro",
+    title: "CampusConnect",
 
-    headline: "COMING SOON",
+    previewTitle: "CampusConnect",
 
-    tagline: "STAY TUNED",
+    previewSubtitle: "Coming Soon",
 
     description:
-      "An AI-powered search engine focused on structured knowledge retrieval and intelligent search experiences.",
+      "A community platform connecting students, developers, and campus organizations through collaboration, events, and project discovery.",
 
-    tech: ["Next.js", "AI SDK", "Pinecone"],
+    tech: ["React", "Node.js", "MongoDB", "Socket.io"],
 
-    status: "Planning",
-    statusColor: "neutral",
+    status: "In Development",
+
+    statusColor: "orange",
 
     accent: "white",
 
-    featured: false,
+    year: "2026",
+
+    live: "#",
+    github: "#",
   },
 ];
 
