@@ -99,7 +99,7 @@ function ContactCard() {
           <GlassButton
             variant="secondary"
             icon={Download}
-            href="/resume.pdf"
+            href="/Shivam_Bagwari_resume_v1.pdf"
           >
             Download Resume
           </GlassButton>
