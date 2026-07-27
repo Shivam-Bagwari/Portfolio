@@ -56,6 +56,7 @@ function RightIndex() {
                     items-center
                     gap-3
                     text-left
+                    cursor-pointer
                   "
                 >
                   <div
