@@ -16,34 +16,77 @@ function PointerGlow() {
     return () => window.removeEventListener("pointermove", move);
   }, []);
 
-  return (
+return (
+  <div
+    className="
+      pointer-events-none
+      fixed
+      inset-0
+      z-[9999]
+      overflow-hidden
+    "
+  >
+    {/* Large Ambient Glow */}
+
     <div
       className="
-        pointer-events-none
-        fixed
-        inset-0
-        z-[9999]
+        absolute
+        h-[520px]
+        w-[520px]
+        rounded-full
+        blur-[140px]
+        transition-transform
+        duration-300
+        ease-out
       "
-    >
-      <div
-        className="
-          absolute
-          h-84
-          w-84
-          rounded-full
-          blur-3xl
-          transition-transform
-          duration-150
-          ease-out
-        "
-        style={{
-          transform: `translate(${x - 128}px, ${y - 128}px)`,
-          background:
-            "radial-gradient(circle, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.20) 35%, transparent 75%)",
-        }}
-      />
-    </div>
-  );
+      style={{
+        transform: `translate(${x - 260}px, ${y - 260}px)`,
+        background:
+          "radial-gradient(circle, rgba(139,92,246,.14) 0%, rgba(168,85,247,.10) 45%, transparent 75%)",
+      }}
+    />
+
+    {/* Main Cursor Glow */}
+
+    <div
+      className="
+        absolute
+        h-[220px]
+        w-[220px]
+        rounded-full
+        blur-[70px]
+        transition-transform
+        duration-75
+        ease-out
+      "
+      style={{
+        transform: `translate(${x - 110}px, ${y - 110}px)`,
+        background:
+          "radial-gradient(circle, rgba(255,255,255,.05) 0%, rgba(168,85,247,.12) 40%, transparent 75%)",
+      }}
+    />
+
+    {/* Bright Core */}
+
+    <div
+      className="
+        absolute
+        h-10
+        w-10
+        rounded-full
+        blur-xl
+        transition-transform
+        duration-75
+        ease-out
+      "
+      style={{
+        transform: `translate(${x - 20}px, ${y - 20}px)`,
+        background:
+          "radial-gradient(circle, rgba(255,255,255,.12), transparent 70%)",
+      }}
+    />
+  </div>
+);
 }
 
 export default PointerGlow;

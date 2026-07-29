@@ -4,11 +4,12 @@ function useActiveSection(ids) {
   const [activeSection, setActiveSection] = useState(ids[0]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const viewportCenter = window.innerHeight / 2;
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      const triggerLine = window.innerHeight * 0.3;
 
       let current = ids[0];
-      let smallestDistance = Infinity;
 
       ids.forEach((id) => {
         const el = document.getElementById(id);
@@ -17,25 +18,34 @@ function useActiveSection(ids) {
 
         const rect = el.getBoundingClientRect();
 
-        const sectionCenter = rect.top + rect.height / 2;
-
-        const distance = Math.abs(sectionCenter - viewportCenter);
-
-        if (distance < smallestDistance) {
-          smallestDistance = distance;
+        if (rect.top <= triggerLine) {
           current = id;
         }
       });
 
-      setActiveSection(current);
+      setActiveSection((prev) => (prev === current ? prev : current));
+
+      ticking = false;
     };
 
-    handleScroll();
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateActiveSection);
+        ticking = true;
+      }
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    updateActiveSection();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, [ids]);
 

@@ -10,7 +10,6 @@ function App() {
             <BackgroundEffects />
             <PointerGlow />
             <Home />
-
         </Layout>
     );
 }

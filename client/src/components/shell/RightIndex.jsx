@@ -49,46 +49,71 @@ function RightIndex() {
                 <button
                   key={section.id}
                   onClick={() => handleClick(section.id)}
-                  className="
-                    group
-                    flex
-                    w-full
-                    items-center
-                    gap-3
-                    text-left
-                    cursor-pointer
-                  "
+                 className=" 
+                 group 
+                 flex 
+                 w-full 
+                 items-center 
+                 gap-2 
+                 text-left 
+                 cursor-pointer 
+                 transition-transform 
+                 duration-500 
+                 ease-[cubic-bezier(.22,1,.36,1)] 
+                hover:translate-x-[3px]
+                "
                 >
                   <div
                     className={`
                       h-px
                       transition-all
-                      duration-300
+                      duration-500
+                      ease-[cubic-bezier(.22,1,.36,1)]
 
-                      ${
-                        active
-                          ? "w-8 bg-white"
-                          : "w-3 bg-white/20 group-hover:w-5 group-hover:bg-white/40"
+                      ${active
+                        ? "w-10 bg-white shadow-[0_0_10px_rgba(255,255,255,0.15)]"
+                        : "w-3 bg-white/20 group-hover:w-5 group-hover:bg-white/40"
                       }
                     `}
                   />
 
-                  <span
-                    className={`
-                      font-mono
-                      text-[13px]
-                      transition-colors
-                      duration-300
+<div
+  className="
+    flex
+    items-center
+    gap-2
+    font-mono
+    text-[13px]
+  "
+>
+  <span
+    className={`
+      transition-colors
+      duration-300
+      ${
+        active
+          ? "text-white/75"
+          : "text-white/25 group-hover:text-white/45"
+      }
+    `}
+  >
+    {String(index + 1).padStart(2, "0")}
+  </span>
 
-                      ${
-                        active
-                          ? "text-white"
-                          : "text-white/35 group-hover:text-white/70"
-                      }
-                    `}
-                  >
-                    {String(index + 1).padStart(2, "0")} {section.label}
-                  </span>
+  <span
+    className={`
+      transition-colors
+      duration-300
+      ${
+        active
+          ? "text-white font-semibold"
+          : "text-white/35 group-hover:text-white/80"
+      }
+    `}
+  >
+    {section.label}
+  </span>
+</div>
                 </button>
               );
             })}

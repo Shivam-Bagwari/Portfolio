@@ -87,9 +87,7 @@
 }
 
 
-/* ======================================================
-   Ping Ring
-====================================================== */
+/* Ping Ring */
 
 @keyframes ping-ring {
 
@@ -120,4 +118,20 @@
 
   animation: ping-ring 2s infinite;
 
+}
+/* Noise Overlay */
+
+.noise-overlay {
+
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,.06) 1px, transparent 1px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,.05) 1px, transparent 1px);
+
+  background-size:
+    24px 24px,
+    32px 32px,
+    18px 18px;
+
+  mix-blend-mode: soft-light;
 }
