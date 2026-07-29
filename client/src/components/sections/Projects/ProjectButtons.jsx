@@ -2,24 +2,25 @@ import GlassButton from "../../ui/GlassButton";
 import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 
-function ProjectButtons({ live, github, compact = false }) {
+function ProjectButtons({ live, github }) {
   return (
-    <div className={`flex gap-2 ${compact ? "mt-5" : "mt-10"}`}>
+    <div className="mt-8 flex items-center gap-3">
       <GlassButton
         href={live}
         variant="primary"
-        size={compact ? "sm" : "md"}
         icon={ArrowUpRight}
+        className="w-[132px]"
       >
-        Launch Project
+        Visit Site
       </GlassButton>
 
       <GlassButton
         href={github}
-        size={compact ? "sm" : "md"}
+        variant="secondary"
         icon={FiGithub}
+        className="w-[80px]"
       >
-        Source Code
+        Code
       </GlassButton>
     </div>
   );

@@ -2,16 +2,16 @@ import GlassCard from "../../ui/GlassCard";
 import ProjectPreview from "./ProjectPreview";
 import ProjectFeaturedContent from "./ProjectFeaturedContent";
 import ProjectContent from "./ProjectContent";
-
+import FeaturedCard from "./FeaturedCard";
+import TiltCard from "../../ui/TiltCard";
 function ProjectCard({ project }) {
   if (project.featured) {
     return (
+      <TiltCard>
       <GlassCard className="overflow-hidden p-0">
-        <div className="grid lg:grid-cols-[1.75fr_1.75fr]">
-          <ProjectPreview project={project} />
-          <ProjectFeaturedContent project={project} />
-        </div>
+          <FeaturedCard project={project} />
       </GlassCard>
+      </TiltCard>
     );
   }
 

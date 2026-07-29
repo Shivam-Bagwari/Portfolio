@@ -3,75 +3,60 @@ import ProjectTechStack from "./ProjectTechStack";
 import ProjectButtons from "./ProjectButtons";
 
 function ProjectFeaturedContent({ project }) {
-  const {
-    title,
-    description,
-    tech,
-    status,
-    statusColor,
-    year,
-    live,
-    github,
-  } = project;
-
   return (
-    <div className="flex flex-col justify-between px-12 py-10">
-      <div>
-        {/* Top Meta */}
-        <div className="flex items-center justify-between">
-          <span
-            className="
-              font-mono
-              text-[11px]
-              uppercase
-              tracking-[0.2em]
-              text-white/35
-            "
-          >
-            FULL STACK • {year}
-          </span>
+    <div className="flex h-full flex-col px-8 pt-5 pb-6">
 
-          <GlassBadge color={statusColor}>
-            {status}
-          </GlassBadge>
-        </div>
+      {/* Top */}
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/30">
+          FULL-STACK • {project.year}
+        </span>
 
-        {/* Title */}
-        <h2
-          className="
-            mt-6
-            text-[56px]
-            font-black
-            leading-none
-            tracking-[-0.05em]
-            text-white
-          "
-        >
-          {title}
-        </h2>
-
-        {/* Description */}
-        <p
-          className="
-            mt-6
-            max-w-xl
-            text-[15px]
-            leading-8
-            text-white/60
-          "
-        >
-          {description}
-        </p>
-
-        {/* Tech */}
-        <ProjectTechStack tech={tech} />
+        <GlassBadge color={project.statusColor}>
+          {project.status}
+        </GlassBadge>
       </div>
 
-      {/* Buttons */}
-      <ProjectButtons
-        live={live}
-        github={github}
-      />
+      {/* Title */}
+      <h2
+        className="
+          mt-7
+          max-w-[260px]
+          text-[27px]
+          font-extrabold
+          leading-[1]
+          tracking-[-0.045em]
+          text-white
+        "
+      >
+        {project.title}
+      </h2>
+
+      {/* Description */}
+      <p
+        className="
+          mt-4
+          max-w-[240px]
+          text-[13px]
+          leading-7
+          text-white/56
+        "
+      >
+        {project.description}
+      </p>
+
+      {/* Tech */}
+      <div className="mt-5">
+        <ProjectTechStack tech={project.tech} />
+      </div>
+
+      <div className="mt-auto pt-7">
+        <ProjectButtons
+          live={project.live}
+          github={project.github}
+        />
+      </div>
+
     </div>
   );
 }

@@ -1,6 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 
+const glowColors = {
+  purple: "bg-fuchsia-500/20",
+  green: "bg-emerald-500/20",
+  cyan: "bg-cyan-400/20",
+  white: "bg-white/10",
+};
+
 function RegularPreview({ project }) {
   const {
     previewTitle,
@@ -8,53 +15,49 @@ function RegularPreview({ project }) {
     accent,
     year,
     category,
-    live,
     github,
+    live,
   } = project;
 
-  const accents = {
-    purple: {
-      background:
-        "bg-[radial-gradient(circle_at_center,rgba(139,92,246,.20),transparent_65%),linear-gradient(135deg,#262038,#18161d,#101012)]",
-    },
-
-    green: {
-      background:
-        "bg-[radial-gradient(circle_at_center,rgba(16,185,129,.18),transparent_65%),linear-gradient(135deg,#1a2c24,#18161d,#101012)]",
-    },
-
-    cyan: {
-      background:
-        "bg-[radial-gradient(circle_at_center,rgba(34,211,238,.18),transparent_65%),linear-gradient(135deg,#18272d,#18161d,#101012)]",
-    },
-
-    white: {
-      background:
-        "bg-[radial-gradient(circle_at_center,rgba(255,255,255,.08),transparent_65%),linear-gradient(135deg,#242424,#18161d,#101012)]",
-    },
-  };
-
-  const current = accents[accent] || accents.purple;
+  const glow = glowColors[accent] || glowColors.purple;
 
   return (
-    <div
-      className={`
-        relative
-        aspect-[16/10]
-        overflow-hidden
-        border-b
-        border-white/[0.06]
-        ${current.background}
-      `}
-    >
-      {/* Grid */}
+    <div className="group relative flex aspect-[16/10] overflow-hidden bg-[#090909]">
+
+      {/* Blueprint Grid */}
       <div
         className="
+          absolute inset-0
+          opacity-[0.05]
+          [background-image:
+            linear-gradient(to_right,rgba(255,255,255,.07)_1px,transparent_1px),
+            linear-gradient(to_bottom,rgba(255,255,255,.07)_1px,transparent_1px)]
+          [background-size:44px_44px]
+        "
+      />
+
+      {/* Accent Glow */}
+      <div
+        className={`
           absolute
-          inset-0
-          opacity-[0.03]
-          [background-image:linear-gradient(rgba(255,255,255,.35)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.35)_1px,transparent_1px)]
-          [background-size:28px_28px]
+          -left-24
+          -top-24
+          h-[320px]
+          w-[320px]
+          rounded-full
+          blur-[110px]
+          transition-all
+          duration-500
+          ${glow}
+          group-hover:scale-110
+        `}
+      />
+
+      {/* Vignette */}
+      <div
+        className="
+          absolute inset-0
+          bg-[radial-gradient(circle_at_center,transparent_25%,rgba(0,0,0,.72))]
         "
       />
 
@@ -62,25 +65,39 @@ function RegularPreview({ project }) {
       <span
         className="
           absolute
-          right-4
-          top-4
+          right-6
+          top-6
           z-20
           font-mono
           text-[10px]
           uppercase
-          tracking-[0.18em]
-          text-white/40
+          tracking-[0.25em]
+          text-white/30
         "
       >
         {year}
       </span>
 
-      {/* Center Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      {/* Center */}
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-1
+          flex-col
+          items-center
+          justify-center
+          text-center
+          transition-all
+          duration-500
+          group-hover:-translate-y-2
+        "
+      >
         <h3
           className="
             font-serif-display
-            text-[36px]
+            text-[40px]
             italic
             leading-none
             tracking-[-0.04em]
@@ -93,11 +110,10 @@ function RegularPreview({ project }) {
         <p
           className="
             mt-3
-            font-mono
-            text-[10px]
+            text-[11px]
             uppercase
-            tracking-[0.18em]
-            text-white/45
+            tracking-[0.28em]
+            text-white/40
           "
         >
           {previewSubtitle}
@@ -108,54 +124,73 @@ function RegularPreview({ project }) {
       <div
         className="
           absolute
-          inset-x-0
-          bottom-0
-          z-20
+          inset-0
           flex
-          items-center
+          items-end
           justify-between
-          border-t
-          border-white/10
-          bg-black/35
-          px-4
-          py-3
+          px-6
+          pb-6
           opacity-0
-          translate-y-full
           transition-all
-          duration-300
-          group-hover:translate-y-0
+          duration-500
           group-hover:opacity-100
         "
       >
         <span
           className="
-            font-mono
+            rounded-full
+            border
+            border-white/10
+            bg-white/5
+            px-3
+            py-1
             text-[10px]
             uppercase
-            tracking-[0.18em]
+            tracking-[0.22em]
             text-white/55
+            backdrop-blur-xl
           "
         >
           {category}
         </span>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <a
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/60 transition hover:text-white"
+            className="
+              rounded-full
+              border
+              border-white/10
+              bg-white/5
+              p-2.5
+              text-white/60
+              backdrop-blur-xl
+              transition
+              hover:text-white
+            "
           >
-            <FiGithub size={16} />
+            <FiGithub size={15} />
           </a>
 
           <a
             href={live}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/60 transition hover:text-white"
+            className="
+              rounded-full
+              border
+              border-white/10
+              bg-white/5
+              p-2.5
+              text-white/60
+              backdrop-blur-xl
+              transition
+              hover:text-white
+            "
           >
-            <ArrowUpRight size={16} />
+            <ArrowUpRight size={15} />
           </a>
         </div>
       </div>
