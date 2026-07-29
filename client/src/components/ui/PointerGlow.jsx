@@ -1,92 +1,142 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 function PointerGlow() {
-  const [{ x, y }, setPosition] = useState({ x: 0, y: 0 });
+  const ambientRef = useRef(null);
+  const glowRef = useRef(null);
+  const coreRef = useRef(null);
 
   useEffect(() => {
-    const move = (e) => {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+    let animationFrame;
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+
+    let currentX = targetX;
+    let currentY = targetY;
+
+    const lerp = (start, end, factor) => {
+      return start + (end - start) * factor;
     };
 
-    window.addEventListener("pointermove", move);
+    const handleMove = (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+    };
 
-    return () => window.removeEventListener("pointermove", move);
+    const animate = () => {
+      currentX = lerp(currentX, targetX, 0.12);
+      currentY = lerp(currentY, targetY, 0.12);
+
+      if (ambientRef.current) {
+        ambientRef.current.style.transform = `translate3d(${currentX - 360}px, ${
+          currentY - 360
+        }px, 0)`;
+      }
+
+      if (glowRef.current) {
+        glowRef.current.style.transform = `translate3d(${currentX - 160}px, ${
+          currentY - 160
+        }px, 0)`;
+      }
+
+      if (coreRef.current) {
+        coreRef.current.style.transform = `translate3d(${currentX - 40}px, ${
+          currentY - 40
+        }px, 0)`;
+      }
+
+      animationFrame = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("pointermove", handleMove);
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("pointermove", handleMove);
+    };
   }, []);
 
-return (
-  <div
-    className="
-      pointer-events-none
-      fixed
-      inset-0
-      z-[9999]
-      overflow-hidden
-    "
-  >
-    {/* Large Ambient Glow */}
-
+  return (
     <div
       className="
-        absolute
-        h-[520px]
-        w-[520px]
-        rounded-full
-        blur-[140px]
-        transition-transform
-        duration-300
-        ease-out
+        pointer-events-none
+        fixed
+        inset-0
+        z-0
+        overflow-hidden
       "
-      style={{
-        transform: `translate(${x - 260}px, ${y - 260}px)`,
-        background:
-          "radial-gradient(circle, rgba(139,92,246,.14) 0%, rgba(168,85,247,.10) 45%, transparent 75%)",
-      }}
-    />
+    >
+      {/* Ambient Light */}
 
-    {/* Main Cursor Glow */}
+      <div
+        ref={ambientRef}
+        className="
+          absolute
+          h-[720px]
+          w-[720px]
+          rounded-full
+          blur-[180px]
+        "
+        style={{
+          background: `
+            radial-gradient(
+              circle,
+              rgba(124,92,255,.08) 0%,
+              rgba(168,85,247,.05) 40%,
+              transparent 75%
+            )
+          `,
+        }}
+      />
 
-    <div
-      className="
-        absolute
-        h-[220px]
-        w-[220px]
-        rounded-full
-        blur-[70px]
-        transition-transform
-        duration-75
-        ease-out
-      "
-      style={{
-        transform: `translate(${x - 110}px, ${y - 110}px)`,
-        background:
-          "radial-gradient(circle, rgba(255,255,255,.05) 0%, rgba(168,85,247,.12) 40%, transparent 75%)",
-      }}
-    />
+      {/* Main Glow */}
 
-    {/* Bright Core */}
+      <div
+        ref={glowRef}
+        className="
+          absolute
+          h-[320px]
+          w-[320px]
+          rounded-full
+          blur-[90px]
+        "
+        style={{
+          background: `
+            radial-gradient(
+              circle,
+              rgba(255,255,255,.035) 0%,
+              rgba(168,85,247,.06) 45%,
+              transparent 75%
+            )
+          `,
+        }}
+      />
 
-    <div
-      className="
-        absolute
-        h-10
-        w-10
-        rounded-full
-        blur-xl
-        transition-transform
-        duration-75
-        ease-out
-      "
-      style={{
-        transform: `translate(${x - 20}px, ${y - 20}px)`,
-        background:
-          "radial-gradient(circle, rgba(255,255,255,.12), transparent 70%)",
-      }}
-    />
-  </div>
-);
+      {/* Core Highlight */}
+
+      <div
+        ref={coreRef}
+        className="
+          absolute
+          h-[80px]
+          w-[80px]
+          rounded-full
+          blur-[26px]
+        "
+        style={{
+          background: `
+            radial-gradient(
+              circle,
+              rgba(255,255,255,.08),
+              transparent 75%
+            )
+          `,
+        }}
+      />
+    </div>
+  );
 }
 
 export default PointerGlow;

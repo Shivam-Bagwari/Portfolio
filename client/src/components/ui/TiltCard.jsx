@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function TiltCard({
   children,
   className = "",
-  maxTilt = 5,
+  maxTilt = 4,
 }) {
   const ref = useRef(null);
   const rectRef = useRef(null);
@@ -12,20 +12,18 @@ function TiltCard({
   const [disableTilt, setDisableTilt] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
+    const resize = () => {
       setDisableTilt(window.innerWidth < 1024);
     };
 
-    checkScreen();
+    resize();
 
-    window.addEventListener("resize", checkScreen);
+    window.addEventListener("resize", resize);
 
     return () => {
-      window.removeEventListener("resize", checkScreen);
+      window.removeEventListener("resize", resize);
 
-      if (frame.current) {
-        cancelAnimationFrame(frame.current);
-      }
+      if (frame.current) cancelAnimationFrame(frame.current);
     };
   }, []);
 
@@ -34,10 +32,10 @@ function TiltCard({
   };
 
   const onMove = (e) => {
-    const el = ref.current;
+    const card = ref.current;
     const rect = rectRef.current;
 
-    if (!el || !rect) return;
+    if (!card || !rect) return;
 
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
@@ -48,27 +46,27 @@ function TiltCard({
       const rotateY = (px - 0.5) * maxTilt * 2;
       const rotateX = (py - 0.5) * -maxTilt * 2;
 
-      el.style.transform = `
+      card.style.transform = `
         perspective(1800px)
         rotateX(${rotateX}deg)
         rotateY(${rotateY}deg)
-        translateY(-6px)
-        scale(1.015)
+        translateY(-4px)
+        scale(1.008)
       `;
 
-      el.style.setProperty("--mx", `${px * 100}%`);
-      el.style.setProperty("--my", `${py * 100}%`);
+      card.style.setProperty("--mx", `${px * 100}%`);
+      card.style.setProperty("--my", `${py * 100}%`);
     });
   };
 
   const onLeave = () => {
-    const el = ref.current;
+    const card = ref.current;
 
-    if (!el) return;
+    if (!card) return;
 
     cancelAnimationFrame(frame.current);
 
-    el.style.transform = `
+    card.style.transform = `
       perspective(1800px)
       rotateX(0deg)
       rotateY(0deg)
@@ -83,16 +81,17 @@ function TiltCard({
       onMouseEnter={disableTilt ? undefined : onEnter}
       onMouseMove={disableTilt ? undefined : onMove}
       onMouseLeave={disableTilt ? undefined : onLeave}
-      className={`group relative overflow-hidden rounded-[28px] ${className}`}
+      className={`group relative overflow-hidden rounded-[30px] ${className}`}
       style={{
         transformStyle: "preserve-3d",
         willChange: "transform",
+        contain: "paint",
         transition:
           "transform .45s cubic-bezier(.22,.61,.36,1)",
-        contain: "paint",
       }}
     >
-      {/* Cursor Glow */}
+      {/* Cursor Light */}
+
       <div
         className="
           pointer-events-none
@@ -100,16 +99,17 @@ function TiltCard({
           inset-0
           opacity-0
           transition-opacity
-          duration-300
+          duration-500
           group-hover:opacity-100
         "
         style={{
           background:
-            "radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.10), transparent 45%)",
+            "radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.08), rgba(168,85,247,.04) 35%, transparent 72%)",
         }}
       />
 
-      {/* Glass Highlight */}
+      {/* Moving Reflection */}
+
       <div
         className="
           pointer-events-none
@@ -117,28 +117,34 @@ function TiltCard({
           inset-0
           opacity-0
           transition-opacity
-          duration-300
+          duration-500
           group-hover:opacity-100
         "
         style={{
           background:
-            "linear-gradient(135deg, rgba(255,255,255,.08), transparent 30%, rgba(168,85,247,.10))",
+            "linear-gradient(135deg, rgba(255,255,255,.06), transparent 35%, rgba(255,255,255,.015) 70%, transparent)",
+          transform:
+            "translate3d(calc((var(--mx,50%) - 50%) * .08), calc((var(--my,50%) - 50%) * .08),0)",
         }}
       />
 
-      {/* Border Glow */}
+      {/* Border Bloom */}
+
       <div
         className="
           pointer-events-none
           absolute
           inset-0
-          rounded-[28px]
+          rounded-[30px]
+
           border
-          border-white/10
-          opacity-0
-          transition-opacity
-          duration-300
-          group-hover:opacity-100
+
+          border-white/[0.08]
+
+          transition-all
+          duration-500
+
+          group-hover:border-violet-400/20
         "
       />
 

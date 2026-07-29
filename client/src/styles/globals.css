@@ -54,16 +54,16 @@
 
   background-image:
     linear-gradient(
-      rgba(255,255,255,.025) 1px,
+      rgba(255,255,255,.055) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,255,255,.025) 1px,
+      rgba(255,255,255,.055) 1px,
       transparent 1px
     );
 
-  background-size: 82px 82px;
+  background-size: 74px 74px;
 }
  
 /* ======================================================
@@ -134,4 +134,37 @@
     18px 18px;
 
   mix-blend-mode: soft-light;
+}
+@keyframes floatLeft {
+
+  0%,
+ 100%{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  50%{
+    transform:
+      translate3d(18px,-14px,0)
+      scale(1.04);
+  }
+
+}
+
+@keyframes floatRight {
+
+  0%,
+100%{
+    transform:
+      translate3d(0,0,0)
+      scale(1);
+  }
+
+  50%{
+    transform:
+      translate3d(-16px,12px,0)
+      scale(1.03);
+  }
+
 }

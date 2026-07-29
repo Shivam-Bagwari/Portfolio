@@ -1,5 +1,4 @@
 import useClockSafe from "../../hooks/useClockSafe";
-
 function AvailabilityBadge() {
     const time = useClockSafe();
     return (

@@ -15,7 +15,7 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
 
     status: "Live",
-    statusColor: "green",
+    statusColor: "bg-emerald-400",
 
     accent: "purple",
 
@@ -41,7 +41,7 @@ const projects = [
     tech: ["JavaScript", "Leaflet", "GIS", "AI"],
 
     status: "Research",
-    statusColor: "blue",
+    statusColor: "bg-zinc-300",
 
     accent: "green",
 
@@ -66,15 +66,10 @@ const projects = [
       "A modern developer portfolio built with React, Tailwind CSS, and a custom glassmorphism design system focused on performance and user experience.",
 
     tech: ["React", "Tailwind", "JavaScript", "Vite"],
-
     status: "Live",
-
-    statusColor: "green",
-
+    statusColor: "bg-emerald-400",
     accent: "cyan",
-
     year: "2026",
-
     live: "#",
     github: "#",
   },
@@ -94,15 +89,10 @@ const projects = [
       "A community platform connecting students, developers, and campus organizations through collaboration, events, and project discovery.",
 
     tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-
     status: "In Development",
-
-    statusColor: "orange",
-
+    statusColor: "bg-orange-400",
     accent: "white",
-
     year: "2026",
-
     live: "#",
     github: "#",
   },

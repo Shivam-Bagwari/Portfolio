@@ -6,7 +6,7 @@ function BackgroundEffects() {
       <div className="absolute inset-0 noise-bg bg-[#000000] " />
       
       {/* Noise Texture */}
-      <div className="absolute inset-0 noise-overlay opacity-[0.035]" />
+      <div className="absolute inset-0 noise-overlay opacity-[0.07]" />
 
       {/* Blueprint Grid */}
       <>

@@ -1,27 +1,27 @@
-import GlassButton from "../../ui/GlassButton";
+import PremiumButton from "../../ui/PremiumButton";
 import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 
 function ProjectButtons({ live, github }) {
   return (
-    <div className="mt-8 flex items-center gap-3">
-      <GlassButton
+    <div className="mt-5 flex items-center gap-3">
+
+      <PremiumButton
         href={live}
         variant="primary"
-        icon={ArrowUpRight}
-        className="w-[132px]"
+        rightIcon={<ArrowUpRight size={15} />}
       >
         Visit Site
-      </GlassButton>
+      </PremiumButton>
 
-      <GlassButton
+      <PremiumButton
         href={github}
         variant="secondary"
-        icon={FiGithub}
-        className="w-[80px]"
+        leftIcon={<FiGithub size={15} />}
       >
         Code
-      </GlassButton>
+      </PremiumButton>
+
     </div>
   );
 }

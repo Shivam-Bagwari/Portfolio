@@ -4,11 +4,19 @@ import ProjectButtons from "./ProjectButtons";
 
 function ProjectFeaturedContent({ project }) {
   return (
-    <div className="flex h-full flex-col px-8 pt-5 pb-6">
+    <div className="flex h-full flex-col px-8 pt-8 pb-7">
 
       {/* Top */}
       <div className="flex items-center justify-between">
-        <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-white/30">
+        <span
+          className="
+            font-mono
+            text-[9px]
+            uppercase
+            tracking-[0.32em]
+            text-white/26
+          "
+        >
           FULL-STACK • {project.year}
         </span>
 
@@ -20,12 +28,12 @@ function ProjectFeaturedContent({ project }) {
       {/* Title */}
       <h2
         className="
-          mt-7
-          max-w-[260px]
-          text-[27px]
+          mt-4
+          max-w-[280px]
+          text-[25px]
           font-extrabold
-          leading-[1]
-          tracking-[-0.045em]
+          tracking-[-0.055em]
+          leading-none
           text-white
         "
       >
@@ -35,28 +43,29 @@ function ProjectFeaturedContent({ project }) {
       {/* Description */}
       <p
         className="
-          mt-4
-          max-w-[240px]
-          text-[13px]
-          leading-7
-          text-white/56
+          mt-5
+          max-w-[255px]
+          text-[14px]
+          leading-[1.9]
+          text-white/58
         "
       >
         {project.description}
       </p>
 
-      {/* Tech */}
-      <div className="mt-5">
+      {/* Tech Stack */}
+      <div className="mt-6">
         <ProjectTechStack tech={project.tech} />
       </div>
 
-      <div className="mt-auto pt-7">
-        <ProjectButtons
-          live={project.live}
-          github={project.github}
-        />
-      </div>
+      {/* Push Buttons Down */}
+      <div className="flex-1" />
 
+      {/* Buttons */}
+      <ProjectButtons
+        live={project.live}
+        github={project.github}
+      />
     </div>
   );
 }
