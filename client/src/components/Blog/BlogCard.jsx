@@ -1,82 +1,112 @@
 import { ArrowUpRight } from "lucide-react";
-import GlassCard from "../ui/GlassCard";
+import PremiumCard from "../ui/PremiumCard";
+import TiltCard from "../ui/TiltCard";
 
 function BlogCard({ blog }) {
-  const { title, date, readTime, tags } = blog;
+  const { title, readTime, tags } = blog;
 
   return (
-    <GlassCard
-      className="
-        group
-        px-5
-        py-4
-        hover:border-white/15
-        transition-all
-        duration-300
-      "
-    >
-      {/* Meta */}
-      <div className="mb-2 flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-white/40">
-        <span>{date}</span>
+    <TiltCard maxTilt={1.5}>
 
-        <span className="h-1 w-1 rounded-full bg-white/25" />
+      <PremiumCard className="rounded-[24px]">
 
-        <span>{readTime}</span>
-      </div>
+        <div className="relative px-6 py-5">
 
-      {/* Title + Arrow */}
-      <div className="flex items-center justify-between gap-4">
-        <h3
-          className="
-            text-[20px]
-            font-tight
-            font-bold
-            leading-tight
-            text-white
-            transition-colors
-            duration-300
-            group-hover:text-violet-200
-          "
-        >
-          {title}
-        </h3>
+          {/* Arrow */}
 
-        <ArrowUpRight
-          size={18}
-          className="
-            shrink-0
-            text-white/40
-            transition-all
-            duration-300
-            group-hover:-translate-y-1
-            group-hover:translate-x-1
-            group-hover:text-violet-300
-          "
-        />
-      </div>
-
-      {/* Tags */}
-      <div className="mt-3 flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span
-            key={tag}
+          <ArrowUpRight
+            size={16}
             className="
-              rounded-full
-              border
-              border-white/8
-              bg-white/[0.03]
-              px-2.5
-              py-0.5
-              text-[11px]
-              font-medium
-              text-white/55
+              absolute
+              right-6
+              top-6
+              text-white/28
+              transition-all
+              duration-300
+              ease-out
+              group-hover:-translate-y-0.5
+              group-hover:translate-x-0.5
+              group-hover:text-fuchsia-300
+            "
+          />
+
+          {/* Meta */}
+
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              font-mono
+              text-[10px]
+              uppercase
+              tracking-[0.28em]
+              text-white/28
             "
           >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </GlassCard>
+
+            <span>Coming Soon</span>
+
+            <span className="h-[3px] w-[3px] rounded-full bg-white/20" />
+
+            <span>{readTime}</span>
+
+          </div>
+
+          {/* Title */}
+
+          <h3
+            className="
+              mt-3
+              max-w-[640px]
+              text-[18px]
+              font-bold
+              leading-[1.35]
+              tracking-tight
+              text-white
+              transition-colors
+              duration-300
+              group-hover:text-fuchsia-100
+            "
+          >
+            {title}
+          </h3>
+
+          {/* Tags */}
+
+          <div className="mt-4 flex flex-wrap gap-2">
+
+            {tags.map((tag) => (
+
+              <span
+                key={tag}
+                className="
+                  rounded-full
+                  border
+                  border-white/[0.08]
+                  bg-white/[0.025]
+                  px-2.5
+                  py-[5px]
+                  text-[11px]
+                  font-medium
+                  text-white/55
+                  transition-all
+                  duration-300
+                  group-hover:border-white/15
+                "
+              >
+                {tag}
+              </span>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </PremiumCard>
+
+    </TiltCard>
   );
 }
 

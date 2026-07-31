@@ -1,4 +1,4 @@
-
+import Container from "../layout/Container"
 import blogs from "../../data/blogs";
 import SectionHeader from "../ui/SectionHeader";
 import BlogCard from "./BlogCard";
@@ -7,34 +7,42 @@ function Blogs() {
     return (
         <section
             id="blogs"
-            className="relative mx-auto w-full max-w-4xl px-10 py-10"
+            className="pt-10 pb-8"
         >
-            <SectionHeader
-                number="06"
-                title="Blogs"
-            />
+            <Container>
 
-            <div className="mt-12 space-y-6">
+                <SectionHeader
+                    number="05"
+                    title="Blogs"
+                />
 
-                {blogs
-                    .filter((blog) => blog.featured)
-                    .slice(0, 2)
-                    .map((blog) => (
-                        <BlogCard
-                            key={blog.id}
-                            blog={blog}
-                        />
-                    ))}
-            </div>
+                <div className="mt-10 space-y-4">
 
+                    {blogs
+                        .filter((blog) => blog.featured)
+                        .slice(0, 2)
+                        .map((blog) => (
+                            <BlogCard
+                                key={blog.id}
+                                blog={blog}
+                            />
+                        ))}
 
-            {/* Bottom CTA */}
+                </div>
 
-            <div className="mt-8 flex justify-center">
-                <p className="text-sm tracking-wide text-white/40">
+                <p
+                    className="
+                    mt-8
+                    text-center
+                    text-sm
+                    tracking-wide
+                    text-white/32
+                    "
+                >
                     More articles coming soon.
                 </p>
-            </div>
+
+            </Container>
         </section>
     );
 }
