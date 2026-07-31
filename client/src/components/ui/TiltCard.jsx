@@ -128,26 +128,6 @@ function TiltCard({
         }}
       />
 
-      {/* Border Bloom */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          rounded-[30px]
-
-          border
-
-          border-white/[0.08]
-
-          transition-all
-          duration-500
-
-          group-hover:border-violet-400/20
-        "
-      />
-
       {children}
     </div>
   );

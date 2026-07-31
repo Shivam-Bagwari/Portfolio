@@ -2,62 +2,125 @@ import Container from "../../layout/Container";
 import skills from "../../../data/skills";
 import SkillCategory from "./SkillCategory";
 import SectionHeader from "../../ui/SectionHeader";
+import TiltCard from "../../ui/TiltCard";
+import PremiumCard from "../../ui/PremiumCard";
 
-const marquee = [
-  "React",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "Tailwind",
-  "JavaScript",
-  "Git",
-  "GitHub",
-  "VS Code",
-  "Figma",
+const exploring = [
+  "TypeScript",
+  "Next.js",
+  "PostgreSQL",
 ];
 
 function Skills() {
   return (
     <section
       id="skills"
-      className="pt-10 pb-10"
+      className="py-12"
     >
       <Container>
+
         <SectionHeader
           number="03"
           title="Skills & Technologies"
+          meta="15 Technologies • Daily Driver"
         />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {skills.map((group) => (
-            <SkillCategory
-              key={group.category}
-              category={group.category}
-              skills={group.skills}
-            />
-          ))}
-        </div>
+        <TiltCard className="mt-12">
 
-        {/* Bottom Tech Strip */}
+          <PremiumCard>
 
-        <div className="mt-16 overflow-hidden border-t border-white/10 pt-6">
-          <div className="flex flex-wrap justify-center gap-8">
-            {marquee.map((item) => (
-              <span
-                key={item}
+            {/* Main Content */}
+
+            <div className="px-10 pt-10">
+
+              <div
                 className="
-                  font-mono
-                  text-[11px]
-                  uppercase
-                  tracking-[0.35em]
-                  text-white/28
+                  grid
+                  grid-cols-1
+                  gap-x-16
+                  gap-y-12
+                  md:grid-cols-2
                 "
               >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
+
+                {skills.map((group, index) => (
+
+                  <SkillCategory
+                    key={group.category}
+                    index={index + 1}
+                    category={group.category}
+                    skills={group.skills}
+                  />
+
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* Divider */}
+
+            <div className="mx-10 mt-10 h-px bg-white/[0.05]" />
+
+            {/* Exploring */}
+
+            <div className="px-10 py-8">
+
+              <div className="flex flex-wrap items-center gap-4">
+
+                <span
+                  className="
+                    font-mono
+                    text-[11px]
+                    uppercase
+                    tracking-[0.35em]
+                    text-white/35
+                  "
+                >
+                  Currently Exploring
+                </span>
+
+                {exploring.map((item) => (
+
+                  <div
+                    key={item}
+                    className="
+                      flex
+                      items-center
+                      gap-2
+                      rounded-full
+                      border
+                      border-white/10
+                      bg-white/[0.03]
+                      px-3
+                      py-1.5
+                    "
+                  >
+
+                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+
+                    <span
+                      className="
+                        text-xs
+                        font-medium
+                        text-white/70
+                      "
+                    >
+                      {item}
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </PremiumCard>
+
+        </TiltCard>
+
       </Container>
     </section>
   );
