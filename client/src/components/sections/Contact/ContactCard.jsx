@@ -1,134 +1,159 @@
-import { Mail, Download, Circle } from "lucide-react";
-import GlassButton from "../../ui/GlassButton";
+import {
+  Mail,
+  Download,
+  Keyboard,
+} from "lucide-react";
+
+import PremiumCard from "../../ui/PremiumCard";
+import PremiumButton from "../../ui/PremiumButton";
+import TiltCard from "../../ui/TiltCard";
 
 function ContactCard() {
   return (
-    <div
-      className="
-        relative
-        overflow-hidden
-        rounded-[32px]
-        border
-        border-white/10
-        bg-gradient-to-br
-        from-white/[0.04]
-        via-white/[0.02]
-        to-transparent
-        px-8
-        py-16
-        text-center
-        backdrop-blur-xl
-      "
-    >
-      {/* Glow */}
+    <TiltCard maxTilt={2}>
 
-      <div
-        className="
-          absolute
-          left-1/2
-          top-1/2
-          h-80
-          w-80
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
-          bg-violet-500/10
-          blur-[120px]
-        "
-      />
+      <PremiumCard>
 
-      <div className="relative">
-        <p
-          className="
-            font-mono
-            text-[11px]
-            uppercase
-            tracking-[0.45em]
-            text-white/35
-          "
-        >
-          GET IN TOUCH
-        </p>
+        <div className="px-10 py-12 text-center">
 
-        <h2
-          className="
-            mt-6
-            font-serif-display
-            text-5xl
-            italic
-            leading-tight
-            text-white
-          "
-        >
-          Let's build something meaningful.
-        </h2>
+          {/* Small Heading */}
 
-        <p
-          className="
-            mx-auto
-            mt-8
-            max-w-2xl
-            text-lg
-            leading-8
-            text-white/60
-          "
-        >
-          I'm currently looking for internship opportunities,
-          freelance work, and exciting collaborations. If you
-          have an idea you'd like to build together, I'd love
-          to hear from you.
-        </p>
-
-        <div
-          className="
-            mt-10
-            flex
-            flex-wrap
-            justify-center
-            gap-4
-          "
-        >
-          <GlassButton
-            variant="primary"
-            icon={Mail}
-            href="mailto:shivambagwari@gmail.com"
+          <p
+            className="
+              font-mono
+              text-[11px]
+              uppercase
+              tracking-[0.42em]
+              text-white/28
+            "
           >
-            Email Me
-          </GlassButton>
+            GET IN TOUCH
+          </p>
 
-          <GlassButton
-            variant="secondary"
-            icon={Download}
-            href="/Shivam_Bagwari_resume_v1.pdf"
+          {/* Headline */}
+
+          <h2
+            className="
+              mx-auto
+              mt-6
+              max-w-4xl
+              font-serif-display
+              text-[60px]
+              italic
+              leading-[1.05]
+              tracking-tight
+              text-white
+            "
           >
-            Download Resume
-          </GlassButton>
+            Let's build something worth shipping.
+          </h2>
+
+          {/* Description */}
+
+          <p
+            className="
+              mx-auto
+              mt-8
+              max-w-2xl
+              font-mono
+              text-[18px]
+              leading-9
+              text-white/55
+            "
+          >
+            Open to select freelance work,
+            collaborations, and full-time roles.
+            Reach out — I reply within 24 hours.
+          </p>
+
+          {/* Buttons */}
+
+          <div
+            className="
+              mt-10
+              flex
+              flex-wrap
+              justify-center
+              gap-4
+            "
+          >
+
+            <PremiumButton
+              href="mailto:shivambagwari@gmail.com"
+              variant="primary"
+              icon={Mail}
+            >
+              shivambagwari@gmail.com
+            </PremiumButton>
+
+            <PremiumButton
+              href="/Shivam_Bagwari_resume_v1.pdf"
+              variant="secondary"
+              icon={Download}
+            >
+              Download Resume
+            </PremiumButton>
+
+          </div>
+
+          {/* Bottom Hint */}
+
+          <div
+            className="
+              mt-8
+              flex
+              items-center
+              justify-center
+              gap-2
+              text-[13px]
+              text-white/30
+            "
+          >
+
+            <span>Press</span>
+
+            <span
+              className="
+                flex
+                h-6
+                w-6
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/10
+                bg-white/[0.03]
+              "
+            >
+              <Keyboard size={13} />
+            </span>
+
+            <span
+              className="
+                flex
+                h-6
+                w-6
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/10
+                bg-white/[0.03]
+                font-mono
+              "
+            >
+              K
+            </span>
+
+            <span>anywhere to navigate.</span>
+
+          </div>
+
         </div>
 
-        <div
-          className="
-            mt-10
-            flex
-            items-center
-            justify-center
-            gap-3
-            text-sm
-            text-white/45
-          "
-        >
-          <Circle
-            size={10}
-            fill="#22c55e"
-            strokeWidth={0}
-          />
+      </PremiumCard>
 
-          <span>
-            Available for internships/full time • Usually replies within
-            24 hours
-          </span>
-        </div>
-      </div>
-    </div>
+    </TiltCard>
   );
 }
 

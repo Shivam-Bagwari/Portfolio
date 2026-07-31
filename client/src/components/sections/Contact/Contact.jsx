@@ -9,14 +9,16 @@ function Contact() {
       className="pt-10 pb-20"
     >
       <Container>
+
         <SectionHeader
-          number="04"
+          number="06"
           title="Get In Touch"
         />
 
-        <div className="mt-12">
+        <div className="mt-10">
           <ContactCard />
         </div>
+
       </Container>
     </section>
   );
