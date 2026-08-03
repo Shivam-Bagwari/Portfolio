@@ -32,6 +32,8 @@ function HeroContent() {
         >
           <img
             src={avatar}
+            loading="eager"
+            decoding="async"
             alt="Shivam Bagwari"
             className="
             h-[88px]

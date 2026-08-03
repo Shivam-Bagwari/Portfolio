@@ -1,7 +1,10 @@
 import Background from "./background/Background";
 import PointerAmbient from "./background/PointerAmbient";
+import useIsMobile from "../../hooks/useIsMobile";
+
 
 function BackgroundEffects() {
+  const isMobile = useIsMobile();
   return (
     <div
       className="
@@ -14,7 +17,8 @@ function BackgroundEffects() {
       aria-hidden="true"
     >
       <Background />
-      <PointerAmbient />
+
+      {!isMobile && <PointerAmbient />}
       
     </div>
   );

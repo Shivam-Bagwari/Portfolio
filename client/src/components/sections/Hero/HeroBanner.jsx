@@ -18,7 +18,7 @@ function HeroBanner() {
       "
     >
 
-      
+
       {/* Environment Lights */}
 
       {/* Moon Bloom */}
@@ -91,10 +91,13 @@ function HeroBanner() {
       {/* Banner Image */}
 
       <img
-        src={heroBanner}
-        alt="Hero Banner"
-        draggable={false}
-        className="
+          src={heroBanner}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          alt="Hero Banner"
+          draggable={false}
+          className="
           relative
           z-[2]
           md:h-[300px]
