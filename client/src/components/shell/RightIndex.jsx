@@ -16,7 +16,7 @@ function RightIndex() {
   return (
     <aside className="fixed inset-0 z-40 hidden pointer-events-none xl:block">
       {/* Layout Container */}
-      <div className="relative mx-auto h-full max-w-[1400px]">
+      <div className="relative mx-auto h-full max-w-[1500px]">
 
         {/* Right Navigation */}
         <div

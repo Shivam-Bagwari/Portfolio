@@ -1,8 +1,12 @@
+@import "../assets/fonts/fonts.css";
 @import "tailwindcss";
 
 
 /* Theme */
 
+@utility font-satoshi {
+  font-family: var(--font-satoshi);
+}
 @utility font-inter {
   font-family: "Inter", sans-serif;
 }
@@ -29,6 +33,7 @@
 }
 
 @theme {
+  --font-satoshi: "Satoshi", sans-serif;
 
   --color-background: #000000;
 
@@ -45,30 +50,246 @@
   --color-accent-pink: #f472b6;
 }
 
+body {
+  font-family: var(--font-satoshi);
+}
 
-/* ======================================================
-   Blueprint Grid
-====================================================== */
+/* Fine Blueprint Grid */
 
 @utility blueprint-grid {
 
   background-image:
     linear-gradient(
-      rgba(255,255,255,.055) 1px,
+      rgba(255,255,255,.045) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,255,255,.055) 1px,
+      rgba(255,255,255,.045) 1px,
       transparent 1px
     );
 
-  background-size: 74px 74px;
+  background-size: 72px 72px;
+}
+
+/* Major Blueprint Grid */
+
+.blueprint-grid-large {
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.08) 1px,
+      transparent 1px
+    );
+
+  background-size: 288px 288px;
+
+}
+
+/* Center Focus */
+
+.center-focus-mask {
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,.035),
+      transparent 72%
+    );
+
+}
+
+/* ======================================================
+   PREMIUM CANVAS RAILS
+====================================================== */
+
+.rail{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:1px;
+}
+
+.rail-left{
+  left:245px;
+}
+
+.rail-right{
+  right:245px;
+}
+
+.rail-line{
+
+  position:absolute;
+  inset:0;
+
+  width:1px;
+
+  background:rgba(255,255,255,.22);
+
+  box-shadow:
+      0 0 10px rgba(255,255,255,.10),
+      0 0 30px rgba(168,85,247,.08);
+}
+
+.rail-glow{
+
+  position:absolute;
+
+  left:-14px;
+
+  top:0;
+
+  bottom:0;
+
+  width:30px;
+
+  background:
+      radial-gradient(
+          rgba(168,85,247,.22),
+          transparent 70%
+      );
+
+  filter:blur(18px);
+
+  opacity:.55;
+}
+
+/* glowing dots */
+
+.rail-dots{
+
+  position:absolute;
+
+  inset:0;
+
+  background-image:
+      radial-gradient(circle,
+      rgba(255,255,255,.95) 0 2px,
+      transparent 2px);
+
+  background-repeat:repeat-y;
+
+  background-size:4px 220px;
+
+  background-position:center top;
+}
+
+/* small guide marks */
+
+.rail-guides{
+
+  position:absolute;
+
+  inset:0;
+
+  background-image:
+      repeating-linear-gradient(
+
+          to bottom,
+
+          transparent 0px,
+
+          transparent 210px,
+
+          rgba(255,255,255,.22) 210px,
+
+          rgba(255,255,255,.22) 211px,
+
+          transparent 211px,
+
+          transparent 220px
+
+      );
+
+}
+
+.rail-guides::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  bottom:0;
+
+  left:-8px;
+
+  width:8px;
+
+  background-image:
+      repeating-linear-gradient(
+
+          to bottom,
+
+          transparent 0,
+
+          transparent 210px,
+
+          rgba(255,255,255,.18) 210px,
+
+          rgba(255,255,255,.18) 211px,
+
+          transparent 211px,
+
+          transparent 220px
+
+      );
+
+}
+
+/* Background Vignette */
+
+.background-vignette {
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      ellipse at center,
+      transparent 48%,
+      rgba(0,0,0,.18) 72%,
+      rgba(0,0,0,.62) 100%
+    );
+
+}
+
+.noise-overlay {
+
+  background-image:
+
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.07) 1px, transparent 1px),
+
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,.05) 1px, transparent 1px),
+
+    radial-gradient(circle at 40% 75%, rgba(255,255,255,.04) 1px, transparent 1px);
+
+  background-size:
+
+    22px 22px,
+
+    32px 32px,
+
+    18px 18px;
+
+  mix-blend-mode: soft-light;
+
 }
  
-/* ======================================================
-   Aurora Animation
-====================================================== */
+/* Aurora Animation */
 
 @keyframes aurora-drift {
 
@@ -119,22 +340,7 @@
   animation: ping-ring 2s infinite;
 
 }
-/* Noise Overlay */
 
-.noise-overlay {
-
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 1px, transparent 1px),
-    radial-gradient(circle at 80% 40%, rgba(255,255,255,.06) 1px, transparent 1px),
-    radial-gradient(circle at 40% 70%, rgba(255,255,255,.05) 1px, transparent 1px);
-
-  background-size:
-    24px 24px,
-    32px 32px,
-    18px 18px;
-
-  mix-blend-mode: soft-light;
-}
 @keyframes floatLeft {
 
   0%,

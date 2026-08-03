@@ -6,7 +6,6 @@ function HeroBanner() {
   const time = useClockSafe();
 
   return (
-    <TiltCard className="rounded-[28px]">
       <div
         className="
           relative
@@ -160,7 +159,6 @@ function HeroBanner() {
           </span>
         </div>
       </div>
-    </TiltCard>
   );
 }
 

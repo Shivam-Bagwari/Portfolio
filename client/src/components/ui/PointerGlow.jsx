@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 function PointerGlow() {
   const ambientRef = useRef(null);
   const glowRef = useRef(null);
-  const coreRef = useRef(null);
 
   useEffect(() => {
     let animationFrame;
@@ -39,12 +38,6 @@ function PointerGlow() {
         }px, 0)`;
       }
 
-      if (coreRef.current) {
-        coreRef.current.style.transform = `translate3d(${currentX - 40}px, ${
-          currentY - 40
-        }px, 0)`;
-      }
-
       animationFrame = requestAnimationFrame(animate);
     };
 
@@ -58,85 +51,64 @@ function PointerGlow() {
     };
   }, []);
 
-  return (
+return (
+  <div
+    className="
+      pointer-events-none
+      fixed
+      inset-0
+      z-0
+      overflow-hidden
+    "
+  >
+    {/* Ambient Color */}
+
     <div
+      ref={ambientRef}
       className="
-        pointer-events-none
-        fixed
-        inset-0
-        z-0
-        overflow-hidden
+        absolute
+        h-[780px]
+        w-[780px]
+        rounded-full
+        blur-[220px]
       "
-    >
-      {/* Ambient Light */}
+      style={{
+        background: `
+          radial-gradient(
+            circle,
+            rgba(124,92,255,.055) 0%,
+            rgba(168,85,247,.035) 45%,
+            transparent 75%
+          )
+        `,
+      }}
+    />
 
-      <div
-        ref={ambientRef}
-        className="
-          absolute
-          h-[720px]
-          w-[720px]
-          rounded-full
-          blur-[180px]
-        "
-        style={{
-          background: `
-            radial-gradient(
-              circle,
-              rgba(124,92,255,.08) 0%,
-              rgba(168,85,247,.05) 40%,
-              transparent 75%
-            )
-          `,
-        }}
-      />
+    {/* Inner Glow */}
 
-      {/* Main Glow */}
+    <div
+      ref={glowRef}
+      className="
+        absolute
+        h-[300px]
+        w-[300px]
+        rounded-full
+        blur-[110px]
+      "
+      style={{
+        background: `
+          radial-gradient(
+            circle,
+            rgba(168,85,247,.055) 0%,
+            rgba(124,92,255,.025) 50%,
+            transparent 75%
+          )
+        `,
+      }}
+    />
 
-      <div
-        ref={glowRef}
-        className="
-          absolute
-          h-[320px]
-          w-[320px]
-          rounded-full
-          blur-[90px]
-        "
-        style={{
-          background: `
-            radial-gradient(
-              circle,
-              rgba(255,255,255,.035) 0%,
-              rgba(168,85,247,.06) 45%,
-              transparent 75%
-            )
-          `,
-        }}
-      />
-
-      {/* Core Highlight */}
-
-      <div
-        ref={coreRef}
-        className="
-          absolute
-          h-[80px]
-          w-[80px]
-          rounded-full
-          blur-[26px]
-        "
-        style={{
-          background: `
-            radial-gradient(
-              circle,
-              rgba(255,255,255,.08),
-              transparent 75%
-            )
-          `,
-        }}
-      />
-    </div>
-  );
+  </div>
+);
 }
 
 export default PointerGlow;

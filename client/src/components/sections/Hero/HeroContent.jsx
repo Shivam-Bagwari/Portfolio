@@ -2,8 +2,8 @@ import avatar from "../../../assets/images/avatar.jpg";
 import socialLinks from "../../../data/socialLinks";
 import SocialButton from "../../ui/SocialButton";
 import GlassButton from "../../ui/GlassButton";
-import { FaCalendarAlt } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import { FaDownload } from "react-icons/fa6";
 function HeroContent() {
   return (
     <div className="mt-12">
@@ -126,13 +126,13 @@ function HeroContent() {
         </li>
       </ul>
 
-      <div className="mt-12 flex flex-wrap gap-3">
+      <div className="mt-12 flex flex-wrap gap-3 cursor:pointer">
 
         <GlassButton
           variant="primary"
-          icon={FaCalendarAlt}
+          icon={ FaDownload }
         >
-          Book an intro call
+          Download Resume
         </GlassButton>
 
         <GlassButton

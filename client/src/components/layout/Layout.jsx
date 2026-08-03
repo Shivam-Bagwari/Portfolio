@@ -4,25 +4,24 @@ import RightIndex from "../shell/RightIndex";
 import ScrollProgress from "../shell/ScrollProgress";
 import TopControls from "../shell/TopControls";
 
-
 function Layout({ children }) {
-    return (
-        <main className="relative min-h-screen bg-black">
+  return (
+    <main className="relative min-h-screen bg-black overflow-x-hidden">
 
-            <BackgroundEffects />
+      <BackgroundEffects />
 
-            <ScrollProgress />
+      <ScrollProgress />
 
-            <AvailabilityBadge />
+      <AvailabilityBadge />
 
-            <TopControls />
-            
-            <RightIndex />
+      <TopControls />
 
-            {children}
+        {children}
 
-        </main>
-    );
+      <RightIndex />
+
+    </main>
+  );
 }
 
 export default Layout;
