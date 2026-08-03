@@ -54,216 +54,287 @@ body {
   font-family: var(--font-satoshi);
 }
 
-/* Fine Blueprint Grid */
+/* ======================================================
+   PREMIUM BLUEPRINT GRID
+====================================================== */
 
 @utility blueprint-grid {
 
   background-image:
     linear-gradient(
-      rgba(255,255,255,.045) 1px,
+      rgba(255,255,255,.035) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,255,255,.045) 1px,
+      rgba(255,255,255,.035) 1px,
       transparent 1px
     );
 
-  background-size: 72px 72px;
+  background-size: 64px 64px;
 }
 
-/* Major Blueprint Grid */
+/* ======================================================
+   MAJOR GRID
+====================================================== */
 
-.blueprint-grid-large {
+.blueprint-grid-large{
 
   background-image:
     linear-gradient(
-      rgba(255,255,255,.08) 1px,
+      rgba(255,255,255,.055) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(255,255,255,.08) 1px,
+      rgba(255,255,255,.055) 1px,
       transparent 1px
     );
 
-  background-size: 288px 288px;
-
+  background-size:256px 256px;
 }
 
-/* Center Focus */
+/* ======================================================
+   CENTER LIFT
+====================================================== */
 
-.center-focus-mask {
+.center-focus-mask{
 
-  position: absolute;
-  inset: 0;
+  position:absolute;
+  inset:0;
 
   background:
-    radial-gradient(
+
+  radial-gradient(
+
       ellipse at center,
-      rgba(255,255,255,.035),
+
+      rgba(255,255,255,.02),
+
       transparent 72%
-    );
+
+  );
 
 }
 
 /* ======================================================
-   PREMIUM CANVAS RAILS
+   PREMIUM RAILS
 ====================================================== */
 
 .rail{
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:1px;
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+
+    width:1px;
+
 }
 
 .rail-left{
-  left:245px;
+
+    left:245px;
+
 }
 
 .rail-right{
-  right:245px;
+
+    right:245px;
+
 }
+
+/* Main Rail */
 
 .rail-line{
 
-  position:absolute;
-  inset:0;
+    position:absolute;
 
-  width:1px;
+    inset:0;
 
-  background:rgba(255,255,255,.22);
+    width:1px;
 
-  box-shadow:
-      0 0 10px rgba(255,255,255,.10),
-      0 0 30px rgba(168,85,247,.08);
+    background:rgba(255,255,255,.16);
+
+    box-shadow:
+
+        0 0 10px rgba(255,255,255,.05),
+
+        0 0 25px rgba(168,85,247,.05);
+
 }
+
+/* Glow */
 
 .rail-glow{
 
-  position:absolute;
+    position:absolute;
 
-  left:-14px;
+    top:0;
+    bottom:0;
 
-  top:0;
+    left:-18px;
 
-  bottom:0;
+    width:36px;
 
-  width:30px;
+    background:
 
-  background:
-      radial-gradient(
-          rgba(168,85,247,.22),
-          transparent 70%
-      );
+    radial-gradient(
 
-  filter:blur(18px);
+        rgba(168,85,247,.06),
 
-  opacity:.55;
+        transparent 72%
+
+    );
+
+    filter:blur(22px);
+
+    opacity:.5;
+
 }
 
-/* glowing dots */
+/* Tiny dots */
 
 .rail-dots{
 
-  position:absolute;
+    position:absolute;
 
-  inset:0;
+    inset:0;
 
-  background-image:
-      radial-gradient(circle,
-      rgba(255,255,255,.95) 0 2px,
-      transparent 2px);
+    background-image:
 
-  background-repeat:repeat-y;
+    radial-gradient(
 
-  background-size:4px 220px;
+        circle,
 
-  background-position:center top;
+        rgba(255,255,255,.9) 0 1px,
+
+        transparent 1px
+
+    );
+
+    background-repeat:repeat-y;
+
+    background-size:2px 180px;
+
+    background-position:center top;
+
 }
 
-/* small guide marks */
+/* Guide marks */
 
 .rail-guides{
 
-  position:absolute;
+    position:absolute;
 
-  inset:0;
+    inset:0;
 
-  background-image:
-      repeating-linear-gradient(
+    background-image:
 
-          to bottom,
+    repeating-linear-gradient(
 
-          transparent 0px,
+        to bottom,
 
-          transparent 210px,
+        transparent 0px,
 
-          rgba(255,255,255,.22) 210px,
+        transparent 176px,
 
-          rgba(255,255,255,.22) 211px,
+        rgba(255,255,255,.14) 176px,
 
-          transparent 211px,
+        rgba(255,255,255,.14) 177px,
 
-          transparent 220px
+        transparent 177px,
 
-      );
+        transparent 180px
+
+    );
 
 }
 
 .rail-guides::before{
 
-  content:"";
+    content:"";
 
-  position:absolute;
+    position:absolute;
 
-  top:0;
+    top:0;
+    bottom:0;
 
-  bottom:0;
+    left:-10px;
 
-  left:-8px;
+    width:10px;
 
-  width:8px;
+    background-image:
 
-  background-image:
-      repeating-linear-gradient(
+    repeating-linear-gradient(
 
-          to bottom,
+        to bottom,
 
-          transparent 0,
+        transparent 0,
 
-          transparent 210px,
+        transparent 176px,
 
-          rgba(255,255,255,.18) 210px,
+        rgba(255,255,255,.10) 176px,
 
-          rgba(255,255,255,.18) 211px,
+        rgba(255,255,255,.10) 177px,
 
-          transparent 211px,
+        transparent 177px,
 
-          transparent 220px
+        transparent 180px
 
-      );
+    );
 
 }
 
-/* Background Vignette */
+/* VIGNETTE */
 
-.background-vignette {
+.background-vignette{
 
-  position: absolute;
-  inset: 0;
+    position:absolute;
 
-  pointer-events: none;
+    inset:0;
 
-  background:
+    pointer-events:none;
+
+    background:
 
     radial-gradient(
-      ellipse at center,
-      transparent 48%,
-      rgba(0,0,0,.18) 72%,
-      rgba(0,0,0,.62) 100%
+
+        ellipse at center,
+
+        transparent 40%,
+
+        rgba(0,0,0,.10) 65%,
+
+        rgba(0,0,0,.28) 82%,
+
+        rgba(0,0,0,.72) 100%
+
     );
+
+}
+
+/* FILM GRAIN */
+
+.noise-overlay{
+
+    opacity:.03;
+
+    background-image:
+
+    radial-gradient(
+
+        circle,
+
+        rgba(255,255,255,.07) 1px,
+
+        transparent 1px
+
+    );
+
+    background-size:18px 18px;
+
+    mix-blend-mode:overlay;
 
 }
 

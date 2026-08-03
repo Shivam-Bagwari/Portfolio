@@ -1,42 +1,39 @@
 import { useEffect, useRef } from "react";
 
 function PointerAmbient() {
-
   const ambientRef = useRef(null);
   const tintRef = useRef(null);
 
   useEffect(() => {
-
     let frame;
 
-    let tx = window.innerWidth / 2;
-    let ty = window.innerHeight / 2;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
 
-    let x = tx;
-    let y = ty;
+    let x = targetX;
+    let y = targetY;
 
     const lerp = (a, b, t) => a + (b - a) * t;
 
     const move = (e) => {
-      tx = e.clientX;
-      ty = e.clientY;
+      targetX = e.clientX;
+      targetY = e.clientY;
     };
 
     const animate = () => {
-
-      x = lerp(x, tx, 0.055);
-      y = lerp(y, ty, 0.055);
+      // Much slower than before
+      x = lerp(x, targetX, 0.025);
+      y = lerp(y, targetY, 0.025);
 
       if (ambientRef.current) {
-        ambientRef.current.style.transform = `translate3d(${x - 650}px, ${y - 500}px,0)`;
+        ambientRef.current.style.transform = `translate3d(${x - 1200}px, ${y - 900}px,0)`;
       }
 
       if (tintRef.current) {
-        tintRef.current.style.transform = `translate3d(${x - 350}px, ${y - 260}px,0)`;
+        tintRef.current.style.transform = `translate3d(${x - 900}px, ${y - 700}px,0)`;
       }
 
       frame = requestAnimationFrame(animate);
-
     };
 
     window.addEventListener("pointermove", move);
@@ -44,57 +41,62 @@ function PointerAmbient() {
     animate();
 
     return () => {
-
       cancelAnimationFrame(frame);
-
       window.removeEventListener("pointermove", move);
-
     };
-
   }, []);
 
   return (
-
     <>
-
-      {/* Large Ambient */}
-
+      {/* Main Ambient */}
       <div
         ref={ambientRef}
         className="
           absolute
-          h-[1100px]
-          w-[1300px]
+          h-[1900px]
+          w-[2100px]
           rounded-full
-          blur-[260px]
+          blur-[340px]
+          opacity-100
+          will-change-transform
         "
         style={{
-          background:
-            "radial-gradient(circle, rgba(139,92,246,.035) 0%, rgba(168,85,247,.018) 50%, transparent 75%)",
+          background: `
+            radial-gradient(
+              circle,
+              rgba(95,70,255,.015) 0%,
+              rgba(140,80,255,.008) 35%,
+              rgba(168,85,247,.004) 55%,
+              transparent 78%
+            )
+          `,
         }}
       />
 
-      {/* Soft Tint */}
-
+      {/* Secondary Tint */}
       <div
         ref={tintRef}
         className="
           absolute
-          h-[650px]
-          w-[850px]
+          h-[900px]
+          w-[1100px]
           rounded-full
-          blur-[180px]
+          blur-[240px]
+          will-change-transform
         "
         style={{
-          background:
-            "radial-gradient(circle, rgba(168,85,247,.025) 0%, transparent 72%)",
+          background: `
+            radial-gradient(
+              circle,
+              rgba(120,95,255,.020) 0%,
+              rgba(168,85,247,.010) 55%,
+              transparent 80%
+            )
+          `,
         }}
       />
-
     </>
-
   );
-
 }
 
 export default PointerAmbient;

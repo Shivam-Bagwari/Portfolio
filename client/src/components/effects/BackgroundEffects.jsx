@@ -1,5 +1,4 @@
 import Background from "./background/Background";
-import Atmosphere from "./background/Atmosphere";
 import PointerAmbient from "./background/PointerAmbient";
 
 function BackgroundEffects() {
@@ -15,10 +14,8 @@ function BackgroundEffects() {
       aria-hidden="true"
     >
       <Background />
-
-      <Atmosphere />
-
       <PointerAmbient />
+      
     </div>
   );
 }
