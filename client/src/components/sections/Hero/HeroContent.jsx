@@ -2,8 +2,10 @@ import avatar from "../../../assets/images/avatar.jpg";
 import socialLinks from "../../../data/socialLinks";
 import SocialButton from "../../ui/SocialButton";
 import GlassButton from "../../ui/GlassButton";
+import PremiumButton from "../../ui/PremiumButton";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaDownload } from "react-icons/fa6";
+import { Pointer } from "lucide-react";
 function HeroContent() {
   return (
     <div className="mt-12">
@@ -32,11 +34,10 @@ function HeroContent() {
             src={avatar}
             alt="Shivam Bagwari"
             className="
-        h-[88px]
-        w-[90px]
-        rounded-[18px]
-        object-cover
-      "
+            h-[88px]
+            w-[90px]
+            rounded-[18px]
+            object-cover"
           />
         </div>
 
@@ -44,31 +45,29 @@ function HeroContent() {
 
         <div className="flex flex-col justify-center">
 
-<h1
-  className="
-    font-tight
-    text-[54px]
-    font-black
-    leading-none
-    tracking-[-0.05em]
-    text-white
-  "
->
+          <h1
+            className="
+            font-tight
+            text-[54px]
+            font-black
+            leading-none
+            tracking-[-0.05em]
+            text-white"
+          >
             Shivam Bagwari
           </h1>
 
           <div
             className="
-        mt-3
-        flex
-        items-center
-        gap-4
-        font-mono
-        text-[15px]
-        uppercase
-        tracking-[0.22em]
-        text-white/45
-      "
+            mt-3
+            flex
+            items-center
+            gap-4
+            font-mono
+            text-[15px]
+            uppercase
+            tracking-[0.22em]
+            text-white/45"
           >
             <span>FULL-STACK DEVELOPER</span>
 
@@ -82,19 +81,18 @@ function HeroContent() {
       </div>
 
       <div className="mt-14">
-      <p
-  className="
-    font-serif-display
-    max-w-[760px]
-    text-[35px]
-    italic
-    leading-[1.12]
-    tracking-[-0.02em]
-    text-white/90
-  "
->
-  I design and build considered software - from developer tools to interfaces that feel effortless.
-</p>
+        <p
+          className="
+          font-serif-display
+          max-w-[760px]
+          text-[35px]
+          italic
+          leading-[1.12]
+          tracking-[-0.02em]
+          text-white/90"
+        >
+          I design and build considered software - from developer tools to interfaces that feel effortless.
+        </p>
       </div>
 
 
@@ -109,12 +107,11 @@ function HeroContent() {
         "
       >
         <li>
-          • Focused on AI, open source, and thoughtful developer experience.
+          • Building products that combine clean engineering with thoughtful user experience.
         </li>
 
         <li>
-          • I believe actions speak louder than words, so I let my projects do
-          the talking.
+          • Interested in AI, developer tools, scalable backend systems, and modern web architecture.
         </li>
 
         <li>
@@ -122,25 +119,33 @@ function HeroContent() {
           <span className="font-semibold text-white">
             CourseUniverse
           </span>
-          , experimenting with AI, and exploring scalable web applications.
+          , while exploring SaaS products and full-stack applications.
         </li>
       </ul>
 
       <div className="mt-12 flex flex-wrap gap-3 cursor:pointer">
 
-        <GlassButton
+        <PremiumButton
+          as="a"
+          href="/Shivam_Bagwari_resume_v1.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           variant="primary"
-          icon={ FaDownload }
+          icon={FaDownload}
+          cursor: Pointer
         >
           Download Resume
-        </GlassButton>
+        </PremiumButton>
 
-        <GlassButton
+        <PremiumButton
+          as="a"
+          href="mailto:shivambagwari@gmail.com"
           variant="secondary"
           icon={BiLogoGmail}
+          cursor: Pointer
         >
           Send an email
-        </GlassButton>
+        </PremiumButton>
 
       </div>
       {/* Social Links */}

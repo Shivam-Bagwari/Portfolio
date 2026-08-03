@@ -1,132 +1,246 @@
 import useMousePosition from "../../hooks/useMousePosition";
+
 function PremiumButton({
   children,
   href,
   onClick,
-  variant = "primary",
-  leftIcon,
-  rightIcon,
+  variant = "secondary",
+  icon: Icon,
   className = "",
+  target,
+  rel,
+  download,
 }) {
   const ref = useMousePosition();
 
   const base = `
     group
     relative
+
     inline-flex
-    h-[42px]
     items-center
     justify-center
-    overflow-hidden
-    rounded-[14px]
+    gap-2
+
+    h-[42px]
     px-5
-    text-[14px]
-    font-semibold
+
+    overflow-hidden
+
+    rounded-[14px]
+
+    border
+
+    text-[13px]
+    font-medium
     tracking-[-0.01em]
+
     transition-all
     duration-300
     ease-[cubic-bezier(.22,.61,.36,1)]
-    active:scale-[0.98]
+
+    cursor-pointer
     select-none
   `;
 
   const variants = {
     primary: `
-      border border-white/15
+      border-white/15
       bg-[#F5F5F3]
       text-[#111111]
-      shadow-[0_8px_24px_rgba(0,0,0,.18)]
-      hover:-translate-y-[2px]
-      hover:shadow-[0_14px_32px_rgba(0,0,0,.28)]
+
+      hover:bg-white
+      hover:scale-[1.02]
+      hover:shadow-[0_12px_28px_rgba(255,255,255,.10)]
     `,
 
     secondary: `
-      border border-white/[0.08]
-      bg-white/[0.045]
-      text-white/90
-      backdrop-blur-xl
-      hover:bg-white/[0.065]
-      hover:border-white/[0.16]
-      hover:-translate-y-[2px]
+      border-white/[0.08]
+      bg-white/[0.02]
+
+      text-white/80
+
+      hover:bg-white/[0.045]
+      hover:border-fuchsia-400/25
+      hover:text-white
+
+      hover:scale-[1.02]
+      hover:shadow-[0_10px_30px_rgba(168,85,247,.08)]
     `,
 
     ghost: `
-      text-white/75
+      border-transparent
+      bg-transparent
+
+      text-white/70
+
       hover:bg-white/[0.04]
+      hover:text-white
     `,
   };
 
+  const classes = `${base} ${variants[variant]} ${className}`;
+
   const content = (
     <>
-      {/* Shine */}
+      {/* Base Reflection */}
+
       <span
         className="
           pointer-events-none
           absolute
           inset-0
-          overflow-hidden
           rounded-[14px]
+
+          bg-gradient-to-b
+          from-white/[0.06]
+          via-white/[0.02]
+          to-transparent
+
+          transition-all
+          duration-300
+
+          group-hover:from-white/[0.12]
+          group-hover:via-white/[0.04]
         "
-      >
+      />
+
+      {/* Premium Animated Border */}
+
+      {variant !== "primary" && (
         <span
           className="
+            pointer-events-none
             absolute
-            left-[-35%]
-            top-0
-            h-full
-            w-[35%]
-            rotate-[18deg]
-            bg-gradient-to-r
-            from-transparent
-            via-white/40
-            to-transparent
-            translate-x-0
-            transition-transform
-            duration-700
-            ease-out
-            group-hover:translate-x-[330%]
-          "
-        />
-      </span>
+            inset-0
+            rounded-[14px]
 
-      {/* Content */}
-      <span className="relative z-10 flex items-center gap-2">
-        {leftIcon && (
+            opacity-0
+            transition-opacity
+            duration-300
+
+            group-hover:opacity-100
+          "
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(255,255,255,.22), transparent 35%, rgba(217,70,239,.22))",
+            WebkitMask:
+              "linear-gradient(#000,#000) content-box, linear-gradient(#000,#000)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+            padding: "1px",
+          }}
+        />
+      )}
+
+      {/* Inner Border */}
+
+      <span
+        className="
+          pointer-events-none
+          absolute
+          inset-[1px]
+
+          rounded-[13px]
+
+          border
+          border-white/[0.035]
+        "
+      />
+
+      {/* Cursor Light */}
+
+      {variant !== "primary" && (
+        <span
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+
+            opacity-0
+            transition-opacity
+            duration-300
+
+            group-hover:opacity-100
+          "
+        >
           <span
             className="
-              transition-transform
-              duration-300
-              group-hover:-translate-x-[1px]
+              absolute
+
+              h-44
+              w-44
+
+              -translate-x-1/2
+              -translate-y-1/2
+
+              rounded-full
+
+              bg-fuchsia-400/12
+
+              blur-3xl
             "
-          >
-            {leftIcon}
-          </span>
+            style={{
+              left: "var(--x)",
+              top: "var(--y)",
+            }}
+          />
+        </span>
+      )}
+
+      {/* Hover Reflection */}
+
+      <span
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+
+          opacity-0
+          transition-opacity
+          duration-300
+
+          group-hover:opacity-100
+
+          bg-gradient-to-br
+          from-white/[0.08]
+          via-transparent
+          to-white/[0.03]
+        "
+      />
+
+      {/* Content */}
+
+      <span className="relative z-10 flex items-center gap-2">
+
+        {Icon && (
+          <Icon
+            size={14}
+            className="
+              transition-all
+              duration-300
+
+              group-hover:scale-110
+              group-hover:rotate-3
+            "
+          />
         )}
 
         <span>{children}</span>
 
-        {rightIcon && (
-          <span
-            className="
-              transition-transform
-              duration-300
-              group-hover:translate-x-[2px]
-            "
-          >
-            {rightIcon}
-          </span>
-        )}
       </span>
     </>
   );
 
   if (href) {
     return (
-      <a ref={ref}
+      <a
+        ref={ref}
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${base} ${variants[variant]} ${className}`}
+        target={target}
+        rel={rel}
+        download={download}
+        className={classes}
       >
         {content}
       </a>
@@ -134,40 +248,11 @@ function PremiumButton({
   }
 
   return (
-    <button ref={ref}
+    <button
+      ref={ref}
       onClick={onClick}
-      className={`${base} ${variants[variant]} ${className}`}
-      
+      className={classes}
     >
-      <span
-    className="
-        pointer-events-none
-        absolute
-        inset-0
-        rounded-[14px]
-        opacity-0
-        transition-opacity
-        duration-300
-        group-hover:opacity-100
-    "
->
-    <span
-        className="
-            absolute
-            h-40
-            w-40
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-white/10
-            blur-3xl
-        "
-        style={{
-            left: "var(--x)",
-            top: "var(--y)",
-        }}
-    />
-</span>
       {content}
     </button>
   );
