@@ -56,7 +56,7 @@ function SectionHeader({
         </p>
       )}
 
-      <div className="mt-6 h-px bg-gradient-to-r from-fuchsia-500/40 via-white/10 to-transparent" />
+      <div className="section-divider" />
 
     </div>
   );

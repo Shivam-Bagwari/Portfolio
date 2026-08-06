@@ -33,18 +33,6 @@ function Projects() {
             {projects.length} Selected Works
           </span>
         </div>
-        <div
-          className="
-          h-px
-          w-full
-          bg-gradient-to-r
-          from-violet-400/60
-          via-violet-400/25
-          to-transparent
-          "
-        />
-
-
 
         {/* Featured Card */}
         <div className="mt-8">

@@ -360,6 +360,100 @@ body {
 
 }
  
+/* ========================================
+   SECTION DIVIDER
+======================================== */
+
+.section-divider{
+
+    position: relative;
+
+    width: 100%;
+    height: 1px;
+
+    margin-top: 24px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        90deg,
+        rgba(168,85,247,.65),
+        rgba(192,132,252,.65),
+        rgba(236,72,153,.65),
+        rgba(168,85,247,.65)
+    );
+
+}
+.section-divider::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:inherit;
+
+    filter:blur(8px);
+
+    opacity:.35;
+
+    transform:scaleY(4);
+
+}
+.section-divider::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-3px;
+
+    left:-18%;
+
+    width:20%;
+    height:10px;
+
+    filter:blur(7px);
+
+    background:linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255,255,255,.05) 15%,
+        rgba(255,255,255,.95) 50%,
+        rgba(255,255,255,.05) 85%,
+        transparent 100%
+    );
+
+    animation:dividerFlow 4s linear infinite;
+
+}
+
+/* Moving highlight */
+
+.section-divider-shine{
+    position: absolute;
+
+    top: -2px;
+    left: -160px;
+
+    width: 160px;
+    height: 10px;
+
+    filter: blur(6px);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.9),
+        rgba(236,72,153,.9),
+        rgba(217,70,239,.9),
+        transparent
+    );
+
+    animation: dividerFlow 3.2s linear infinite;
+}
+
 /* Aurora Animation */
 
 @keyframes aurora-drift {
@@ -443,5 +537,16 @@ body {
       translate3d(-16px,12px,0)
       scale(1.03);
   }
+
+}
+@keyframes dividerFlow{
+
+    from{
+        transform:translateX(-120%);
+    }
+
+    to{
+        transform:translateX(700%);
+    }
 
 }
