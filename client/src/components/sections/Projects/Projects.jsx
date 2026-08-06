@@ -14,7 +14,7 @@ function Projects() {
       <div className="mx-auto w-full max-w-[870px] px-8">
 
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="relative">
 
           <SectionHeader
             number="02"
@@ -23,15 +23,19 @@ function Projects() {
 
           <span
             className="
-              font-mono
-              text-[10px]
-              uppercase
-              tracking-[0.24em]
-              text-white/28
-            "
+            absolute
+            right-0
+            top-2
+            font-mono
+            text-[10px]
+            uppercase
+            tracking-[0.24em]
+            text-white/28
+        "
           >
             {projects.length} Selected Works
           </span>
+
         </div>
 
         {/* Featured Card */}
