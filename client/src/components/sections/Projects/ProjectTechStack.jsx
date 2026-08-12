@@ -1,22 +1,28 @@
 function ProjectTechStack({ tech }) {
   return (
-    <div className="flex flex-wrap gap-2">
-      {tech.map((item) => (
+    <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+      {tech.map((item, index) => (
         <span
           key={item}
           className="
-            rounded-full
-            border
-            border-white/[0.08]
-            bg-white/[0.025]
-            px-3
-            py-1.5
-            text-[10px]
-            font-medium
-            text-white/60
+            flex
+            items-center
+            font-mono
+            text-[9px]
+            leading-none
+            text-white/35
+            transition-colors
+            duration-300
+            group-hover:text-white/50
           "
         >
           {item}
+
+          {index < tech.length - 1 && (
+            <span className="ml-2 text-white/15">
+              ·
+            </span>
+          )}
         </span>
       ))}
     </div>

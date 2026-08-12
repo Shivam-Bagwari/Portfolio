@@ -6,11 +6,8 @@ import TiltCard from "../../ui/TiltCard";
 
 function ProjectCard({ project }) {
   return (
-    <TiltCard>
-      <PremiumCard
-        variant={project.featured ? "featured" : "default"}
-        className="overflow-hidden p-0 h-full"
-      >
+    <TiltCard className="h-full">
+      <PremiumCard className="h-full p-0">
         {project.featured ? (
           <FeaturedCard project={project} />
         ) : (

@@ -2,10 +2,10 @@ import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 
 const glowColors = {
-  purple: "bg-fuchsia-500/20",
-  red: "bg-red-500/20",
-  cyan: "bg-cyan-400/20",
-  white: "bg-white/10",
+  purple: "rgba(168, 85, 247, 0.16)",
+  red: "rgba(244, 63, 94, 0.15)",
+  cyan: "rgba(34, 211, 238, 0.14)",
+  white: "rgba(255, 255, 255, 0.07)",
 };
 
 function RegularPreview({ project }) {
@@ -22,175 +22,144 @@ function RegularPreview({ project }) {
   const glow = glowColors[accent] || glowColors.purple;
 
   return (
-    <div className="group relative flex aspect-[16/9] overflow-hidden bg-black/5">
+    <div
+      className="
+        group
+        relative
+        flex
+        aspect-[16/9]
+        overflow-hidden
 
-      {/* Accent Glow */}
-      <div
-        className={`
-          absolute
-          -left-24
-          -top-24
-          h-[320px]
-          w-[320px]
-          rounded-full
-          blur-[80px]
-          transition-all
-          duration-500
-          opacity-70
-          ${glow}
-          group-hover:scale-125
-          group-hover:opacity-100
-        `}
-      />
+        border-b
+        border-white/[0.07]
 
-      {/* Vignette */}
+        bg-black/[0.18]
+      "
+    >
+      {/* =====================================================
+          ACCENT ATMOSPHERE
+      ===================================================== */}
+
       <div
         className="
-          absolute inset-0
-          bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,.32))]
+          pointer-events-none
+          absolute
+          left-1/2
+          top-1/2
+          h-[280px]
+          w-[280px]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+
+          opacity-70
+          blur-[100px]
+
+          transition-transform
+          duration-700
+          ease-out
+
+          group-hover:scale-[1.18]
+        "
+        style={{
+          background: glow,
+        }}
+      />
+
+      {/* =====================================================
+          CENTER LIGHT
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+        "
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(255,255,255,.035), transparent 58%)",
+        }}
+      />
+
+      {/* =====================================================
+          VIGNETTE
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+        "
+        style={{
+          background:
+            "radial-gradient(circle at center, transparent 28%, rgba(0,0,0,.48) 100%)",
+        }}
+      />
+
+      {/* =====================================================
+          TOP EDGE REFLECTION
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-0
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-white/[0.12]
+          to-transparent
         "
       />
 
-      {/* Year */}
+      {/* =====================================================
+          YEAR
+      ===================================================== */}
+
       <span
         className="
           absolute
-          right-6
-          top-6
+          right-5
+          top-5
           z-20
+
           font-mono
-          text-[10px]
+          text-[9px]
           uppercase
           tracking-[0.25em]
+
           text-white/30
         "
       >
         {year}
       </span>
 
-      {/* Top Right Actions */}
-<div
-  className="
-    absolute
-    right-6
-    bottom-6
-    z-20
-    flex
-    items-center
-    gap-2
-    pointer-events-none
-    opacity-0
-    translate-y-6
-    transition-all
-    duration-300
-    ease-[cubic-bezier(.22,.61,.36,1)]
+      {/* =====================================================
+          CENTER CONTENT
+      ===================================================== */}
 
-    group-hover:pointer-events-auto
-    group-hover:opacity-100
-    group-hover:translate-y-0
-  "
->
-  <a
-    href={github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      flex
-      h-10
-      w-10
-      items-center
-      justify-center
-      rounded-full
-      border
-      border-white/[0.08]
-      bg-white/[0.04]
-      backdrop-blur-md
-      text-white/60
-      transition-all
-      duration-300
-      delay-75
-      hover:-translate-y-[2px]
-      hover:border-white/[0.14]
-      hover:bg-white/[0.08]
-      hover:text-white
-    "
-  >
-    <FiGithub size={15} />
-  </a>
-
-  <a
-    href={live}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
-      flex
-      h-10
-      w-10
-      items-center
-      justify-center
-      rounded-full
-      border
-      border-white/[0.08]
-      bg-white/[0.04]
-      backdrop-blur-md
-      text-white/60
-      transition-all
-      duration-300
-      delay-150
-      hover:-translate-y-[2px]
-      hover:border-white/[0.14]
-      hover:bg-white/[0.08]
-      hover:text-white
-    "
-  >
-    <ArrowUpRight size={15} />
-  </a>
-</div>
-
-      {/* Bottom Left Category */}
-      <div
-        className="
-          absolute
-          left-6
-          bottom-6
-          z-20
-        "
-      >
-        <span
-          className="
-            rounded-full
-            border
-            border-white/[0.08]
-            bg-white/[0.04]
-            px-3
-            py-[6px]
-            text-[10px]
-            font-mono
-            uppercase
-            tracking-[0.18em]
-            text-white/65
-            backdrop-blur-md
-          "
-        >
-          {category}
-        </span>
-      </div>
-
-      {/* Center */}
       <div
         className="
           relative
           z-10
           flex
           flex-1
-          -translate-y-4
           flex-col
           items-center
           justify-center
           text-center
-          transition-all
+
+          -translate-y-2
+
+          transition-transform
           duration-500
-          group-hover:-translate-y-6
+          ease-out
+
+          group-hover:-translate-y-3
         "
       >
         <h3
@@ -199,7 +168,7 @@ function RegularPreview({ project }) {
             text-[34px]
             italic
             leading-none
-            tracking-[-0.04em]
+            tracking-[-0.045em]
             text-white
           "
         >
@@ -208,15 +177,146 @@ function RegularPreview({ project }) {
 
         <p
           className="
-            mt-2
-            text-[11px]
+            mt-3
+            text-[10px]
             uppercase
-            tracking-[0.32em]
-            text-white/40
+            tracking-[0.30em]
+            text-white/35
           "
         >
           {previewSubtitle}
         </p>
+      </div>
+
+      {/* =====================================================
+          CATEGORY
+      ===================================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-5
+          left-5
+          z-20
+        "
+      >
+        <span
+          className="
+            inline-flex
+            items-center
+
+            rounded-full
+
+            border
+            border-white/[0.08]
+
+            bg-white/[0.025]
+
+            px-3
+            py-[5px]
+
+            font-mono
+            text-[9px]
+            uppercase
+            tracking-[0.18em]
+
+            text-white/55
+          "
+        >
+          {category}
+        </span>
+      </div>
+
+      {/* =====================================================
+          ACTIONS
+      ===================================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-5
+          right-5
+          z-20
+
+          flex
+          items-center
+          gap-2
+
+          opacity-70
+
+          transition-opacity
+          duration-300
+
+          group-hover:opacity-100
+        "
+      >
+        {/* GitHub */}
+
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.name} GitHub`}
+          className="
+            flex
+            h-8
+            w-8
+            items-center
+            justify-center
+
+            rounded-[10px]
+
+            border
+            border-white/[0.08]
+
+            bg-white/[0.025]
+
+            text-white/50
+
+            transition-colors
+            duration-300
+
+            hover:border-white/[0.15]
+            hover:bg-white/[0.06]
+            hover:text-white
+          "
+        >
+          <FiGithub size={14} />
+        </a>
+
+        {/* Live */}
+
+        <a
+          href={live}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.name} live site`}
+          className="
+            flex
+            h-8
+            w-8
+            items-center
+            justify-center
+
+            rounded-[10px]
+
+            border
+            border-white/[0.08]
+
+            bg-white/[0.025]
+
+            text-white/50
+
+            transition-colors
+            duration-300
+
+            hover:border-white/[0.15]
+            hover:bg-white/[0.06]
+            hover:text-white
+          "
+        >
+          <ArrowUpRight size={14} />
+        </a>
       </div>
     </div>
   );

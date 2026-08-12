@@ -4,17 +4,38 @@ import ProjectButtons from "./ProjectButtons";
 
 function ProjectFeaturedContent({ project }) {
   return (
-    <div className="flex h-full flex-col px-8 pt-8 pb-7">
+    <div
+      className="
+        flex
+        min-h-[310px]
+        h-full
+        flex-col
 
-      {/* Top */}
-      <div className="flex items-center justify-between">
+        bg-black/[0.12]
+
+        px-5
+        pt-6
+        pb-6
+
+        md:min-h-0
+        md:px-7
+        md:pt-7
+        md:pb-6
+      "
+    >
+      {/* TOP META */}
+
+      <div className="flex items-center justify-between gap-4">
         <span
           className="
             font-mono
-            text-[9px]
+            text-[8px]
             uppercase
-            tracking-[0.32em]
-            text-white/26
+            tracking-[0.25em]
+            text-white/30
+
+            md:text-[9px]
+            md:tracking-[0.28em]
           "
         >
           FULL-STACK • {project.year}
@@ -25,43 +46,61 @@ function ProjectFeaturedContent({ project }) {
         </GlassBadge>
       </div>
 
-      {/* Title */}
+      {/* TITLE */}
+
       <h2
         className="
-          mt-4
-          max-w-[280px]
-          text-[25px]
+          mt-5
+          max-w-full
+
+          font-tight
+          text-[24px]
           font-extrabold
+          leading-[1]
           tracking-[-0.055em]
-          leading-none
+
           text-white
+
+          md:max-w-[290px]
+          md:text-[27px]
         "
       >
         {project.title}
       </h2>
 
-      {/* Description */}
+      {/* DESCRIPTION */}
+
       <p
         className="
-          mt-5
-          max-w-[255px]
-          text-[14px]
-          leading-[1.9]
-          text-white/58
+          mt-4
+          max-w-full
+
+          text-[12px]
+          leading-[1.75]
+
+          text-white/55
+
+          md:mt-5
+          md:max-w-[285px]
+          md:text-[13px]
+          md:leading-[1.8]
         "
       >
         {project.description}
       </p>
 
-      {/* Tech Stack */}
-      <div className="mt-6">
+      {/* TECH */}
+
+      <div className="mt-5">
         <ProjectTechStack tech={project.tech} />
       </div>
 
-      {/* Push Buttons Down */}
+      {/* PUSH BUTTONS DOWN */}
+
       <div className="flex-1" />
 
-      {/* Buttons */}
+      {/* ACTIONS */}
+
       <ProjectButtons
         live={project.live}
         github={project.github}
