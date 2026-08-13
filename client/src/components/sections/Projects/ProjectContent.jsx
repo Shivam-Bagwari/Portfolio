@@ -69,51 +69,11 @@ function ProjectContent({ project }) {
           TECH + VIEW
       ===================================================== */}
 
-      <div className="mt-3 flex items-center justify-between gap-4">
+      < div className="mt-3 flex items-center justify-between gap-4">
         
         <div className="min-w-0">
           <ProjectTechStack tech={tech} />
         </div>
-
-        <a
-          href={project.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            group/view
-            flex
-            shrink-0
-            items-center
-            gap-1
-
-            font-mono
-            text-[10px]
-            uppercase
-            tracking-[0.12em]
-
-            text-white/35
-
-            transition-colors
-            duration-300
-
-            hover:text-white/80
-          "
-        >
-          View
-
-          <span
-            className="
-              transition-transform
-              duration-300
-
-              group-hover/view:translate-x-[2px]
-              group-hover/view:-translate-y-[2px]
-            "
-          >
-            ↗
-          </span>
-        </a>
-
       </div>
     </div>
   );

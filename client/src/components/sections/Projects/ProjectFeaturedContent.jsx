@@ -7,38 +7,32 @@ function ProjectFeaturedContent({ project }) {
     <div
       className="
         flex
-        min-h-[310px]
         h-full
+        min-w-0
         flex-col
 
-        bg-black/[0.12]
+        bg-black/[0.08]
 
         px-5
-        pt-6
-        pb-6
+        py-5
 
-        md:min-h-0
-        md:px-7
-        md:pt-7
-        md:pb-6
+        md:px-[18px]
+        md:py-[17px]
       "
     >
       {/* TOP META */}
 
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between">
         <span
           className="
             font-mono
-            text-[8px]
+            text-[11px]
             uppercase
-            tracking-[0.25em]
-            text-white/30
-
-            md:text-[9px]
-            md:tracking-[0.28em]
+            tracking-[0.24em]
+            text-white/35
           "
         >
-          FULL-STACK • {project.year}
+          FULL-STACK · {project.year}
         </span>
 
         <GlassBadge color={project.statusColor}>
@@ -50,19 +44,13 @@ function ProjectFeaturedContent({ project }) {
 
       <h2
         className="
-          mt-5
-          max-w-full
-
+          mt-4
           font-tight
-          text-[24px]
+          text-[28px]
           font-extrabold
-          leading-[1]
+          leading-none
           tracking-[-0.055em]
-
           text-white
-
-          md:max-w-[290px]
-          md:text-[27px]
         "
       >
         {project.title}
@@ -72,18 +60,12 @@ function ProjectFeaturedContent({ project }) {
 
       <p
         className="
-          mt-4
-          max-w-full
-
-          text-[12px]
-          leading-[1.75]
-
+          mt-3
+          max-w-[250px]
+          font-mono
+          text-[14px]
+          leading-[1.55]
           text-white/55
-
-          md:mt-5
-          md:max-w-[285px]
-          md:text-[13px]
-          md:leading-[1.8]
         "
       >
         {project.description}
@@ -91,20 +73,18 @@ function ProjectFeaturedContent({ project }) {
 
       {/* TECH */}
 
-      <div className="mt-5">
+      <div className="mt-3">
         <ProjectTechStack tech={project.tech} />
       </div>
 
-      {/* PUSH BUTTONS DOWN */}
+      {/* BUTTONS */}
 
-      <div className="flex-1" />
-
-      {/* ACTIONS */}
-
-      <ProjectButtons
-        live={project.live}
-        github={project.github}
-      />
+      <div className="mt-auto">
+        <ProjectButtons
+          live={project.live}
+          github={project.github}
+        />
+      </div>
     </div>
   );
 }

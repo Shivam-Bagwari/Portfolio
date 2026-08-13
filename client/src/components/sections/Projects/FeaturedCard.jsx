@@ -6,25 +6,25 @@ function FeaturedCard({ project }) {
     <div
       className="
         grid
+        h-full
         grid-cols-1
 
-        md:grid-cols-[58%_42%]
-
-        md:min-h-[400px]
+        md:h-[310px]
+        md:grid-cols-[62%_38%]
       "
     >
-      {/* Preview */}
+      {/* FEATURED PREVIEW */}
 
       <div
         className="
-          h-[250px]
-          md:h-auto
+          h-[230px]
+          md:h-full
         "
       >
         <FeaturedPreview project={project} />
       </div>
 
-      {/* Content */}
+      {/* FEATURED CONTENT */}
 
       <ProjectFeaturedContent project={project} />
     </div>

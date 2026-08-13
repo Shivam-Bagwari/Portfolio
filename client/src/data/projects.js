@@ -10,7 +10,7 @@ const projects = [
     previewSubtitle: "A Universe of Courses",
 
     description:
-      "A full-stack learning platform that helps users discover, purchase, and manage online courses with secure authentication and an intuitive dashboard.",
+      "A learning platform that organizes high-quality courses across the web into one elegant universe.",
 
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
 
@@ -43,7 +43,7 @@ const projects = [
     status: "Research",
     statusColor: "bg-zinc-300",
 
-    accent: "green",
+    accent: "red",
 
     year: "2025",
 

@@ -1,59 +1,73 @@
 function FeaturedPreview({ project }) {
+  const {
+    previewTitle,
+    previewSubtitle,
+    year,
+  } = project;
+
   return (
     <div
       className="
         group
         relative
         h-full
+        w-full
         overflow-hidden
-
-        border-b
-        border-white/[0.06]
-
         bg-black/[0.18]
-
-        md:border-b-0
-        md:border-r
-        md:border-white/[0.06]
       "
     >
-      {/* =====================================================
-          SUBTLE ACCENT ATMOSPHERE
-      ===================================================== */}
+      {/* PURPLE ATMOSPHERE */}
 
       <div
         className="
           pointer-events-none
           absolute
-          left-1/2
-          top-1/2
-
-          h-[320px]
-          w-[320px]
-
-          -translate-x-1/2
-          -translate-y-1/2
-
+          -left-[90px]
+          -top-[120px]
+          h-[520px]
+          w-[620px]
           rounded-full
-
-          bg-violet-500/[0.035]
-          blur-[100px]
-
+          blur-[120px]
+          opacity-90
           transition-transform
           duration-700
           ease-out
-
-          group-hover:scale-[1.12]
-
-          md:h-[420px]
-          md:w-[420px]
-          md:blur-[120px]
+          group-hover:scale-[1.05]
         "
+        style={{
+          background: `
+            radial-gradient(
+              ellipse at center,
+              rgba(168, 85, 247, 0.22) 0%,
+              rgba(139, 92, 246, 0.15) 28%,
+              rgba(124, 58, 237, 0.08) 48%,
+              transparent 72%
+            )
+          `,
+        }}
       />
 
-      {/* =====================================================
-          CENTER LIGHT
-      ===================================================== */}
+      {/* SECONDARY PURPLE DEPTH */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-[18%]
+          top-[18%]
+          h-[300px]
+          w-[360px]
+          rounded-full
+          blur-[100px]
+          opacity-60
+        "
+        style={{
+          background:
+            "radial-gradient(circle, rgba(168,85,247,.10), transparent 68%)",
+        }}
+      />
+
+      {/* CENTER SOFT LIGHT */}
 
       <div
         className="
@@ -62,14 +76,17 @@ function FeaturedPreview({ project }) {
           inset-0
         "
         style={{
-          background:
-            "radial-gradient(circle at center, rgba(255,255,255,.035), transparent 58%)",
+          background: `
+            radial-gradient(
+              ellipse at 42% 48%,
+              rgba(255,255,255,.025),
+              transparent 55%
+            )
+          `,
         }}
       />
 
-      {/* =====================================================
-          VIGNETTE
-      ===================================================== */}
+      {/* DARK RIGHT FADE */}
 
       <div
         className="
@@ -78,66 +95,101 @@ function FeaturedPreview({ project }) {
           inset-0
         "
         style={{
-          background:
-            "radial-gradient(circle at center, transparent 30%, rgba(0,0,0,.48) 100%)",
+          background: `
+            linear-gradient(
+              90deg,
+              transparent 0%,
+              transparent 55%,
+              rgba(0,0,0,.20) 78%,
+              rgba(0,0,0,.38) 100%
+            )
+          `,
         }}
       />
 
-      {/* =====================================================
-          BOTTOM FADE
-      ===================================================== */}
+      {/* BOTTOM VIGNETTE */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+        "
+        style={{
+          background: `
+            linear-gradient(
+              to bottom,
+              transparent 45%,
+              rgba(0,0,0,.18) 72%,
+              rgba(0,0,0,.42) 100%
+            )
+          `,
+        }}
+      />
+
+      {/* SUBTLE TOP REFLECTION */}
 
       <div
         className="
           pointer-events-none
           absolute
           inset-x-0
-          bottom-0
-          h-24
-          bg-gradient-to-t
-          from-black/55
+          top-0
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-white/[0.10]
           to-transparent
-          md:h-32
         "
       />
 
-      {/* =====================================================
-          FEATURED BADGE
-      ===================================================== */}
+      {/* FEATURED BADGE */}
 
-      <div className="absolute left-5 top-5 z-20 md:left-6 md:top-6">
+      <div
+        className="
+          absolute
+          left-5
+          top-5
+          z-20
+          inline-flex
+          items-center
+        "
+      >
         <span
           className="
             inline-flex
             items-center
+            gap-2
             rounded-full
-
             border
-            border-white/[0.09]
-
-            bg-white/[0.025]
-
+            border-white/[0.10]
+            bg-white/[0.035]
             px-3
-            py-1.5
-
+            py-[6px]
             font-mono
-            text-[8px]
+            text-[9px]
+            font-semibold
             uppercase
             tracking-[0.22em]
-
             text-white/55
-
-            md:px-3.5
-            md:text-[9px]
+            backdrop-blur-md
           "
         >
+          <span
+            className="
+              h-[5px]
+              w-[5px]
+              rounded-full
+              bg-fuchsia-400/80
+              shadow-[0_0_10px_rgba(217,70,239,.45)]
+            "
+          />
+
           Featured
         </span>
       </div>
 
-      {/* =====================================================
-          YEAR
-      ===================================================== */}
+      {/* YEAR */}
 
       <span
         className="
@@ -145,25 +197,17 @@ function FeaturedPreview({ project }) {
           right-5
           top-5
           z-20
-
           font-mono
-          text-[8px]
+          text-[9px]
           uppercase
           tracking-[0.25em]
-
           text-white/25
-
-          md:right-6
-          md:top-6
-          md:text-[9px]
         "
       >
-        {project.year}
+        {year}
       </span>
 
-      {/* =====================================================
-          CENTER CONTENT
-      ===================================================== */}
+      {/* CENTER BRAND */}
 
       <div
         className="
@@ -171,78 +215,69 @@ function FeaturedPreview({ project }) {
           z-10
           flex
           h-full
+          w-full
+          flex-col
           items-center
           justify-center
-
-          px-5
-          pb-5
-
-          md:px-6
-          md:pb-8
+          text-center
+          -translate-y-1
+          transition-transform
+          duration-700
+          ease-out
+          group-hover:-translate-y-2
         "
       >
-        <div
+        <h2
           className="
-            text-center
+            font-serif-display
 
-            transition-transform
-            duration-500
-            ease-out
+            text-[42px]
+            italic
+            leading-none
 
-            group-hover:-translate-y-1
+            tracking-[-0.045em]
+
+            text-white
           "
         >
-          <h2
-            className="
-              max-w-full
+          {previewTitle}
+        </h2>
 
-              font-serif-display
-              text-[38px]
-              italic
-              leading-none
-              tracking-[-0.06em]
+        {/* Small divider */}
 
-              text-white
+        <div
+          className="
+            mt-5
+            h-px
+            w-12
+            bg-white/[0.12]
+          "
+        />
 
-              sm:text-[46px]
-              md:text-[56px]
-            "
-          >
-            {project.previewTitle}
-          </h2>
-
-          <div
-            className="
-              mx-auto
-              mt-3
-              h-px
-              w-14
-              bg-white/20
-
-              md:mt-4
-              md:w-16
-            "
-          />
-
-          <p
-            className="
-              mt-3
-
-              text-[8px]
-              uppercase
-              tracking-[0.28em]
-
-              text-white/35
-
-              md:mt-4
-              md:text-[10px]
-              md:tracking-[0.34em]
-            "
-          >
-            {project.previewSubtitle}
-          </p>
-        </div>
+        <p
+          className="
+            mt-4
+            font-mono
+            text-[10px]
+            uppercase
+            tracking-[0.28em]
+            text-white/35
+          "
+        >
+          {previewSubtitle}
+        </p>
       </div>
+
+      {/* EDGE SHADOW */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          shadow-[inset_0_0_80px_rgba(0,0,0,.28)]
+        "
+      />
     </div>
   );
 }

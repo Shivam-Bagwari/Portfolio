@@ -11,8 +11,8 @@ function Projects() {
       id="projects"
       className="
         relative
-        py-20
-        md:py-24
+        py-16
+        md:py-20
       "
     >
       <div
@@ -24,9 +24,7 @@ function Projects() {
           sm:px-8
         "
       >
-        {/* =====================================================
-            HEADER
-        ===================================================== */}
+        {/* HEADER */}
 
         <div className="relative">
           <SectionHeader
@@ -44,7 +42,7 @@ function Projects() {
               sm:block
 
               font-mono
-              text-[10px]
+              text-[8px]
               uppercase
               tracking-[0.24em]
               text-white/28
@@ -54,26 +52,24 @@ function Projects() {
           </span>
         </div>
 
-        {/* =====================================================
-            FEATURED PROJECT
-        ===================================================== */}
+        {/* FEATURED */}
 
         {featuredProject && (
-          <div className="mt-6 md:mt-8">
+          <div className="mt-5 md:mt-6">
             <ProjectCard project={featuredProject} />
           </div>
         )}
 
-        {/* =====================================================
-            REGULAR PROJECTS
-        ===================================================== */}
+        {/* REGULAR PROJECTS */}
 
         <div
           className="
-            mt-4
+            mt-3
+
             grid
             grid-cols-1
-            gap-4
+            gap-3
+
             md:grid-cols-2
           "
         >

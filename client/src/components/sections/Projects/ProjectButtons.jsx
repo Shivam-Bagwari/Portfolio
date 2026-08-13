@@ -1,44 +1,73 @@
-import PremiumButton from "../../ui/PremiumButton";
-import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
-
 function ProjectButtons({ live, github }) {
   return (
-    <div className="mt-5 flex items-center gap-2">
-      {/* Live Site */}
+    <div className="flex items-center gap-2">
+      {/* LIVE */}
 
       {live && (
-        <PremiumButton
+        <a
           href={live}
-          variant="primary"
-          rightIcon={<ArrowUpRight size={13} />}
+          target="_blank"
+          rel="noreferrer"
           className="
-            h-[36px]
-            rounded-[10px]
+            inline-flex
+            h-[30px]
+            w-[156px]
+            items-center
+            justify-center
+            rounded-[9px]
+            bg-white
             px-4
+            font-mono
             text-[11px]
+            font-bold
+            text-black
+            transition-transform
+            duration-200
+            hover:scale-[1.01]
           "
         >
-          Visit Site
-        </PremiumButton>
+          Visit site ↗
+        </a>
       )}
 
-      {/* GitHub */}
+      {/* GITHUB */}
 
       {github && (
-        <PremiumButton
+        <a
           href={github}
-          variant="secondary"
-          leftIcon={<FiGithub size={13} />}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="View source code on GitHub"
           className="
-            h-[36px]
-            rounded-[10px]
-            px-4
-            text-[11px]
+            inline-flex
+            h-[30px]
+            min-w-[72px]
+            items-center
+            justify-center
+            gap-1.5
+            rounded-[9px]
+            border
+            border-white/[0.10]
+            bg-white/[0.035]
+            px-3
+            font-mono
+            text-[9px]
+            font-medium
+            text-white/70
+            transition-colors
+            duration-200
+            hover:bg-white/[0.08]
+            hover:text-white
           "
         >
-          Code
-        </PremiumButton>
+          <FiGithub
+            size={12}
+            strokeWidth={1.7}
+          />
+
+          <span>Code</span>
+        </a>
       )}
     </div>
   );

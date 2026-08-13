@@ -1,11 +1,64 @@
 import { ArrowUpRight } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 
-const glowColors = {
-  purple: "rgba(168, 85, 247, 0.16)",
-  red: "rgba(244, 63, 94, 0.15)",
-  cyan: "rgba(34, 211, 238, 0.14)",
-  white: "rgba(255, 255, 255, 0.07)",
+const glowConfig = {
+  red: {
+    // GeoShield
+    // Pink atmosphere pushed toward the right,
+    // while still bleeding into the center.
+    background: `
+      radial-gradient(
+        ellipse 62% 82% at 72% 48%,
+        rgba(236, 72, 153, 0.16) 0%,
+        rgba(236, 72, 153, 0.105) 25%,
+        rgba(236, 72, 153, 0.055) 45%,
+        rgba(236, 72, 153, 0.018) 64%,
+        transparent 78%
+      )
+    `,
+  },
+
+  cyan: {
+    // Portfolio
+    // Centered, round/circular atmosphere.
+    background: `
+      radial-gradient(
+        circle 48% at 50% 48%,
+        rgba(34, 211, 238, 0.13) 0%,
+        rgba(34, 211, 238, 0.075) 28%,
+        rgba(34, 211, 238, 0.035) 48%,
+        rgba(34, 211, 238, 0.012) 62%,
+        transparent 76%
+      )
+    `,
+  },
+
+  white: {
+    // CampusConnect
+    // Neutral centered atmosphere.
+    background: `
+      radial-gradient(
+        ellipse 68% 82% at 50% 48%,
+        rgba(255, 255, 255, 0.065) 0%,
+        rgba(255, 255, 255, 0.035) 30%,
+        rgba(255, 255, 255, 0.015) 52%,
+        transparent 74%
+      )
+    `,
+  },
+
+  purple: {
+    // Fallback
+    background: `
+      radial-gradient(
+        ellipse 68% 82% at 52% 46%,
+        rgba(168, 85, 247, 0.12) 0%,
+        rgba(168, 85, 247, 0.065) 30%,
+        rgba(168, 85, 247, 0.025) 52%,
+        transparent 74%
+      )
+    `,
+  },
 };
 
 function RegularPreview({ project }) {
@@ -19,7 +72,8 @@ function RegularPreview({ project }) {
     live,
   } = project;
 
-  const glow = glowColors[accent] || glowColors.purple;
+  const glow =
+    glowConfig[accent] || glowConfig.purple;
 
   return (
     <div
@@ -33,41 +87,35 @@ function RegularPreview({ project }) {
         border-b
         border-white/[0.07]
 
-        bg-black/[0.18]
+        bg-black/[0.22]
       "
     >
       {/* =====================================================
-          ACCENT ATMOSPHERE
+          MAIN ATMOSPHERE
       ===================================================== */}
 
       <div
         className="
           pointer-events-none
           absolute
-          left-1/2
-          top-1/2
-          h-[280px]
-          w-[280px]
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
+          inset-[-15%]
 
-          opacity-70
-          blur-[100px]
+          opacity-100
 
           transition-transform
           duration-700
           ease-out
 
-          group-hover:scale-[1.18]
+          group-hover:scale-[1.05]
         "
         style={{
-          background: glow,
+          background: glow.background,
+          filter: "blur(18px)",
         }}
       />
 
       {/* =====================================================
-          CENTER LIGHT
+          SECONDARY DEPTH
       ===================================================== */}
 
       <div
@@ -77,13 +125,18 @@ function RegularPreview({ project }) {
           inset-0
         "
         style={{
-          background:
-            "radial-gradient(circle at center, rgba(255,255,255,.035), transparent 58%)",
+          background: `
+            radial-gradient(
+              ellipse at center,
+              rgba(255,255,255,.018) 0%,
+              transparent 58%
+            )
+          `,
         }}
       />
 
       {/* =====================================================
-          VIGNETTE
+          TOP / SIDE DARKENING
       ===================================================== */}
 
       <div
@@ -93,13 +146,67 @@ function RegularPreview({ project }) {
           inset-0
         "
         style={{
-          background:
-            "radial-gradient(circle at center, transparent 28%, rgba(0,0,0,.48) 100%)",
+          background: `
+            radial-gradient(
+              ellipse at center,
+              transparent 34%,
+              rgba(0,0,0,.18) 68%,
+              rgba(0,0,0,.46) 100%
+            )
+          `,
         }}
       />
 
       {/* =====================================================
-          TOP EDGE REFLECTION
+          BOTTOM DARKNESS
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-0
+          h-[48%]
+        "
+        style={{
+          background: `
+            linear-gradient(
+              to bottom,
+              transparent 0%,
+              rgba(0,0,0,.10) 20%,
+              rgba(0,0,0,.34) 62%,
+              rgba(0,0,0,.62) 100%
+            )
+          `,
+        }}
+      />
+
+      {/* =====================================================
+          LEFT / RIGHT EDGE VIGNETTE
+      ===================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+        "
+        style={{
+          background: `
+            linear-gradient(
+              90deg,
+              rgba(0,0,0,.30) 0%,
+              transparent 18%,
+              transparent 82%,
+              rgba(0,0,0,.30) 100%
+            )
+          `,
+        }}
+      />
+
+      {/* =====================================================
+          SUBTLE TOP EDGE
       ===================================================== */}
 
       <div
@@ -109,9 +216,10 @@ function RegularPreview({ project }) {
           inset-x-0
           top-0
           h-px
+
           bg-gradient-to-r
           from-transparent
-          via-white/[0.12]
+          via-white/[0.10]
           to-transparent
         "
       />
@@ -146,11 +254,13 @@ function RegularPreview({ project }) {
         className="
           relative
           z-10
+
           flex
           flex-1
           flex-col
           items-center
           justify-center
+
           text-center
 
           -translate-y-2
@@ -165,10 +275,13 @@ function RegularPreview({ project }) {
         <h3
           className="
             font-serif-display
+
             text-[34px]
             italic
             leading-none
+
             tracking-[-0.045em]
+
             text-white
           "
         >
@@ -178,9 +291,11 @@ function RegularPreview({ project }) {
         <p
           className="
             mt-3
+
             text-[10px]
             uppercase
             tracking-[0.30em]
+
             text-white/35
           "
         >
@@ -221,6 +336,8 @@ function RegularPreview({ project }) {
             tracking-[0.18em]
 
             text-white/55
+
+            backdrop-blur-sm
           "
         >
           {category}
@@ -228,7 +345,7 @@ function RegularPreview({ project }) {
       </div>
 
       {/* =====================================================
-          ACTIONS
+          ICON ACTIONS
       ===================================================== */}
 
       <div
@@ -261,6 +378,7 @@ function RegularPreview({ project }) {
             flex
             h-8
             w-8
+
             items-center
             justify-center
 
@@ -295,6 +413,7 @@ function RegularPreview({ project }) {
             flex
             h-8
             w-8
+
             items-center
             justify-center
 

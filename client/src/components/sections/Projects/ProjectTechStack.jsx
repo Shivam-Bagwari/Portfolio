@@ -1,28 +1,33 @@
-function ProjectTechStack({ tech }) {
+function ProjectTechStack({ tech = [] }) {
   return (
-    <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
-      {tech.map((item, index) => (
+    <div className="flex flex-wrap items-center gap-[8px]">
+      {tech.map((item) => (
         <span
           key={item}
           className="
-            flex
+            inline-flex
+            h-[20px]
             items-center
+            justify-center
+            rounded-full
+            border
+            border-white/[0.10]
+            bg-white/[0.035]
+            px-[10px]
             font-mono
-            text-[9px]
+            text-[10px]
+            font-medium
             leading-none
-            text-white/35
+            text-white/55
+            backdrop-blur-[10px]
             transition-colors
-            duration-300
-            group-hover:text-white/50
+            duration-200
+            hover:border-white/[0.15]
+            hover:bg-white/[0.06]
+            hover:text-white/75
           "
         >
           {item}
-
-          {index < tech.length - 1 && (
-            <span className="ml-2 text-white/15">
-              ·
-            </span>
-          )}
         </span>
       ))}
     </div>
