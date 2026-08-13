@@ -96,59 +96,6 @@ function ContactCard() {
 
           </div>
 
-          {/* Bottom Hint */}
-
-          <div
-            className="
-              mt-8
-              flex
-              items-center
-              justify-center
-              gap-2
-              text-[13px]
-              text-white/30
-            "
-          >
-
-            <span>Press</span>
-
-            <span
-              className="
-                flex
-                h-6
-                w-6
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-white/10
-                bg-white/[0.03]
-              "
-            >
-              <Keyboard size={13} />
-            </span>
-
-            <span
-              className="
-                flex
-                h-6
-                w-6
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-white/10
-                bg-white/[0.03]
-                font-mono
-              "
-            >
-              K
-            </span>
-
-            <span>anywhere to navigate.</span>
-
-          </div>
-
         </div>
 
       </PremiumCard>
