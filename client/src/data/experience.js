@@ -9,21 +9,20 @@ const experience = [
     current: true,
 
     description:
-      "Building an AI-powered learning platform focused on developer experience, scalable architecture, and interactive education.",
+      "Building a full-stack learning platform for discovering, organizing, and managing high-quality courses through a unified experience.",
 
     technologies: [
       "React",
       "Node.js",
       "MongoDB",
       "Tailwind",
-      "Express",
-      "AI"
+      "Express"
     ],
 
     achievements: [
-      "Designed the complete frontend architecture.",
-      "Developed scalable backend APIs.",
-      "Building AI-powered learning features."
+      "Designed and developed the complete frontend architecture.",
+      "Built RESTful backend APIs with authentication and course management.",
+      "Deployed and maintained the platform across production environments."
     ],
 
     link: "#"
@@ -34,12 +33,12 @@ const experience = [
     logo: "GE",
     role: "B.Tech Computer Science",
     company: "Graphic Era University",
-    duration: "2022 — Present",
+    duration: "2022 — 2026",
     location: "Dehradun",
     current: true,
 
     description:
-      "Pursuing Computer Science while building production-ready software and exploring artificial intelligence.",
+      "Completed a B.Tech in Computer Science while building full-stack applications and developing strong foundations in software engineering.",
 
     technologies: [
       "Java",
@@ -49,8 +48,9 @@ const experience = [
     ],
 
     achievements: [
-      "Built several full-stack projects.",
-      "Focused on software engineering principles."
+      "Built multiple full-stack and frontend projects.",
+      "Developed practical experience with databases, APIs, and modern web technologies.",
+      "Strengthened foundations in software engineering and computer science."
     ],
 
     link: "#"
