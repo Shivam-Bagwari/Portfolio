@@ -7,7 +7,6 @@ function ProjectFeaturedContent({ project }) {
     <div
       className="
         flex
-        h-full
         min-w-0
         flex-col
 
@@ -100,7 +99,7 @@ function ProjectFeaturedContent({ project }) {
           BUTTONS
       ===================================================== */}
 
-      <div className="mt-5">
+      <div className="mt-auto pt-4">
         <ProjectButtons
           live={project.live}
           github={project.github}
