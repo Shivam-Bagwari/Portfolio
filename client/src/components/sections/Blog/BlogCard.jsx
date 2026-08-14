@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import PremiumCard from "../../ui/PremiumCard";
 import TiltCard from "../../ui/TiltCard";
@@ -13,6 +14,11 @@ function BlogCard({ blog }) {
   } = blog;
 
   return (
+    <Link
+  to="/blogs"
+  className="block cursor-pointer"
+>
+
     <TiltCard
       maxTilt={1.5}
       className="group"
@@ -103,7 +109,6 @@ function BlogCard({ blog }) {
           className="
             relative
             z-10
-            cursor-pointer
 
             rounded-[24px]
 
@@ -274,6 +279,7 @@ function BlogCard({ blog }) {
 
       </div>
     </TiltCard>
+    </Link>
   );
 }
 

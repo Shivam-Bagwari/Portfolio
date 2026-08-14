@@ -1,24 +1,32 @@
+import { useLocation } from "react-router-dom";
+
 import BackgroundEffects from "../effects/BackgroundEffects";
-import CursorCat from "../effects/CursorCat";
 import AvailabilityBadge from "../shell/AvailabilityBadge";
 import RightIndex from "../shell/RightIndex";
 import ScrollProgress from "../shell/ScrollProgress";
 
 function Layout({ children }) {
+  const location = useLocation();
+
+  const isBlogsPage =
+    location.pathname === "/blogs";
+
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
 
       <BackgroundEffects />
 
-      <CursorCat />
-
       <ScrollProgress />
 
-      <AvailabilityBadge />
+      {!isBlogsPage && (
+        <AvailabilityBadge />
+      )}
 
       {children}
 
-      <RightIndex />
+      {!isBlogsPage && (
+        <RightIndex />
+      )}
 
     </main>
   );
