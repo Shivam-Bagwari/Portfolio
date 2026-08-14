@@ -1,18 +1,15 @@
-import {
-  Mail,
-  Download,
-} from "lucide-react";
-
+import { ArrowUpRight } from "lucide-react";
 import PremiumCard from "../../ui/PremiumCard";
-import PremiumButton from "../../ui/PremiumButton";
 import TiltCard from "../../ui/TiltCard";
 
 const glow = "rgba(168, 85, 247, 0.18)";
 
-function ContactCard() {
+function BlogCard({ blog }) {
+  const { title, readTime, tags } = blog;
+
   return (
     <TiltCard
-      maxTilt={2}
+      maxTilt={1.5}
       className="group"
     >
       <div
@@ -34,7 +31,7 @@ function ContactCard() {
             absolute
             -inset-[1px]
 
-            rounded-[31px]
+            rounded-[25px]
 
             opacity-0
             blur-[7px]
@@ -62,7 +59,7 @@ function ContactCard() {
             z-[5]
 
             overflow-hidden
-            rounded-[30px]
+            rounded-[25px]
 
             opacity-0
 
@@ -109,6 +106,8 @@ function ContactCard() {
             relative
             z-10
 
+            rounded-[24px]
+
             transition-[border-color,background,box-shadow,transform]
             duration-500
             ease-[cubic-bezier(.22,1,.36,1)]
@@ -120,97 +119,126 @@ function ContactCard() {
           "
         >
 
-          <div className="px-10 py-12 text-center">
+          <div className="relative px-6 py-5">
 
             {/* =================================================
-                SMALL HEADING
+                ARROW
             ================================================= */}
 
-            <p
+            <ArrowUpRight
+              size={16}
               className="
-                font-mono
-                text-[11px]
-                uppercase
-                tracking-[0.42em]
+                absolute
+                right-6
+                top-6
+
                 text-white/28
+
+                transition-all
+                duration-300
+                ease-out
+
+                group-hover:-translate-y-0.5
+                group-hover:translate-x-0.5
+                group-hover:text-fuchsia-300
               "
-            >
-              GET IN TOUCH
-            </p>
+            />
 
             {/* =================================================
-                HEADLINE
-            ================================================= */}
-
-            <h2
-              className="
-                mx-auto
-                mt-6
-                max-w-4xl
-
-                font-serif-display
-                text-[60px]
-                italic
-                leading-[1.05]
-                tracking-tight
-
-                text-white
-              "
-            >
-              Let's build something worth shipping.
-            </h2>
-
-            {/* =================================================
-                DESCRIPTION
-            ================================================= */}
-
-            <p
-              className="
-                mx-auto
-                mt-8
-                max-w-2xl
-
-                font-mono
-                text-[18px]
-                leading-9
-
-                text-white/55
-              "
-            >
-              Open to select freelance work,
-              collaborations, and full-time roles.
-              Reach out — I reply within 24 hours.
-            </p>
-
-            {/* =================================================
-                BUTTONS
+                META
             ================================================= */}
 
             <div
               className="
-                mt-10
                 flex
-                flex-wrap
-                justify-center
-                gap-4
+                items-center
+                gap-3
+
+                font-mono
+                text-[10px]
+                uppercase
+                tracking-[0.28em]
+
+                text-white/28
               "
             >
+              <span>
+                Coming Soon
+              </span>
 
-              <PremiumButton
-                href="mailto:shivambagwari@gmail.com"
-                variant="primary"
-                icon={Mail}
-              >
-                shivambagwari@gmail.com
-              </PremiumButton>
+              <span
+                className="
+                  h-[3px]
+                  w-[3px]
+                  rounded-full
+                  bg-white/20
+                "
+              />
 
-              <PremiumButton
-                href="/Shivam_Bagwari_resume_v1.pdf"
-                variant="secondary"
-                icon={Download}
-              >
-                Download Resume
-              </PremiumButton>
+              <span>
+                {readTime}
+              </span>
+            </div>
+
+            {/* =================================================
+                TITLE
+            ================================================= */}
+
+            <h3
+              className="
+                mt-3
+                max-w-[640px]
+
+                text-[18px]
+                font-bold
+                leading-[1.35]
+                tracking-tight
+
+                text-white
+
+                transition-colors
+                duration-300
+
+                group-hover:text-fuchsia-100
+              "
+            >
+              {title}
+            </h3>
+
+            {/* =================================================
+                TAGS
+            ================================================= */}
+
+            <div className="mt-4 flex flex-wrap gap-2">
+
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="
+                    rounded-full
+
+                    border
+                    border-white/[0.08]
+
+                    bg-white/[0.025]
+
+                    px-2.5
+                    py-[5px]
+
+                    text-[11px]
+                    font-medium
+
+                    text-white/55
+
+                    transition-all
+                    duration-300
+
+                    group-hover:border-white/15
+                  "
+                >
+                  {tag}
+                </span>
+              ))}
 
             </div>
 
@@ -223,4 +251,4 @@ function ContactCard() {
   );
 }
 
-export default ContactCard;
+export default BlogCard;

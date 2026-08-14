@@ -1,6 +1,6 @@
-import Container from "../layout/Container"
-import blogs from "../../data/blogs";
-import SectionHeader from "../ui/SectionHeader";
+import Container from "../../layout/Container"
+import blogs from "../../../data/blogs";
+import SectionHeader from "../../ui/SectionHeader";
 import BlogCard from "./BlogCard";
 
 function Blogs() {

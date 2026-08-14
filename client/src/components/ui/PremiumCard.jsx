@@ -13,7 +13,7 @@ function PremiumCard({
         border
         border-white/[0.08]
 
-        bg-white/[0.04]
+        bg-white/[0.03]
 
         shadow-[0_10px_45px_rgba(0,0,0,.38)]
 

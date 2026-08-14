@@ -79,6 +79,52 @@ function ProjectCard({ project }) {
           }}
         />
 
+        {/* GLASS LIGHT SWEEP */}
+
+        <div
+          className="
+    pointer-events-none
+    absolute
+    inset-0
+    z-[5]
+
+    overflow-hidden
+    rounded-[30px]
+
+    opacity-0
+    transition-opacity
+    duration-500
+
+    group-hover:opacity-100
+  "
+        >
+          <div
+            className="
+      absolute
+      -left-[80%]
+      top-0
+
+      h-full
+      w-[55%]
+
+      rotate-[12deg]
+
+      bg-gradient-to-r
+      from-transparent
+      via-white/[0.055]
+      to-transparent
+
+      blur-[10px]
+
+      transition-transform
+      duration-[1200ms]
+      ease-[cubic-bezier(.22,.61,.36,1)]
+
+      group-hover:translate-x-[330%]
+    "
+          />
+        </div>
+
         {/* =====================================================
             ACTUAL CARD
         ===================================================== */}
