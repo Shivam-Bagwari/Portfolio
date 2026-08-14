@@ -52,7 +52,6 @@ function ProjectContent({ project }) {
       <p
         className="
           mt-3
-          line-clamp-2
 
           max-w-[95%]
 
@@ -66,11 +65,18 @@ function ProjectContent({ project }) {
       </p>
 
       {/* =====================================================
-          TECH + VIEW
+          TECH STACK
       ===================================================== */}
 
-      < div className="mt-3 flex items-center justify-between gap-4">
-        
+      <div
+        className="
+          mt-3
+          flex
+          items-center
+          justify-between
+          gap-4
+        "
+      >
         <div className="min-w-0">
           <ProjectTechStack tech={tech} />
         </div>

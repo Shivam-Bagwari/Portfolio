@@ -149,7 +149,7 @@ function ContactCard() {
                 max-w-4xl
 
                 font-serif-display
-                text-[60px]
+                text-[56px]
                 italic
                 leading-[1.05]
                 tracking-tight
@@ -174,7 +174,7 @@ function ContactCard() {
                 text-[18px]
                 leading-9
 
-                text-white/55
+                text-white/60
               "
             >
               Open to select freelance work,
@@ -200,6 +200,13 @@ function ContactCard() {
                 href="mailto:shivambagwari@gmail.com"
                 variant="primary"
                 icon={Mail}
+                className="
+                  transition-all
+                  duration-300
+                  ease-out
+                  hover:-translate-y-[1px]
+                  hover:shadow-[0_8px_25px_rgba(255,255,255,.12)]
+                "
               >
                 shivambagwari@gmail.com
               </PremiumButton>

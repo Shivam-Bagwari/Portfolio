@@ -12,7 +12,7 @@ function Experience() {
 
         <SectionHeader
           number="01"
-          title="Experiences"
+          title="Experience & Education"
         />
 
         <ExperienceAccordion items={experience} />

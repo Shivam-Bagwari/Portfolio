@@ -10,7 +10,7 @@ const projects = [
     previewSubtitle: "A Universe of Courses",
 
     description:
-      "A learning platform that organizes high-quality courses across the web into one elegant universe.",
+      "A full-stack course marketplace for discovering, organizing, and managing online courses through a unified learning experience.",
 
     tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
 
@@ -36,7 +36,7 @@ const projects = [
     previewSubtitle: "Landslide Detection",
 
     description:
-      "An AI-powered landslide detection and early warning platform designed to improve disaster preparedness using geospatial analysis and predictive monitoring.",
+      "An ML-based landslide detection and early warning platform trained on large environmental datasets to predict landslide risk and improve disaster preparedness.",
 
     tech: ["JavaScript", "Leaflet", "GIS", "AI"],
 
@@ -54,22 +54,25 @@ const projects = [
   {
     id: 3,
     featured: false,
-    category: "Frontend",
+    category: "Full-Stack",
 
-    title: "Portfolio v2",
+    title: "Blog CMS",
 
-    previewTitle: "Portfolio",
-
-    previewSubtitle: "Designed & Developed",
+    previewTitle: "Blog CMS",
+    previewSubtitle: "Developer Publishing Platform",
 
     description:
-      "A modern developer portfolio built with React, Tailwind CSS, and a custom glassmorphism design system focused on performance and user experience.",
+      "A full-stack publishing platform with a dedicated CMS for writing, managing, and publishing technical articles through a structured workflow.",
 
-    tech: ["React", "Tailwind", "JavaScript", "Vite"],
-    status: "Live",
-    statusColor: "bg-emerald-400",
-    accent: "cyan",
+    tech: ["Next.js", "Node.js", "PostgreSQL", "Prisma"],
+
+    status: "In Development",
+    statusColor: "bg-orange-400",
+
+    accent: "pink",
+
     year: "2026",
+
     live: "#",
     github: "#",
   },
@@ -82,17 +85,20 @@ const projects = [
     title: "CampusConnect",
 
     previewTitle: "CampusConnect",
-
-    previewSubtitle: "Coming Soon",
+    previewSubtitle: "Student Developer Community",
 
     description:
-      "A community platform connecting students, developers, and campus organizations through collaboration, events, and project discovery.",
+      "A community platform connecting students and developers through projects, events, discussions, and campus opportunities.",
 
     tech: ["React", "Node.js", "MongoDB", "Socket.io"],
+
     status: "In Development",
     statusColor: "bg-orange-400",
+
     accent: "white",
+
     year: "2026",
+
     live: "#",
     github: "#",
   },
