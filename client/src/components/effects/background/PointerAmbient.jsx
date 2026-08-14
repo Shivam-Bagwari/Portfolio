@@ -4,6 +4,8 @@ function PointerAmbient() {
   const ambientRef = useRef(null);
   const tintRef = useRef(null);
 
+  const localAmbientActive = useRef(false);
+
   useEffect(() => {
     let frame;
 
@@ -16,11 +18,23 @@ function PointerAmbient() {
     const handlePointerMove = (event) => {
       targetX = event.clientX;
       targetY = event.clientY;
+
+      const target = event.target;
+
+      const insideProject =
+        target instanceof Element &&
+        target.closest("[data-local-ambient]");
+
+      localAmbientActive.current = Boolean(insideProject);
     };
 
     const animate = () => {
       x += (targetX - x) * 0.07;
       y += (targetY - y) * 0.07;
+
+      const targetOpacity = localAmbientActive.current
+        ? 0
+        : 1;
 
       if (ambientRef.current) {
         ambientRef.current.style.transform = `
@@ -30,6 +44,9 @@ function PointerAmbient() {
             0
           )
         `;
+
+        ambientRef.current.style.opacity =
+          targetOpacity * 0.9;
       }
 
       if (tintRef.current) {
@@ -40,6 +57,9 @@ function PointerAmbient() {
             0
           )
         `;
+
+        tintRef.current.style.opacity =
+          targetOpacity;
       }
 
       frame = requestAnimationFrame(animate);
@@ -82,6 +102,7 @@ function PointerAmbient() {
           will-change-transform
         "
         style={{
+          opacity: 0.9,
           background: `
             radial-gradient(
               circle,
@@ -110,6 +131,7 @@ function PointerAmbient() {
           will-change-transform
         "
         style={{
+          opacity: 1,
           background: `
             radial-gradient(
               circle,

@@ -17,8 +17,14 @@ function ProjectCard({ project }) {
 
   return (
     <TiltCard className="group h-full">
-      <div className="relative h-full rounded-[30px]">
-
+      <div
+        data-local-ambient
+        className="
+          relative
+          h-full
+          rounded-[30px]
+        "
+      >
         {/* =====================================================
             VERY SUBTLE OUTER ATMOSPHERE
         ===================================================== */}
@@ -102,7 +108,6 @@ function ProjectCard({ project }) {
             </div>
           )}
         </PremiumCard>
-
       </div>
     </TiltCard>
   );
