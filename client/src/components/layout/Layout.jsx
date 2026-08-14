@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-
 import BackgroundEffects from "../effects/BackgroundEffects";
 import AvailabilityBadge from "../shell/AvailabilityBadge";
 import RightIndex from "../shell/RightIndex";

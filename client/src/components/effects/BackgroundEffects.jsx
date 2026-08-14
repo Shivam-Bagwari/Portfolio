@@ -8,25 +8,26 @@ function BackgroundEffects() {
   const isMobile = useIsMobile();
 
   return (
-    <div
-      className="
-        fixed
-        inset-0
-        overflow-hidden
-        pointer-events-none
-        z-0
-      "
-      aria-hidden="true"
-    >
-      <Background />
+    <>
+      {/* Background Layer */}
+      <div
+        className="
+          fixed
+          inset-0
+          overflow-hidden
+          pointer-events-none
+          z-0
+        "
+        aria-hidden="true"
+      >
+        <Background />
 
-      {!isMobile && (
-        <>
-          <PointerAmbient />
-          <CursorCat />
-        </>
-      )}
-    </div>
+        {!isMobile && <PointerAmbient />}
+      </div>
+
+      {/* Cursor Cat — always above the UI */}
+      {!isMobile && <CursorCat />}
+    </>
   );
 }
 
