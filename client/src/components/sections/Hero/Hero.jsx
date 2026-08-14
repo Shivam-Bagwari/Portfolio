@@ -6,6 +6,7 @@ function Hero() {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-title"
       className="pt-16 pb-16"
     >
       <Container>

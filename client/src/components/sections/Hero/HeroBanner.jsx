@@ -95,7 +95,7 @@ function HeroBanner() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          alt="Hero Banner"
+          alt=""
           draggable={false}
           className="
           relative

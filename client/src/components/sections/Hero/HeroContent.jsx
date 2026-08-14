@@ -48,6 +48,7 @@ function HeroContent() {
         <div className="flex flex-col justify-center">
 
           <h1
+            id="hero-title"
             className="
             font-tight
             text-[54px]
@@ -102,22 +103,26 @@ function HeroContent() {
         className="
         [font-family:'Inter',sans-serif]
         mt-5
+        max-w-[760px]
+        list-disc
         space-y-5
+        pl-5
         text-lg
         text-white/55
-        max-w-[760px]
         "
       >
         <li>
-          • Building products that combine clean engineering with thoughtful user experience.
+          Building products that combine clean engineering with thoughtful user
+          experience.
         </li>
 
         <li>
-          • Interested in AI, developer tools, scalable backend systems, and modern web architecture.
+          Interested in AI, developer tools, scalable backend systems, and modern
+          web architecture.
         </li>
 
         <li>
-          • Currently building{" "}
+          Currently building{" "}
           <span className="font-semibold text-white">
             CourseUniverse
           </span>
@@ -125,7 +130,7 @@ function HeroContent() {
         </li>
       </ul>
 
-      <div className="mt-12 flex flex-wrap gap-3 cursor:pointer">
+      <div className="mt-12 flex flex-wrap gap-3">
 
         <PremiumButton
           as="a"
@@ -134,7 +139,7 @@ function HeroContent() {
           rel="noopener noreferrer"
           variant="primary"
           icon={FaDownload}
-          cursor: Pointer
+          cursor:Pointer
         >
           Download Resume
         </PremiumButton>
@@ -144,7 +149,7 @@ function HeroContent() {
           href="mailto:shivambagwari@gmail.com"
           variant="secondary"
           icon={BiLogoGmail}
-          cursor: Pointer
+          cursor:Pointer
         >
           Send an email
         </PremiumButton>
