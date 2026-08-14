@@ -147,138 +147,186 @@ function ExperienceRow({ item, open, onToggle }) {
           <button
             onClick={onToggle}
             className="
-              flex
+              grid
               w-full
+              grid-cols-[auto_minmax(0,1fr)_auto]
               items-center
-              justify-between
-              px-6
+              gap-3
+
+              px-4
               py-4
+
               text-left
+
+              sm:gap-5
+              sm:px-6
             "
           >
-            {/* LEFT */}
+            {/* =================================================
+                LOGO
+            ================================================= */}
 
-            <div className="flex items-center gap-5">
-              {/* Logo */}
+            <div
+              className="
+                relative
+                flex
+                h-12
+                w-12
+                shrink-0
+                items-center
+                justify-center
+                overflow-hidden
+                rounded-xl
 
+                border
+                border-white/10
+
+                bg-white/[0.03]
+
+                transition-all
+                duration-500
+
+                group-hover:border-fuchsia-400/30
+              "
+            >
               <div
                 className="
-                  relative
-                  flex
-                  h-12
-                  w-12
-                  shrink-0
-                  items-center
-                  justify-center
-                  overflow-hidden
-                  rounded-xl
+                  absolute
+                  -left-6
+                  -top-6
 
-                  border
-                  border-white/10
+                  h-16
+                  w-16
 
-                  bg-white/[0.03]
+                  rounded-full
 
-                  transition-all
+                  bg-fuchsia-500/20
+                  blur-2xl
+
+                  opacity-0
+
+                  transition-opacity
                   duration-500
 
-                  group-hover:border-fuchsia-400/30
+                  group-hover:opacity-100
+                "
+              />
+
+              <span
+                className="
+                  relative
+
+                  font-mono
+                  text-[11px]
+                  font-bold
+                  tracking-wider
+
+                  text-white/90
                 "
               >
-                <div
-                  className="
-                    absolute
-                    -left-6
-                    -top-6
-
-                    h-16
-                    w-16
-
-                    rounded-full
-
-                    bg-fuchsia-500/20
-                    blur-2xl
-
-                    opacity-0
-
-                    transition-opacity
-                    duration-500
-
-                    group-hover:opacity-100
-                  "
-                />
-
-                <span
-                  className="
-                    relative
-
-                    font-mono
-                    text-[11px]
-                    font-bold
-                    tracking-wider
-
-                    text-white/90
-                  "
-                >
-                  {item.logo}
-                </span>
-              </div>
-
-              <div>
-                <h3
-                  className="
-                    text-[30px]
-                    font-tight
-                    font-extrabold
-                    leading-none
-
-                    tracking-[-0.04em]
-
-                    text-white
-                  "
-                >
-                  {item.role}
-                </h3>
-
-                <p
-                  className="
-                    mt-2
-
-                    font-mono
-                    text-[11px]
-                    uppercase
-                    tracking-[0.18em]
-
-                    text-white/42
-                  "
-                >
-                  {item.company}
-                </p>
-              </div>
+                {item.logo}
+              </span>
             </div>
 
-            {/* RIGHT */}
+            {/* =================================================
+                ROLE + COMPANY
+            ================================================= */}
 
-            <div className="flex items-center gap-6">
-              <div className="text-right">
+            <div className="min-w-0">
+              <h3
+                className="
+                  font-tight
+                  text-[23px]
+                  font-extrabold
+                  leading-[0.95]
+
+                  tracking-[-0.04em]
+
+                  text-white
+
+                  sm:text-[30px]
+                  sm:leading-none
+                "
+              >
+                {item.role}
+              </h3>
+
+              <p
+                className="
+                  mt-2
+
+                  truncate
+
+                  font-mono
+                  text-[9px]
+                  uppercase
+                  tracking-[0.18em]
+
+                  text-white/42
+
+                  sm:text-[11px]
+                "
+              >
+                {item.company}
+              </p>
+            </div>
+
+            {/* =================================================
+                RIGHT — DATE / LOCATION / CHEVRON
+            ================================================= */}
+
+            <div
+              className="
+                flex
+                shrink-0
+                items-center
+                gap-2
+
+                sm:gap-5
+              "
+            >
+              <div className="w-[64px] text-right sm:w-auto">
                 <p
                   className="
+                    whitespace-nowrap
+
                     font-mono
-                    text-[13px]
-                    tracking-[0.08em]
+                    text-[10px]
+                    leading-tight
+                    tracking-[0.04em]
+
                     text-white/75
+
+                    sm:text-[13px]
+                    sm:tracking-[0.08em]
                   "
                 >
                   {item.duration}
                 </p>
 
-                <p className="mt-1 text-xs text-white/35">
+                <p
+                  className="
+                    mt-1
+
+                    truncate
+
+                    text-[9px]
+                    text-white/35
+
+                    sm:text-xs
+                  "
+                >
                   {item.location}
                 </p>
               </div>
 
               <ChevronDown
-                size={18}
+                size={17}
                 className={`
+                  shrink-0
+
+                  text-white/55
+
                   transition-all
                   duration-500
                   ease-[cubic-bezier(.22,1,.36,1)]
@@ -312,9 +360,11 @@ function ExperienceRow({ item, open, onToggle }) {
                 className={`
                   relative
 
-                  px-6
+                  px-4
                   pt-5
                   pb-5
+
+                  sm:px-6
 
                   transition-all
                   duration-500
@@ -373,10 +423,13 @@ function ExperienceRow({ item, open, onToggle }) {
                   className="
                     max-w-[780px]
 
-                    text-[16px]
-                    leading-8
+                    text-[14px]
+                    leading-7
 
                     text-white/68
+
+                    sm:text-[16px]
+                    sm:leading-8
                   "
                 >
                   {item.description}
@@ -396,17 +449,20 @@ function ExperienceRow({ item, open, onToggle }) {
 
                         bg-white/[0.025]
 
-                        px-3.5
+                        px-3
                         py-1.5
 
                         font-mono
-                        text-[11px]
+                        text-[10px]
                         tracking-[0.04em]
 
                         text-white/62
 
                         transition-all
                         duration-500
+
+                        sm:px-3.5
+                        sm:text-[11px]
 
                         ${
                           open
@@ -435,7 +491,12 @@ function ExperienceRow({ item, open, onToggle }) {
                           items-start
                           gap-3
 
+                          text-[13px]
+                          leading-6
                           text-white/58
+
+                          sm:text-base
+                          sm:leading-normal
 
                           transition-all
                           duration-500
