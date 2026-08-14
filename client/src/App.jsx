@@ -5,8 +5,6 @@ import BackgroundEffects from "./components/effects/BackgroundEffects";
 function App() {
     return (
         <Layout>
-
-            <BackgroundEffects />
             <Home />
         </Layout>
     );

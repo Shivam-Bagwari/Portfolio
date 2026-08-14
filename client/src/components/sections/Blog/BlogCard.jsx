@@ -5,7 +5,12 @@ import TiltCard from "../../ui/TiltCard";
 const glow = "rgba(168, 85, 247, 0.18)";
 
 function BlogCard({ blog }) {
-  const { title, readTime, tags } = blog;
+  const {
+    title,
+    excerpt,
+    readTime,
+    tags,
+  } = blog;
 
   return (
     <TiltCard
@@ -21,16 +26,13 @@ function BlogCard({ blog }) {
         "
       >
 
-        {/* =====================================================
-            SUBTLE OUTER ATMOSPHERE
-        ===================================================== */}
+        {/* SUBTLE OUTER ATMOSPHERE */}
 
         <div
           className="
             pointer-events-none
             absolute
             -inset-[1px]
-
             rounded-[25px]
 
             opacity-0
@@ -47,9 +49,7 @@ function BlogCard({ blog }) {
           }}
         />
 
-        {/* =====================================================
-            GLASS LIGHT SWEEP
-        ===================================================== */}
+        {/* GLASS LIGHT SWEEP */}
 
         <div
           className="
@@ -97,14 +97,13 @@ function BlogCard({ blog }) {
           />
         </div>
 
-        {/* =====================================================
-            ACTUAL CARD
-        ===================================================== */}
+        {/* ACTUAL CARD */}
 
         <PremiumCard
           className="
             relative
             z-10
+            cursor-pointer
 
             rounded-[24px]
 
@@ -118,19 +117,16 @@ function BlogCard({ blog }) {
             group-hover:shadow-[0_18px_50px_rgba(0,0,0,.42)]
           "
         >
+          <div className="relative px-5 py-3">
 
-          <div className="relative px-6 py-5">
-
-            {/* =================================================
-                ARROW
-            ================================================= */}
+            {/* ARROW */}
 
             <ArrowUpRight
-              size={16}
+              size={15}
               className="
                 absolute
-                right-6
-                top-6
+                right-5
+                top-4
 
                 text-white/28
 
@@ -144,9 +140,7 @@ function BlogCard({ blog }) {
               "
             />
 
-            {/* =================================================
-                META
-            ================================================= */}
+            {/* META */}
 
             <div
               className="
@@ -155,7 +149,7 @@ function BlogCard({ blog }) {
                 gap-3
 
                 font-mono
-                text-[10px]
+                text-[9px]
                 uppercase
                 tracking-[0.28em]
 
@@ -180,18 +174,16 @@ function BlogCard({ blog }) {
               </span>
             </div>
 
-            {/* =================================================
-                TITLE
-            ================================================= */}
+            {/* TITLE */}
 
             <h3
               className="
-                mt-3
+                mt-1.5
                 max-w-[640px]
 
-                text-[18px]
+                text-[17px]
                 font-bold
-                leading-[1.35]
+                leading-[1.3]
                 tracking-tight
 
                 text-white
@@ -205,12 +197,48 @@ function BlogCard({ blog }) {
               {title}
             </h3>
 
-            {/* =================================================
-                TAGS
-            ================================================= */}
+            {/* EXCERPT — REVEALS ON HOVER */}
 
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div
+              className="
+                grid
+                grid-rows-[0fr]
 
+                opacity-0
+
+                transition-all
+                duration-500
+                ease-[cubic-bezier(.22,1,.36,1)]
+
+                group-hover:grid-rows-[1fr]
+                group-hover:mt-3
+                group-hover:opacity-100
+              "
+            >
+              <div className="overflow-hidden">
+                <p
+                  className="
+                    max-w-[680px]
+
+                    text-[12px]
+                    leading-[1.7]
+
+                    text-white/45
+
+                    transition-colors
+                    duration-300
+
+                    group-hover:text-white/55
+                  "
+                >
+                  {excerpt}
+                </p>
+              </div>
+            </div>
+
+            {/* TAGS */}
+
+            <div className="mt-2.5 flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <span
                   key={tag}
@@ -223,9 +251,9 @@ function BlogCard({ blog }) {
                     bg-white/[0.025]
 
                     px-2.5
-                    py-[5px]
+                    py-[4px]
 
-                    text-[11px]
+                    text-[10px]
                     font-medium
 
                     text-white/55
@@ -239,11 +267,9 @@ function BlogCard({ blog }) {
                   {tag}
                 </span>
               ))}
-
             </div>
 
           </div>
-
         </PremiumCard>
 
       </div>

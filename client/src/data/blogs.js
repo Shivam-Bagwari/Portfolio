@@ -14,7 +14,7 @@ const blogs = [
   {
     id: 2,
     slug: "premium-react-portfolio",
-    title: "Designing a Premium Developer Portfolio",
+    title: "Designing a Premium Developer Portfolio with React",
     excerpt:
       "A deep dive into my design decisions, glass UI system, typography, reusable components, and creating a portfolio that feels like a real product.",
     date: "Coming Soon",
