@@ -48,7 +48,7 @@ const projects = [
     year: "2025",
 
     live: "#",
-    github: "#",
+    github: "https://github.com/Shivam-Bagwari/GeoSheild",
   },
 
   {

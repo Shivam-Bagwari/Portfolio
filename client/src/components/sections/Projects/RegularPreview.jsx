@@ -3,9 +3,6 @@ import { FiGithub } from "react-icons/fi";
 
 const glowConfig = {
   red: {
-    // GeoShield
-    // Pink atmosphere pushed toward the right,
-    // while still bleeding into the center.
     background: `
       radial-gradient(
         ellipse 62% 82% at 72% 48%,
@@ -19,8 +16,6 @@ const glowConfig = {
   },
 
   cyan: {
-    // Portfolio
-    // Centered, round/circular atmosphere.
     background: `
       radial-gradient(
         circle 48% at 50% 48%,
@@ -34,8 +29,6 @@ const glowConfig = {
   },
 
   white: {
-    // CampusConnect
-    // Neutral centered atmosphere.
     background: `
       radial-gradient(
         ellipse 68% 82% at 50% 48%,
@@ -48,7 +41,6 @@ const glowConfig = {
   },
 
   purple: {
-    // Fallback
     background: `
       radial-gradient(
         ellipse 68% 82% at 52% 46%,
@@ -75,6 +67,15 @@ function RegularPreview({ project }) {
   const glow =
     glowConfig[accent] || glowConfig.purple;
 
+  const hasGithub =
+    github && github !== "#";
+
+  const hasLive =
+    live && live !== "#";
+
+  const hasActions =
+    hasGithub || hasLive;
+
   return (
     <div
       className="
@@ -90,9 +91,7 @@ function RegularPreview({ project }) {
         bg-black/[0.22]
       "
     >
-      {/* =====================================================
-          MAIN ATMOSPHERE
-      ===================================================== */}
+      {/* MAIN ATMOSPHERE */}
 
       <div
         className="
@@ -114,9 +113,7 @@ function RegularPreview({ project }) {
         }}
       />
 
-      {/* =====================================================
-          SECONDARY DEPTH
-      ===================================================== */}
+      {/* SECONDARY DEPTH */}
 
       <div
         className="
@@ -135,9 +132,7 @@ function RegularPreview({ project }) {
         }}
       />
 
-      {/* =====================================================
-          TOP / SIDE DARKENING
-      ===================================================== */}
+      {/* TOP / SIDE DARKENING */}
 
       <div
         className="
@@ -157,9 +152,7 @@ function RegularPreview({ project }) {
         }}
       />
 
-      {/* =====================================================
-          BOTTOM DARKNESS
-      ===================================================== */}
+      {/* BOTTOM DARKNESS */}
 
       <div
         className="
@@ -182,9 +175,7 @@ function RegularPreview({ project }) {
         }}
       />
 
-      {/* =====================================================
-          LEFT / RIGHT EDGE VIGNETTE
-      ===================================================== */}
+      {/* LEFT / RIGHT EDGE VIGNETTE */}
 
       <div
         className="
@@ -205,9 +196,7 @@ function RegularPreview({ project }) {
         }}
       />
 
-      {/* =====================================================
-          SUBTLE TOP EDGE
-      ===================================================== */}
+      {/* SUBTLE TOP EDGE */}
 
       <div
         className="
@@ -224,9 +213,7 @@ function RegularPreview({ project }) {
         "
       />
 
-      {/* =====================================================
-          YEAR
-      ===================================================== */}
+      {/* YEAR */}
 
       <span
         className="
@@ -246,9 +233,7 @@ function RegularPreview({ project }) {
         {year}
       </span>
 
-      {/* =====================================================
-          CENTER CONTENT
-      ===================================================== */}
+      {/* CENTER CONTENT */}
 
       <div
         className="
@@ -303,9 +288,7 @@ function RegularPreview({ project }) {
         </p>
       </div>
 
-      {/* =====================================================
-          CATEGORY
-      ===================================================== */}
+      {/* CATEGORY */}
 
       <div
         className="
@@ -344,99 +327,103 @@ function RegularPreview({ project }) {
         </span>
       </div>
 
-      {/* =====================================================
-          ICON ACTIONS
-      ===================================================== */}
+      {/* ICON ACTIONS */}
 
-      <div
-        className="
-          absolute
-          bottom-5
-          right-5
-          z-20
-
-          flex
-          items-center
-          gap-2
-
-          opacity-70
-
-          transition-opacity
-          duration-300
-
-          group-hover:opacity-100
-        "
-      >
-        {/* GitHub */}
-
-        <a
-          href={github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${project.name} GitHub`}
+      {hasActions && (
+        <div
           className="
+            absolute
+            bottom-5
+            right-5
+            z-20
+
             flex
-            h-8
-            w-8
-
             items-center
-            justify-center
+            gap-2
 
-            rounded-[10px]
+            opacity-70
 
-            border
-            border-white/[0.08]
-
-            bg-white/[0.025]
-
-            text-white/50
-
-            transition-colors
+            transition-opacity
             duration-300
 
-            hover:border-white/[0.15]
-            hover:bg-white/[0.06]
-            hover:text-white
+            group-hover:opacity-100
           "
         >
-          <FiGithub size={14} />
-        </a>
+          {/* GitHub */}
 
-        {/* Live */}
+          {hasGithub && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title} GitHub`}
+              className="
+                flex
+                h-8
+                w-8
 
-        <a
-          href={live}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${project.name} live site`}
-          className="
-            flex
-            h-8
-            w-8
+                items-center
+                justify-center
 
-            items-center
-            justify-center
+                rounded-[10px]
 
-            rounded-[10px]
+                border
+                border-white/[0.08]
 
-            border
-            border-white/[0.08]
+                bg-white/[0.025]
 
-            bg-white/[0.025]
+                text-white/50
 
-            text-white/50
+                transition-colors
+                duration-300
 
-            transition-colors
-            duration-300
+                hover:border-white/[0.15]
+                hover:bg-white/[0.06]
+                hover:text-white
+              "
+            >
+              <FiGithub size={14} />
+            </a>
+          )}
 
-            hover:border-white/[0.15]
-            hover:bg-white/[0.06]
-            hover:text-white
-          "
-        >
-          <ArrowUpRight size={14} />
-        </a>
-      </div>
+          {/* Live */}
+
+          {hasLive && (
+            <a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title} live site`}
+              className="
+                flex
+                h-8
+                w-8
+
+                items-center
+                justify-center
+
+                rounded-[10px]
+
+                border
+                border-white/[0.08]
+
+                bg-white/[0.025]
+
+                text-white/50
+
+                transition-colors
+                duration-300
+
+                hover:border-white/[0.15]
+                hover:bg-white/[0.06]
+                hover:text-white
+              "
+            >
+              <ArrowUpRight size={14} />
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 }
