@@ -1,10 +1,12 @@
 import Background from "./background/Background";
 import PointerAmbient from "./background/PointerAmbient";
-import useIsMobile from "../../hooks/useIsMobile";
+import CursorCat from "./CursorCat";
 
+import useIsMobile from "../../hooks/useIsMobile";
 
 function BackgroundEffects() {
   const isMobile = useIsMobile();
+
   return (
     <div
       className="
@@ -18,8 +20,12 @@ function BackgroundEffects() {
     >
       <Background />
 
-      {!isMobile && <PointerAmbient />}
-      
+      {!isMobile && (
+        <>
+          <PointerAmbient />
+          <CursorCat />
+        </>
+      )}
     </div>
   );
 }

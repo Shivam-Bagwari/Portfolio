@@ -1,4 +1,5 @@
 import BackgroundEffects from "../effects/BackgroundEffects";
+import CursorCat from "../effects/CursorCat";
 import AvailabilityBadge from "../shell/AvailabilityBadge";
 import RightIndex from "../shell/RightIndex";
 import ScrollProgress from "../shell/ScrollProgress";
@@ -9,11 +10,13 @@ function Layout({ children }) {
 
       <BackgroundEffects />
 
+      <CursorCat />
+
       <ScrollProgress />
 
       <AvailabilityBadge />
 
-        {children}
+      {children}
 
       <RightIndex />
 
