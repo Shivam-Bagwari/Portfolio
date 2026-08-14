@@ -20,7 +20,9 @@ function ProjectFeaturedContent({ project }) {
         md:py-[17px]
       "
     >
-      {/* TOP META */}
+      {/* =====================================================
+          TOP META
+      ===================================================== */}
 
       <div className="flex items-center justify-between">
         <span
@@ -40,46 +42,65 @@ function ProjectFeaturedContent({ project }) {
         </GlassBadge>
       </div>
 
-      {/* TITLE */}
+      {/* =====================================================
+          TITLE
+      ===================================================== */}
 
       <h2
         className="
           mt-4
+
           font-tight
           text-[28px]
           font-extrabold
           leading-none
           tracking-[-0.055em]
+
           text-white
         "
       >
         {project.title}
       </h2>
 
-      {/* DESCRIPTION */}
+      {/* =====================================================
+          DESCRIPTION
+      ===================================================== */}
 
       <p
         className="
           mt-3
+
           max-w-[250px]
+
           font-mono
           text-[14px]
           leading-[1.55]
+
           text-white/55
         "
       >
         {project.description}
       </p>
 
-      {/* TECH */}
+      {/* =====================================================
+          TECH STACK
+      ===================================================== */}
 
-      <div className="mt-3">
+      <div
+        className="
+          mt-5
+          flex
+          flex-wrap
+        "
+      >
         <ProjectTechStack tech={project.tech} />
       </div>
 
-      {/* BUTTONS */}
+      {/* =====================================================
+          BUTTONS
+      ===================================================== */}
 
-      <div className="mt-auto">
+      <div className="mt-5">
         <ProjectButtons
           live={project.live}
           github={project.github}

@@ -285,7 +285,7 @@ function ExperienceRow({ item, open, onToggle }) {
                 sm:gap-5
               "
             >
-              <div className="w-[64px] text-right sm:w-auto">
+              <div className="w-[82px] text-right sm:w-auto">
                 <p
                   className="
                     whitespace-nowrap
