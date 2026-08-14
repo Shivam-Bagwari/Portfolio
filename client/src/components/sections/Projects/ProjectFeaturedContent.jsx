@@ -99,7 +99,7 @@ function ProjectFeaturedContent({ project }) {
           BUTTONS
       ===================================================== */}
 
-      <div className="mt-auto pt-4">
+      <div className="mt-auto pt-3">
         <ProjectButtons
           live={project.live}
           github={project.github}
